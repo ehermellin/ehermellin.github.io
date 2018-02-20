@@ -1,0 +1,348 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-prev-next">
+                <a class="ajax-page-load" href="./these/t_intro.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                <a class="ajax-page-load" href="./these/t_chap2.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+            </div>
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <div class="chapter-title"><h2>Chapitre 1 : Simulation multi-agent</h2></div>
+        </div>
+
+        <div class="row">
+            <br/>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap2.html"> Chapitre 2 : Calcul haute performance et GPGPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap3.html"> Chapitre 3 : Simulations multi-agents et GPGPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap4.html"> Chapitre 4 : Le principe de délégation GPU des perceptions agents</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap5.html"> Chapitre 5 : Expérimentation du principe de délégation GPU</a></p></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap6.html"> Chapitre 6 : Définition d'une méthode de conception basée sur la délégation GPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap7.html"> Chapitre 7 : Conclusion</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap8.html"> Chapitre 8 : Perspectives de recherche</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_bib.html"> Bibliographie</a></p></li>
+                </ul>                
+            </div>
+
+            <p>Le domaine des Systèmes Multi-Agents (SMA) est né du besoin grandissant en communication et en distribution pour la résolution de problèmes en Intelligence Artificielle (IA) (<i>e.g.</i> architecture de type tableau noir [Hayes1985]) et de l'évolution des langages de programmation [Hewitt1977] (problèmes de programmation orientée objet et de programmation distribuée). Les travaux de recherche tels que les <i>acteurs</i> de Hewitt [Hewitt1973], le système DVMT (<i>Distributed Monitoring Vehicle Testbed</i>) de Lesser [Lesser1983], le <i>Contract Net de Smith</i> [Smith1980] sont autant d'exemples qui ont renforcé l'idée qu'il était pertinent de décentraliser les traitements et les données du fait que ces problèmes considérés étaient eux-mêmes de nature distribuée.</p>
+
+            <p>Ainsi, les systèmes multi-agents s'inscrivent dans le cadre de l'Intelligence Artificielle Distribuée (IAD) [Erceau1991, Sycara1998] et trouvent des applications dans de très nombreux domaines : objets communicants, systèmes informatiques distribués, segmentation d'images, simulations de catastrophes, d'interactions sociales, de réseau routier, de propagation d'épidémie, de réaction en chaîne, etc. En fait, toute situation dans laquelle on peut identifier des entités précises bien définies et en interaction.</p>
+
+            <p>Dans le cadre de notre travail de thèse, nous utilisons un champ d'application particulier des systèmes multi-agents : <i>la simulation</i> qui a pour but la modélisation et l'étude du comportement de systèmes complexes. Notre objectif est de répondre aux problématiques de performance inhérentes à ce domaine en proposant des solutions de modélisations et d'implémentations dédiées aux simulations multi-agents. Nous discuterons également de la possibilité d'étendre les propositions faites au domaine des systèmes multi-agents en général.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Les systèmes multi-agents</h3>
+            </div>
+
+            <p>On peut définir un système multi-agent comme étant un système composé d'un ensemble d'entités autonomes, que l'on appelle agents, situés dans un certain environnement et interagissant selon certaines relations. D'une manière plus formelle, [Ferber1995] caractérise un système multi-agent par :</p>
+            <ul>
+                <li><p>Un environnement (<i>E</i>) ;</p></li>
+                <li><p>Un ensemble d'objets (<i>O</i>) situés dans <i>E</i>. Ces objets peuvent être perçus, créés, détruits et modifiés par les agents ;</p></li>
+                <li><p>Un ensemble d'agents (<i>A</i>), qui sont des objets particuliers, lesquels représentent les entités actives du système ;</p></li>
+                <li><p>Un ensemble de relations (<i>R</i>) qui unissent des objets (et donc des agents) entre eux.</p></li>
+            </ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap1/SMAferber.svg" alt=""/>
+            </div>
+
+            <p>D'après [Ferber1995], les systèmes multi-agents sont donc basés sur un certain nombre de principes et concepts avec notamment les agents, l'environnement, les interactions. L'approche <i>Voyelles</i> (AEIO) [Demazeau1995] ajoute à ces trois concepts celui de l'organisation qui fait référence aux moyens utilisés pour structurer l'ensemble des entités. Dans le contexte de ce travail, nous allons surtout nous concentrer sur les notions d'agents et d'environnement.</p>
+
+            <h4>Le concept d'agent</h4>
+
+            <p>En se basant sur les définitions de [Ferber1995] et [Wooldridge2000, Wooldridge2002], il est possible de définir un agent comme une entité logicielle autonome (capable de fonctionner sans interventions externes), située (qui évolue dans un environnement qu'il perçoit et qu'il est capable de modifier), sociable (qui interagit et communique avec d'autres agents), active (capable de prendre l'initiative en fonction de ses objectifs individuels).</p> 
+
+            <p>Ainsi, un agent peut être considéré comme une entité dynamique définit par un ensemble de perceptions (entrées) traitées par sa structure interne et produisant, grâce à des mécanismes qui caractérisent sa dynamique, un ensemble d'actions (sorties).</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap1/DynamiqueAgent.svg" alt=""/>
+            </div>
+
+            <p>La notion de perception est essentielle car elle permet l'interaction agent/agent et agent/environnement. Ces perceptions peuvent être réalisées de manière très différentes (transmission de message, dépôt/collecte d'information dans l'environnement, etc.) afin de refléter les mécanismes réels qu'on souhaite représenter. Ainsi, quand il doit prendre une décision, un agent fait appel à ses connaissances et sa structure interne tout en évaluant ce que sa perception lui permet de sentir (autres agents, obstacles, signaux divers).</p>
+
+            <p>Généralement, la structure interne d'un agent peut prendre deux formes différentes :</p>
+            <ul>
+                <li><p>soit réactive (on parle d'agents réactifs), on ne considère alors que les perceptions-actions (ou réponse à des stimulus) ;</p></li>
+                <li><p>soit cognitive (on parle d'agents cognitifs), dans ce cas l'agent peut faire preuve de réflexion et peut avoir une représentation explicite de son environnement et des autres agents.</p></li>
+            </ul>
+
+            <p>Les agents réactifs font leur apparition dans les années 80, et se basent sur l'idée qu'un agent n'a pas besoin d'avoir une représentation du monde dans lequel il évolue et qu'il peut agir et développer un comportement évolué sans processus cognitif (<i>e.g.</i> [Brooks1991]). L'agent utilise alors ses perceptions (entrées) pour percevoir son environnement afin d'agir en conséquence et d'effectuer les actions qu'il a à mener. Par exemple, ce type d'agent permet la représentation de systèmes complexes d'animaux, comme les colonies de fourmis (<i>e.g.</i> [Drogoul1993, Parunak1997]) ou de créatures artificielles (<i>e.g.</i> [Maes1990]).</p>
+
+            <p>Contrairement aux agents réactifs, les agents qualifiés de cognitifs possèdent une structure interne plus complexe qui les dote d'une capacité de raisonnement et de décision ainsi que d'une mémoire. Le comportement de ce type d'agent est déterminé par ses intentions correspondant aux objectifs qu'il veut atteindre. Ainsi, son processus comportemental comporte une étape de délibération (<i>Perception</i> / <i>Délibération</i> / <i>Action</i>) qui, grâce à sa mémoire et la représentation du monde dans lequel il évolue, va orienter ces choix entre plusieurs actions possibles. Ce type d'agent est utilisé pour représenter des entités douées d'une intelligence propre. L'exemple le plus connu d'architecture cognitive est celui des agents BDI [Rao1995] (de l'anglais <i>Belief Desire Intension</i>). Cette conception des agents consiste à élaborer un processus décisionnel qui utilise les notions de croyance, désir et intention.</p>
+
+            <p>Il existe une troisième approche, qualifiée d'hybride, qui consiste à allier le coté réactif et cognitif. Ainsi, avec comme idée de profiter des avantages des deux structures, les agents combinent, en leur sein, un sous-système cognitif qui leur permet de se représenter des connaissances et de planifier des actions et un sous-système réactif leurs offrant une plus grande flexibilité (<i>e.g.</i> [Malcolm1990]).</p>
+
+            <p>Dans le cadre de nos travaux, nous considérerons en grande majorité des modèles contenant des agents réactifs car ces derniers possèdent une structure interne moins complexe qui s'accorde mieux aux spécificités d'une programmation sur architectures parallèles. Le calcul intensif, et plus particulièrement la programmation sur GPU, peut être très difficile à mettre en oeuvre. Ainsi, implémenter des architectures cognitives avec ces technologies représentent toujours un challenge que très peu de travaux ont relevé.</p>
+
+            <h4>Le concept d'environnement</h4>
+
+            <p>Dans le domaine des systèmes multi-agents, il n'est pas possible de parler du concept d'agent sans parler de celui d'environnement. [Ferber1995] définit ce dernier comme un espace <i>E</i> doté d'une métrique, dans lequel sont situées les entités (agents ou objets) du système. Les actions des agents sont sujettes aux lois de l'univers qui déterminent les effets des actions dans l'environnement. L'environnement est doté de processus qui déterminent sa réaction aux actions des agents.</p>
+
+            <p>De plus, d'après [Russel1995], l'environnement est responsable de la structuration physique et sociale des agents. Il supporte également les moyens de communications (directs ou indirects) et gère l'accès aux ressources et aux différents services fournis aux agents. Enfin, l'environnement possède ses propres caractéristiques : accessible ou inaccessible, déterministe ou non déterministe, statique ou dynamique, discret ou continu.</p>
+
+            <p>Dans le cadre du travail présenté dans cette thèse, nous considérerons comme définition d'un environnement celle énoncée dans [Weyns2007] s'inscrivant dans la perspective E4MAS (de l'anglais, <i>Environments for Multi-agent Systems</i>) [E4MAS2015] :</p>
+            <blockquote>
+            The environment is a first-class abstraction that provides the surrounding conditions for agents to exist and that mediates both the interaction among agents and the access to resources.
+            </blockquote>
+            <p>De cette définition, il ressort que l'environnement doit être considéré comme une abstraction de premier ordre, conçu indépendamment des agents, de sorte que ses responsabilités soient clairement identifiées. De plus, il fournit les conditions d'existence des agents (actions et perceptions). En effet, l'ensemble des perceptions et des actions qu'un agent est susceptible de réaliser est entièrement défini par rapport à l'environnement où celui-ci va opérer. Enfin, parce qu'il est le lieu de l'interaction, l'environnement peut contenir des dynamiques additionnelles qui permettront la coopération et la collaboration entre agents.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>La simulation multi-agent</h3>
+            </div>
+
+            <p>La simulation numérique de systèmes complexes constitue un enjeu majeur dans de nombreux domaines comme ceux des sciences sociales [Conte1998], des écosystèmes [Simonin2001], ou des transports [Mandiau2008]. Elle permet de tester des hypothèses sur l'existant et d'en formuler de nouvelles a posteriori. Ces propriétés font de la simulation un outil d'étude et d'investigation pertinent quel que soit le domaine considéré.</p>
+
+            <p>Afin de modéliser ces systèmes complexes, l'approche qui vise à utiliser les systèmes multi-agents en tant qu’outil de conception de simulations est de plus en plus populaire [Michel2009]. Appelée simulation multi-agent (MABS, de l'anglais <i>Multi-Agent Based Simulation</i>), elle permet d'appréhender des phénomènes très différents grâce à sa représentation individu-centrée de ces phénomènes. Ayant réellement émergé à partir des années 80 (grâce notamment à l'augmentation des capacités de calculs des ordinateurs), les simulations multi-agents sont devenues de véritables laboratoires (virtuels) ayant entre autre comme objectifs la prédiction de l’évolution d’un système, l'explication de ses mécanismes, la découverte de phénomènes inattendus, etc. [Axelrod1997]. Les simulations multi-agents ont depuis été utilisées pour simuler de nombreux phénomènes complexes tels des phénomènes biologiques [Parunak1997] ou bio-inspirés [Chevrier2002] , du trafic routier [Bazzan1999], un modèle proie-prédateur [Haynes1996], une nuée d'oiseaux [Reynolds1987], un écosystème [Bousquet2004], des sciences sociales [Epstein1996], des réseaux sociaux [Zhao2014].</p>
+
+            <h4>Modèles et simulation multi-agent</h4>
+
+            <p>Avant d'aller plus loin, il convient de définir plus en détails le terme <i>modèle</i> qui reviendra de manière récurrente dans ce travail de thèse. Très simplement, un <i>modèle</i> propose une représentation schématique de la réalité (une représentation abstraite particulière d’un phénomène) en vue de l'étudier, de la comprendre. D'une manière plus formelle, et d'après la théorie de la modélisation et de la simulation énoncée par Zeigler [Zeigler2000], le <i>modèle</i> désigne l'ensemble des spécifications d'un <i>système source</i> qui permet de l'exécuter via un <i>simulateur</i> (Zeigler le qualifie aussi de <i>modèle de simulation</i>). Un <i>modèle</i> dans le processus de simulation est donc une spécification de l'ensemble des instructions qui permet de générer le comportement du système. C'est une description haut niveau d'un programme qui doit être implémentable.</p>
+
+            <p>La simulation multi-agent est donc basée sur la simulation de modèles multi-agents (ABM, de l'anglais <i>Agent-Based Model</i>) [Michel2009]. Les ABM sont des modèles individus-centrés dans lesquels on modélise directement le comportement d'agents autonomes évoluant dans un environnement ainsi que les interactions engendrées par ces comportements individuels. Les ABM adoptent une approche ascendante (modélisation <i>bottom-up</i> [Sabatier1986]) où le comportement du modèle est défini de manière locale par un ensemble d'algorithmes représentant les comportements locaux des phénomènes présents dans le système. Ainsi, la description de la dynamique du système ne se fait plus en déclarant des équations portant sur des propriétés macroscopiques de la simulation, comme c'est le cas avec les modèles à base d'équations mathématiques (EBM, de l'anglais <i>Equation-Based Model</i>), mais sur le comportement individuel de chaque entité. Les ABM permettent de prendre en compte la complexité des interactions au niveau microscopique, ce que ne permettaient pas les paramètres des équations au sein des EBM [Parunak1998].</p>
+
+            <h4>Plates-formes de simulations multi-agents</h4>
+
+            <p>Un modèle est donc une spécification de l’ensemble des instructions qui permet de générer le comportement du système. Ainsi, définir un modèle de simulation multi-agent consiste à définir une fonction <i>Evolution</i> [Michel2004] qui calcule, pour un état du modèle, l'état suivant de manière déterministe.</p>
+
+            <p>Cependant, du fait de la très grande variété de modèles qu'il est possible d'élaborer, il existe un nombre incalculable de façons de définir une telle fonction. Cela explique, en partie, le nombre très important de plates-formes dédiées au développement de systèmes et simulations multi-agents. Dans [Kravari2015], 24 de ces plates-formes ont été comparées et évaluées (il en existe bien d'autres) selon de nombreux critères. Il en ressort que chacune d'entre elle possède un champ d'application bien spécifique. Ainsi, certaines vont être spécialisées dans la simulation à large échelle (<i>e.g.</i> GAMA), d'autres en simulation économique (<i>e.g.</i> JADE) ou en biologie et études sociales (<i>e.g.</i> Jason ou Repast), etc.</p>
+
+            <p>Si l'on s'intéresse à des aspects tels que la simplicité d'utilisation, la facilité de prise en main, la scalabilité du modèle simulé ou encore les performances de ces plates-formes (des thèmes proches de ceux que nous rencontrerons tout au long de ce document), il est possible de considérer les critères suivants [Kravari2015] :</p>
+            <ul>
+                <li><p>Le critère <i>Simplicité</i> caractérise la facilité d'utilisation de la plate-forme (la facilité de développer sur cette dernière) ;</p></li>
+                <li><p>Le critère <i>Apprentissage</i> caractérise la rapidité de prise en main de la plate-forme et si ces mécanismes sont compréhensibles ;</p></li>
+                <li><p>Le critère <i>Support</i> quantifie les documents et ressources à disposition de l'utilisateur ;</p></li>
+                <li><p>Le critère <i>Scalabilité</i> donne des informations sur la capacité de la plate-forme à gérer des problèmes de tailles différentes ;</p></li>
+                <li><p>Le critère <i>Performance</i> caractérise la rapidité d'exécution de la plate-forme.</p></li>
+            </ul>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td><b>Plate-forme</b></td>
+                        <td><b>Simplicité</b></td>
+                        <td><b>Apprentissage</b></td>
+                        <td><b>Support</b></td>
+                        <td><b>Scalabilité</b></td>
+                    </tr>
+                    <tr>
+                        <td>GAMA</td>
+                        <td>Simple, fonctions dédiées à la simulation, GUI</td>
+                        <td>Rapide</td>
+                        <td>Important</td>
+                        <td>Bonne</td>                          
+                    </tr>
+                    <tr>
+                        <td>Jason</td>
+                        <td>Simple, GUI intuitive</td>
+                        <td>Rapide</td>
+                        <td>Important</td>
+                        <td>Bonne</td>                          
+                    </tr>
+                    <tr>
+                        <td>MadKit</td>
+                        <td>Moyenne, beaucoup de fonctions, GUI complexe</td>
+                        <td>Moyen</td>
+                        <td>Bon</td>
+                        <td>Bonne</td>                          
+                    </tr>
+                    <tr>
+                        <td>Mason</td>
+                        <td>Moyenne, GUI complexe</td>
+                        <td>Moyen</td>
+                        <td>Convenable</td>
+                        <td>Moyenne</td>                          
+                    </tr>
+                    <tr>
+                        <td>NetLogo</td>
+                        <td>Simple, nombreuses fonctions dédiées à la simulation, GUI</td>
+                        <td>Rapide</td>
+                        <td>Bon</td>
+                        <td>Bonne</td>                          
+                    </tr>
+                    <tr>
+                        <td>RePast</td>
+                        <td>Simple, GUI limitée</td>
+                        <td>Rapide</td>
+                        <td>Convenable</td>
+                        <td>Bonne</td>                          
+                    </tr>
+                    <tr>
+                        <td>Swarm</td>
+                        <td>Moyenne, GUI complexe</td>
+                        <td>Moyen</td>
+                        <td>Bon</td>
+                        <td>Moyenne</td>                          
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Cependant, nous considérons le critère <i>Performance</i> comme trop subjectif pour l'intégrer. En effet, dans [Kravari2015], il n'est fait à aucun moment mention du protocole expérimental utilisé permettant de définir les termes associés à ce critère d'évaluation et qui se limitent à des mots génériques tels que "excellente", "bonne" et "moyenne". De ce fait, nous proposons à la place de considérer le critère <i>Solution HPC</i> que nous trouvons plus pertinent et que nous définissons de la manière suivante :</p>
+            <ul>
+                <li><p>Le critère <i>Solution HPC</i> spécifie si la plate-forme est compatible avec le calcul intensif.</p></li>
+            </ul>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td><b>Plate-forme</b></td>
+                        <td><b>Maturité technologique</b></td>
+                        <td><b>Langages de programmation</b></td>
+                        <td><b>Solution HPC</b></td>
+                    </tr>
+                    <tr>
+                        <td>GAMA</td>
+                        <td>Stable, développement actif</td>
+                        <td>GAML</td>
+                        <td>Non</td>                          
+                    </tr>
+                    <tr>
+                        <td>Jason</td>
+                        <td>Stable, développement actif</td>
+                        <td>Java, AgentSpeak</td>
+                        <td>Non</td>                          
+                    </tr>
+                    <tr>
+                        <td>MadKit</td>
+                        <td>Stable, développement actif</td>
+                        <td>Java, C/C++, Phython</td>
+                        <td>Non</td>                          
+                    </tr>
+                    <tr>
+                        <td>Mason</td>
+                        <td>Stable, développement actif</td>
+                        <td>Java</td>
+                        <td>Oui</td>                          
+                    </tr>
+                    <tr>
+                        <td>NetLogo</td>
+                        <td>Stable, développement actif</td>
+                        <td>Logo</td>
+                        <td>Non</td>                          
+                    </tr>
+                    <tr>
+                        <td>RePast</td>
+                        <td>Stable, développement actif</td>
+                        <td>Java, C#, C++, Lisp, Prolog, Python</td>
+                        <td>Oui</td>                          
+                    </tr>
+                    <tr>
+                        <td>Swarm</td>
+                        <td>Stable, développement actif</td>
+                        <td>Java</td>
+                        <td>Oui</td>                          
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Performance des simulations multi-agents</h4>
+
+            <p>Malgré le fait que chaque plate-forme semble offrir une scalabilité pour les modèles simulés assez élevée, le manque de performance reste un problème inhérent à la simulation multi-agent. En effet, les simulations multi-agents ont souvent des besoins en ressources de calcul très importants. Cette contrainte pourrait être négligeable si elle était seulement liée à un unique problème de temps. Hors, les modèles multi-agents se construisent, la plupart du temps, de manière itérative et par retour visuel comme expliqué dans [Michel2015].</p>
+
+            <p>Ainsi, le temps d'exécution d'une simulation devient une contrainte importante qui préfigure de notre capacité à explorer un modèle. De plus, à l’heure actuelle, il est de plus en plus question de simulations large échelle [Picault2011] et/ou multi-niveaux [Chevrier2012, Morvan2012] faisant intervenir jusqu'à plusieurs millions d'agents dans des environnements de plus en plus grands. Autant de facteurs qui préfigurent d'une augmentation exponentielle des besoins en puissance de calcul à court et moyen termes.</p>
+
+            <p>Cependant, malgré cette croissance des besoins, très peu de plates-formes de simulations ont fait le choix de se tourner vers des solutions de calculs intensifs afin de pallier ce manque de ressources de calcul. Seul RePast HPC [Collier2013, Collier2015] et MasOn [Ho2015] semblent se démarquer en proposant des solutions pour développer des modèles multi-agents sur des architectures parallèles (utilisation d'un ensemble de processeurs pour l'un, utilisation des cartes graphiques pour l'autre).</p>
+
+            <h4>Implémentation de simulations multi-agents</h4>
+
+            <p>Nous observons également que la plupart des solutions dédiées au développement de simulations multi-agents proposent un grand nombre de ressources et une facilité d'utilisation permettant une bonne prise en main de ces différents outils. NetLogo en est un bon exemple car ce dernier est très utilisé dans le milieu académique pour sa simplicité et ses atouts pédagogiques.</p>
+
+            <p>Cependant, nous énoncions précédemment la très grande variété de modèles qu'il est possible d'élaborer et le caractère spécifique de chaque plate-forme dédiés au développement de systèmes et simulations multi-agents. Il en résulte que chacune de ces plates-formes va proposer sa propre méthode d'implémentation de modèles multi-agents.</p>
+
+            <p>De plus, d'après [Michel2004], la conception d’un modèle de simulation multi-agent se fait autour de quatre aspects fondamentaux qui sont les comportements des agents, l'environnement, l'ordonnancement (la gestion du temps) et la gestion des interactions. Une fois encore, il n'apparait aucun consensus entre les plates-formes vis à vis de ces quatre aspects. Chacune d'entre elles proposant des solutions qui leur sont propres pour implémenter (ou encapsuler) certaines de ces fonctions-clés (ordonnancement des agents, modélisation de l’interaction, etc.). Nous pouvons citer l'exemple de IODA (<i>Interaction-Oriented Design of Agent simulations</i>) [Kubera2011] et de son moteur de simulation JEDI [Kubera2009] qui propose une méthode de modélisation de simulations multi-agents très différentes des approches usuelles car centrée sur les interactions.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap1/modeleMA.svg" alt=""/>
+            </div>
+
+            <p>Toutes ces spécificités et caractéristiques propres aux plates-formes sont donc à prendre en considération car l'utilisation de chacune d'entre elles va nécessiter un temps d'adaptation (malgré les ressources disponibles) et d'apprentissage pouvant limiter leur accessibilité. De plus, la réutilisabilité d'un modèle entre ces plates-formes est fortement contraint (voir impossible) du fait de leurs particularités techniques et de leur champ d'application, ce qui réduit fortement la généricité des modèles créés.</p> 
+    
+            <p>Ainsi, nous identifions trois critères permettant d'évaluer les outils et solutions dans le cadre du développement de simulations multi-agents : la <i>généricité</i>, l'<i>accessibilité</i> et la <i>réutilisabilité</i>. Voici leur définition dans le contexte de ce document :</p>
+
+            <blockquote>
+            La <b>Généricité</b> caractérise la capacité de la solution considérée à prendre en compte (à pouvoir être appliquée sur) une grande variété de modèles multi-agents.
+            </blockquote>
+
+            <blockquote>
+            L'<b>Accessibilité</b> fait référence à la simplicité de programmation ainsi qu'à la facilité de prise en main de la solution considérée.
+            </blockquote>
+
+            <blockquote>
+            La <b>Réutilisabilité</b> souligne la capacité de la solution considérée à promouvoir des outils ou des éléments facilement réutilisables pour d'autres modèles que ceux pour lesquels ils ont été créés.
+            </blockquote>
+
+            <p>Nous verrons, dans les chapitres suivants, que le problème d'accessibilité (mais aussi de réutilisabilité) déjà présent pour l'implémentation de simulations multi-agents avec des plates-formes dédiées (sur des architectures séquentielles) sera bien plus important lorsque nous considérerons l'utilisation d'architectures matérielles différentes (telles des architectures parallèles) pour résoudre les problèmes de performances énoncés ci-dessus. Ainsi, la <i>généricité</i>, l'<i>accessibilité</i> et la <i>réutilisabilité</i> deviendront des critères essentiels dans la suite de ce document aussi bien pour comparer les travaux présentés que pour évaluer nos propres développements.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Résumé du chapitre et objectifs premiers de la thèse</h3>
+            </div>
+
+            <p>Les systèmes multi-agents sont des systèmes composés d’un ensemble d’entités appelés agents, potentiellement organisés partageant un environnement commun dans lequel ils peuvent interagir [Ferber1995]. Ils sont donc basés sur un certain nombre de principes et concepts avec notamment les agents et l'environnement.</p>
+
+            <p>La simulation multi-agent est un sous-domaine des systèmes multi-agents basée sur une approche individu-centrée [Michel2009] qui modélise non seulement les individus et leurs comportements, mais aussi les interactions qui se déroulent entre ces individus. Elle considère ainsi que la dynamique globale d'un système, au niveau macroscopique, résulte directement des interactions entre les individus qui composent ce système au niveau microscopique. Ainsi, alors que les modèles classiques modélisent les relations qui existent entre les différentes entités identifiées d'un système à l'aide d'équations mathématiques (EBM), l'approche multi-agent modélise directement les interactions engendrées par des comportements individuels.</p>
+
+            <p>Nous avons vu dans ce chapitre que les simulations multi-agents nécessitent des ressources de calcul importantes. Malgré cette demande en constante augmentation, la proportion d'outils proposant des solutions visant à améliorer les performances de ces simulations restent extrêmement faible. Il apparait donc clairement, à l'heure actuelle, que la question des performances reste un des verrous majeurs pour la simulation multi-agent.</p>
+
+            <p>Dans ce contexte, nos objectifs pour ce travail de thèse sont de répondre à ces problèmes de performance et de trouver des solutions pour permettre des simulations multi-agents à plus large échelle. Pour ce faire, nous explorerons l'idée d'utiliser le calcul haute performance (HPC, de l'anglais <i>High Performance Computing</i>). Cependant, il nous faudra aussi prendre en compte que l'utilisation du HPC s'accompagne d'architectures matérielles particulières et de paradigmes de programmation complexes. Ainsi, alors que le développement de simulations multi-agents souffre déjà d'un manque d'accessibilité et de réutilisabilité, il y a fort à parier que tous ces problèmes vont être exacerbés dès lors que nous considérerons d'implémenter des simulations multi-agents sur des architectures matérielles différentes. Toute la difficulté va être de trouver des solutions d'implémentation de simulations multi-agents dans un contexte HPC respectant nos trois critères d'évaluation (<i>généricité</i>, <i>accessibilité</i> et <i>réutilisabilité</i>) définis dans ce chapitre.</p>
+
+            <div class="ajax-page-nav">
+                <div class="nav-item ajax-page-prev-next">
+                    <a class="ajax-page-load" href="./these/t_intro.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                    <a class="ajax-page-load" href="./these/t_chap2.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+                </div>
+                <div class="nav-item ajax-page-close-button">
+                    <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+        </div>
+    </div>
+</div>

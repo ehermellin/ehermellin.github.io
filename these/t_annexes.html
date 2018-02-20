@@ -1,0 +1,594 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-prev-next">
+                <a class="ajax-page-load" href="./these/t_chap8.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                <a class="ajax-page-load" href="./these/t_bib.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+            </div>
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <div class="chapter-title"><h2>Annexes</h2></div>
+        </div>
+
+        <div class="row">
+            <br/>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap1.html"> Chapitre 1 : Simulation multi-agent</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap2.html"> Chapitre 2 : Calcul haute performance et GPGPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap3.html"> Chapitre 3 : Simulations multi-agents et GPGPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap4.html"> Chapitre 4 : Le principe de délégation GPU des perceptions agents</a></p></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap5.html"> Chapitre 5 : Expérimentation du principe de délégation GPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap6.html"> Chapitre 6 : Définition d'une méthode de conception basée sur la délégation GPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap7.html"> Chapitre 7 : Conclusion</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap8.html"> Chapitre 8 : Perspectives de recherche</a></p></li>
+                </ul>                
+            </div>
+
+            <br/>
+            <div class="block-title">
+                <h3>Architecture de TurtleKit</h3>
+            </div>
+
+            <h4>Impact sur le génie logiciel orienté agent</h4>
+
+            <p>TurtleKit est une plate-forme de simulation qui utilise un modèle multi-agent spatialisé où l'environnement est discrétisé sous la forme d'une grille de cellules à deux dimensions. Implémentée en Java à l'aide de la librairie de développement multi-agent MaDKit, TurtleKit repose sur des modèles d'agents et d'environnements inspirés par le langage de programmation Logo. L'un des objectifs principaux de TurtleKit est de fournir aux utilisateurs finaux une plateforme open source, généraliste facilement accessible et extensible. En particulier, l'API de TurtleKit est orientée objet et son utilisation repose sur l'héritage de classes prédéfinies.<br/>
+            Dans cette annexe, nous présentons l'architecture de la plate-forme TurtleKit grâce à différents diagrammes : </p>
+
+            <ul><li><p>Architecture de TurtleKit sous forme de diagrammes de package (sans et avec CUDA).</p></li></ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/packagesDiagramnc.svg" width="45%" alt=""/>
+                <img src="./these/annexes/packagesDiagramwc.svg" width="45%" alt=""/>
+            </div>
+
+            <ul><li><p>Architecture de TurtleKit sous forme de diagrammes de classes (sans et avec CUDA).</p></li></ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/classDiagramnc.svg" alt=""/>
+                <img src="./these/annexes/classDiagramwc.svg" alt=""/>
+            </div>
+
+            <br/>
+            <div class="block-title">
+                <h3>Programmer en CUDA</h3>
+            </div>
+
+            <p>Dans cette annexe, nous proposons un aperçu des techniques et méthodes de programmation autour de CUDA. Pour le lecteur qui voudrait en apprendre d'avantage, nous conseillons le site de Nvidia et deux ouvrages de références [Sanders2011] et [Cook2012].
+
+            CUDA est une architecture de traitement parallèle développée par Nvidia permettant de décupler les performances de calcul du système en exploitant la puissance des processeurs graphiques. L'environnement de développement CUDA inclut des extensions C et C++ qui permettent l'expression de données denses et complexes dans un contexte de parallélisme. Les programmeurs peuvent choisir d'exprimer le parallélisme avec des langages à hautes performances comme C, C++, Fortran.
+
+            Une fois ce programme écrit, il doit être traité par le compilateur NVCC fournit par l'environnement CUDA. Ce dernier va séparer les fichiers en C/C++, qui vont être compilés par le compilateur GCC puis traités par le CPU, des fichiers PTX, générés par NVCC et contenant les instructions exécutées par le GPU.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/execCuda.svg" alt=""/>
+            </div>
+
+            <p>Le programme généré peut interagir avec CUDA de trois manières distinctes :</p>
+            <ul>
+            <li><p>via les librairies : CUDA est livré avec des implémentations d'algorithmes optimisées pour cette architecture matérielle ;</p></li>
+            <li><p>via le <i>Runtime</i> : c'est l'interface entre le GPU et l'application ;</p></li>
+            <li><p>via le <i>Driver</i> : son rôle est de transmettre les calculs de l'application au GPU.</p></li>
+            </ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/partCuda.svg" alt=""/>
+            </div>
+
+            <h4>Quelques définitions</h4>
+            <p><i>Host</i> : c'est l'ordinateur qui sert d'interface avec l'utilisateur et qui contrôle le <i>device</i> utilisé pour exécuter les parties de calculs intensifs basés sur un parallélisme de données. Avec CUDA, l'<i>host</i> peut lire et écrire dans la <i>Global memory</i>, <i>Constant memory</i> et seulement écrire dans la <i>Texture memory</i>. C'est l'<i>host</i> qui est responsable de l'exécution des parties séquentielles de l'application.<br/>
+            <i>Device</i> : c'est le GPU connecté à l'<i>host</i> et qui va exécuter les parties de calcul intensif basé sur un parallélisme de données. Le <i>device</i> est responsable de l'exécution de la partie parallèle de l'application.<br/>
+            <i>Kernel</i> : c'est une fonction qui peut être appelée depuis l'<i>host</i> et qui est exécutée sur le <i>device</i> simultanément par des milliers de <i>threads</i>.</p>
+
+            <h4>Notions de <i>threads</i>, grille et <i>blocs</i></h4>
+
+            <p>CUDA adopte la hiérarchie suivante : un <i>kernel</i> est une programme exécuté par un ensemble de <i>threads</i> indépendants s'exécutant en parallèle sur le GPU. Les <i>threads</i> (fils d'instructions) sont groupés en <i>blocs</i> qui coopèrent et traitent le même code écrit en CUDA sur des données différentes liées au numéro de chaque <i>thread</i>. Les <i>blocs</i> sont groupés en grille et s'exécutent dans n'importe quel ordre, il n'y a pas de synchronisation entre les <i>blocs</i>. Les <i>threads</i> de deux <i>blocs</i> différents ne peuvent donc pas communiquer.</p>
+
+            <h4>Identificateurs des <i>threads</i> et des <i>blocs</i></h4>
+
+            <p>Nombre de <i>blocs</i> dans la grille : <b>dim3 gridDim (gridDim.x, grimDim.y, grimDim.z)</b><br/>
+            Nombre de <i>threads</i> par <i>blocs</i> : <b>dim3 blockDim (blockDim.x, blockDim.y, blockDim.z)</b><br/>
+            Indice du <i>bloc</i> dans la grille : <b>dim3 blockIdx (blockIdx.x, blockIdx.y, blockIdx.z)</b><br/>
+            Indice du <i>thread</i> dans le <i>bloc</i> : <b>dim3 threadIdx (threadIdx.x, threadIdx.y, threadIdx.z)</b></p>
+
+            <p>Exemple d'utilisation : <br/> 
+            <i>bloc 1D </i> : <b>threadID = threadIdx.x = x</b><br/>
+            <i>bloc 2D </i> : <b>threadID = threadIdx.x + blockIdx.y * blockDim.x</b><br/>
+            <i>bloc 3D </i> : <b>threadID = threadIdx.x + threadIdx.y * Dx + threadIdx.z * Dx * Dy</b>avec <b>Dx = blockDim.x, Dy = blockDim.y, Dz = blockDim.z</b></p>
+
+            <h4>Bien dimensionner les <i>blocs</i> et la grille</h4>
+
+            <p>Pour obtenir de bonnes performances avec CUDA, il est important de bien dimensionner les <i>blocs</i> et la grille. Un <i>bloc</i> s'exécute sur un unique multiprocesseur. Donc, si une carte graphique possède n multiprocesseurs, il faut alors que la grille contienne au moins n blocks pour que chaque multiprocesseur soit actif. En effet, la carte sera plus efficiente si tous ces multiprocesseurs sont en activités. De plus, les <i>threads</i> d'un <i>bloc</i> sont exécutés par <i>warp</i>, c'est à dire par paquet de 32. Il est donc idéal d'avoir un nombre de <i>threads</i> par <i>bloc</i> qui soit un multiple de 32 afin d'éviter de se retrouver avec des <i>warps</i> contenant des <i>threads</i> inactifs. Enfin, il est important d'allouer un nombre important de <i>threads</i> par <i>bloc</i>, de manière à masquer les temps de latence des opérations mémoires et des calculs. En effet, lorsqu'une opération est effectuée par un <i>thread</i>, son résultat n'est pas disponible immédiatement. Il se passe quelques dizaines à quelques centaines de cycles d'horloge avant qu'il devienne disponible. Pendant ce temps-là, si la suite de l'exécution du <i>thread</i> dépend de ce résultat, le <i>thread</i> est bloqué. C'est pourquoi, il est nécessaire que le multiprocesseur ait d'autres <i>threads</i> de disponibles afin de continuer d'exécuter les instructions suivantes pendant ce temps de latence : c'est ce qu'on appelle masquer la latence.</p>
+
+            <p>Pour autant, il ne suffit pas d'allouer un nombre important de <i>threads</i> à un <i>bloc</i> pour avoir de bonnes performances, et ce pour deux raisons :</p>
+
+            <ul>
+            <li><p>En fonction de sa capacité de calcul, une carte pourrait être limitée. La capacité de calcul, appelée <i>compute capability</i> ou <i>SM version</i> en anglais, est représentée par un nombre x.x identifiant les fonctionnalités supportées par le GPU. Ce nombre est utilisé par les applications lors de leur exécution pour déterminer si le GPU sélectionné supporte les instructions et fonctions nécessaires à l'exécution des calculs. Par exemple, une carte graphique avec une capacité de calcul de 1.3 ne peut avoir que 1024 <i>threads</i> d'allouer par <i>bloc</i>.</p></li>
+            <li><p>Plus un <i>bloc</i> contient de <i>threads</i> et plus il utilise des registres (une mémoire spécifique aux <i>threads</i>), or cette quantité est très limitée.</p></li>
+            </ul>
+
+            <h4>Déclaration de fonctions et variables sous CUDA</h4>
+
+            <p>Il existe trois types de fonctions principales lorsque l'on utilise l'environnement de développement CUDA :<br/>
+            <b>__host__</b> est une fonction exécutée sur le CPU (par défaut).<br/> 
+            <b>__global__</b> est une fonction exécutée sur le GPU mais appelée par le CPU.<br/>
+            <b>__device__</b> est une fonction exécutée sur le GPU et appelée depuis une fonction GPU.</p>
+
+            <p>Chacune de ces fonctions s'utilise dans un contexte bien particulier car elles possèdent des restrictions d'utilisation :<br/> 
+            <b>__global__</b> est une fonction appelée par l'<i>host</i>, exécutée par le GPU mais qui ne peut pas contenir de récursivité, de variable statique, de listes variables de paramètres et ne  peut rien retourner.<br/> 
+            <b>__device__</b> est une fonction appelée par le GPU, exécutée sur le GPU pouvant faire intervenir de la récursivité.</p>
+
+            <p>Ces fonctions sont accompagnées par trois types de variables différentes :<br/>
+            <b>__device__ int variable</b> est une variable stockée dans la mémoire globale du GPU (lente, valide pendant la durée du programme), accessible en interne par les <i>threads</i>, et allouée par le CPU.<br/>
+            <b>__shared__ int variable</b> est une variable stockée dans la mémoire partagée du <i>bloc</i> (rapide, taille réduite, durée de vie correspondante à celle du <i>bloc</i>), commune aux <i>threads</i> d'un même <i>bloc</i>.<br/>
+            <b>__device__ int variable</b> est une variable stockée dans la mémoire constante du GPU, visible par tous les <i>threads</i>.
+            Dans le cas ou rien n'est spécifié, la variable déclarée sera enregistrée dans le registre qui est une mémoire rapide associée aux <i>threads</i>.</p>
+
+            <h4>Fonctions principales de l'API CUDA</h4>
+
+            <p><b>cudaThreadSynchronize()</b> est une fonction qui bloque l'exécution du <i>kernel</i> jusqu'à ce que tous les <i>threads</i> alloués pour ce calcul soient tous arrivés au même point de synchronisation.<br/>
+            <b>cudaChooseDevice()</b> est une fonction qui retourne une liste de <i>devices</i> disponibles.<br/>  
+            <b>cudaGetDevice()</b> est une fonction qui retourne le <i>device</i> utilisé pour exécuter les <i>kernels</i> de calcul.<br/>
+            <b>cudaGetDeviceCount()</b> est une fonction qui retourne le nombre de <i>device</i> capable de faire du GPGPU.<br/>
+            <b>cudaGetDeviceProperties()</b> est une fonction qui retourne les informations et propriétés relatives au <i>device</i> sélectionné.<br/>
+            <b>cudaMalloc()</b> est une fonction d'allocation en mémoire globale (son fonctionnement est assez similaire de <b>malloc()</b> en C).<br/>
+            <b>cudaFree()</b> est une fonction qui libère la mémoire allouée avec <b>cudaMalloc()</b>.<br/>
+            <b>cudaMemcpy()</b> est une fonction qui permet la copie de données entre l'<i>host</i> et le <i>device</i>.</p>
+
+            <h4>Exemple du code source d'un <i>kernel</i> de calcul</h4>
+
+            <p>L'algorithme suivant introduit le code source d'un <i>kernel</i> de calcul et le programme en C permettant de l'initialiser. Par cohérence, nous reprenons l'exemple du calcul de <i>pi</i> énoncé au chapitre 2.</p>
+            <pre class="sh_cpp">
+#include "main.h"
+
+#define Precision 10000
+
+__device__ float calculIntervalle(int tid){
+    return tid * (1.0 / Precision);
+}
+
+__global__ void calc(float *result) {
+    int tid = blockIdx.x;
+    float x = calculIntervalle(tid);
+    if (tid < Precision){
+        result[tid] = ((1.0/Precision) * 1 / ( 1 + (x*x) ));
+    }
+}
+
+int calculPiGPU(void) {
+    float pi = 0.0;
+    float resultat[Precision];
+    float *dev_result;
+
+    // allocate the memory on the GPU
+    cudaMalloc((void**)&dev_result, Precision * sizeof(float));
+
+    calc<<< Precision,1 >>>(dev_result);
+
+    // copy the array 'resultat' back from the GPU to the CPU
+    cudaMemcpy(resultat, dev_result, Precision * sizeof(float),
+                              cudaMemcpyDeviceToHost);
+
+    // display the results
+    for (int i=0; i < Precision; i++) {
+        pi = pi + resultat[i];
+    }
+
+    pi = pi * 4;
+    printf( "pi = %f\n", pi);
+
+    // free the memory allocated on the GPU
+    cudaFree(dev_result);
+
+    system("pause");
+    return 0;
+}
+</pre>
+            <h4>Code source des modules GPU présentés dans le manuscrit</h4>
+
+            <p>Ci-dessous sont présentés les codes sources des modules GPU créés pour le modèle MLE, pour le modèle de <i>flocking</i>, pour les modèles <i>Game of Life</i>, <i>Segregation</i> et <i>DLA</i> et enfin pour le modèle Proie-prédateur.</p>
+
+            <pre class="sh_cpp">//Convert 2D coordinates into one 1D coordinate
+__device__ int convert1D(int x, int y,int width){
+  return y * width +x;
+}
+
+//Normalize coordinates for infinite world
+__device__ int normeValue(int x, int width){
+    if(x < 0) //-1
+        return width - 1;
+    if(x == width)
+        return 0;
+    return x;
+}
+
+__device__ int* neighborsIndexes(int i, int j, int width, int height){
+    int dir[8];
+    dir[0] = convert1D(normeValue(i+1,width), j, width);
+    dir[1] = convert1D(normeValue(i+1,width), normeValue(j+1,height),width);
+    dir[2] = convert1D(i, normeValue(j+1,height),width);
+    dir[3] = convert1D(normeValue(i-1,width), normeValue(j+1,height),width);
+    dir[4] = convert1D(normeValue(i-1,width), j, width);
+    dir[5] = convert1D(normeValue(i-1,width), normeValue(j-1,height),width);
+    dir[6] = convert1D(i, normeValue(j-1,height),width);
+    dir[7] = convert1D(normeValue(i+1,width), normeValue(j-1,height),width);
+    return dir;
+}
+
+__device__ float getTotalUpdateFromNeighbors(float* tmp, int i, int j, int width, int height){
+    int iPlusOne = i + 1; int jPlusOne = j + 1;
+    int iMinusOne = i - 1; int jMinusOne = j - 1;
+       return 
+        tmp[convert1D(normeValue(iPlusOne,width), j, width)] +
+        tmp[convert1D(normeValue(iPlusOne,width), normeValue(jPlusOne,height),width)] +
+        tmp[convert1D(i, normeValue(jPlusOne,height),width)] +
+        tmp[convert1D(normeValue(iMinusOne,width), normeValue(jPlusOne,height),width)] +
+        tmp[convert1D(normeValue(iMinusOne,width), j, width)] +
+        tmp[convert1D(normeValue(iMinusOne,width), normeValue(jMinusOne,height),width)] +
+        tmp[convert1D(i, normeValue(jMinusOne,height),width)] +
+        tmp[convert1D(normeValue(iPlusOne,width), normeValue(jMinusOne,height),width)];
+}
+
+//Diffusion and Evaporation Kernel
+extern "C"
+__global__ void DIFFUSION( int width, int height, float *values, float* tmp, float evapCoef)
+{
+       int i = blockIdx.x * blockDim.x + threadIdx.x;
+       int j = blockIdx.y * blockDim.y + threadIdx.y;
+        
+       if (i < width && j < height ){
+        int k = convert1D(i,j,width);
+        float total = values[k] + getTotalUpdateFromNeighbors(tmp, i, j, width, height);
+        values[k] = total - total * evapCoef;
+        }
+}
+</pre>
+
+            <pre class="sh_cpp">//Convert 2D coordinates into one 1D coordinate
+__device__ int convert1D(int x, int y,int width){
+  return y * width + x;
+}
+
+//Normalize coordinates for infinite world
+__device__ int normeValue(int x, int width){
+    if(x < 0)
+        return x + width;
+    if(x > width - 1)
+        return x - width;
+    return x;
+}
+
+//Average Kernel
+extern "C"
+__global__ void AVERAGE(int envSizeX, int envSizeY, float* envData, float* result, int depth){
+    int tidX = blockIdx.x * blockDim.x + threadIdx.x;
+    int tidY = blockIdx.y * blockDim.y + threadIdx.y;
+
+    float moyenne = 0;
+    float nbNombre = 0;
+
+    if(tidX < envSizeX && tidY < envSizeY){
+        int borneInfX = tidX - depth;
+        int borneSupX = tidX + depth;
+        int borneInfY = tidY - depth;
+        int borneSupY = tidY + depth;
+        for(int i = borneInfX; i <= borneSupX; i++){
+            for(int j = borneInfY; j <= borneSupY; j++){
+                float valeur = envData[convert1D(normeValue(i,envSizeX),normeValue(j,envSizeY),envSizeY)];
+                if(valeur != -1){
+                    moyenne += valeur;
+                    nbNombre++;
+                }
+            }
+        }
+        if(nbNombre != 0){
+            result[envSizeY * tidX + tidY] = moyenne / nbNombre;
+        }
+    }
+}
+</pre>
+
+            <pre class="sh_cpp">//Convert 2D coordinates into one 1D coordinate
+__device__ int convert1D(int x, int y,int width){
+  return y * width + x;
+}
+
+//Normalize coordinates for infinite world
+__device__ int normeValue(int x, int width){
+    if(x < 0)
+        return x + width;
+    if(x > width - 1)
+        return x - width;
+    return x;
+}
+
+//State Computation Kernel
+extern "C"
+__global__ void VOISINAGE(int envSizeX, int envSizeY, int* envData, int* result, int depth){
+    int tidX = blockIdx.x * blockDim.x + threadIdx.x;
+    int tidY = blockIdx.y * blockDim.y + threadIdx.y;
+
+    int temp = 0;
+
+    if(tidX < envSizeX && tidY < envSizeY){
+        int borneInfX = tidX - depth;
+        int borneSupX = tidX + depth;
+        int borneInfY = tidY - depth;
+        int borneSupY = tidY + depth;
+        for(int i = borneInfX; i <= borneSupX; i++){
+            for(int j = borneInfY; j <= borneSupY; j++){
+                //if(!(i == tidX && j == tidY)){
+                    if(envData[convert1D(normeValue(i,envSizeX),normeValue(j,envSizeY),envSizeY)] == -1){
+                        temp--;
+                    }
+                    if(envData[convert1D(normeValue(i,envSizeX),normeValue(j,envSizeY),envSizeY)] == 1){
+                        temp++;
+                    }
+                //}
+            }
+        }
+        
+        result[envSizeY * tidY + tidX] = temp;
+    }
+}
+</pre>
+
+            <pre class="sh_cpp">//Convert 2D coordinates into one 1D coordinate
+__device__ int convert1D(int x, int y,int width){
+  return y * width +x;
+}
+
+//Normalize coordinates for infinite world
+__device__ int normeValue(int x, int width){
+    if(x < 0) //-1
+        return width - 1;
+    if(x == width)
+        return 0;
+    return x;
+}
+
+__device__ int* neighborsIndexes(int i, int j, int width, int height){
+    int dir[8];
+    dir[0] = convert1D(normeValue(i+1,width), j, width);
+    dir[1] = convert1D(normeValue(i+1,width), normeValue(j+1,height),width);
+    dir[2] = convert1D(i, normeValue(j+1,height),width);
+    dir[3] = convert1D(normeValue(i-1,width), normeValue(j+1,height),width);
+    dir[4] = convert1D(normeValue(i-1,width), j, width);
+    dir[5] = convert1D(normeValue(i-1,width), normeValue(j-1,height),width);
+    dir[6] = convert1D(i, normeValue(j-1,height),width);
+    dir[7] = convert1D(normeValue(i+1,width), normeValue(j-1,height),width);
+    return dir;
+}
+
+//Computing heading
+extern "C"
+__global__ void FIELD_DIR(int width, int height, float *values, float* patchMax)
+{
+        int i = blockIdx.x * blockDim.x + threadIdx.x;
+        int j = blockIdx.y * blockDim.y + threadIdx.y;
+        
+       if (i < width && j < height ){
+            int k = convert1D(i,j,width);
+            int maxIndex = 0;
+            int* neighbors = neighborsIndexes(i,j,width,height);
+            float max = values[neighbors[0]];
+            for(int u=1 ; u < 8 ; u++){
+                float current = values[neighbors[u]];
+                if(max < current){
+                    max = current;
+                    maxIndex = u;
+                }
+            }
+            patchMax[k] = maxIndex * 45;
+        }
+}
+</pre>
+            
+            <h4>Illustration de la simplification des comportements d'un modèle</h4>
+
+            <p>Enfin, est présenté le code source du comportement des entités proies dans le modèle Proie-prédateur avant et après l'application de notre méthode de conception. Ceci afin d'illustrer les capacités de simplification offertes par notre méthode dans certains cas et que nous avons évoqué au chapitre 8.</p>
+
+            <pre class="sh_java">public class Prey extends Turtle {
+
+    private double life;
+    private int visionRadius = 1;
+
+    protected void activate() {
+        super.activate();
+        playRole("prey");
+        randomHeading();
+        randomLocation();
+        setColor(Color.white);
+        setNextAction("live");
+    }
+
+    public String live() {
+        final List< Predator > predatorsHere = getPatch().getTurtles(Predator.class);
+        if(predatorsHere.size() > 2){
+            int targetedBy = 0;
+            for (Predator predator : predatorsHere) {
+                if(predator.getTarget() == this && ++targetedBy == 4){
+                    return null;
+                }
+            }
+        }
+        Predator turtle = getNearestTurtle(visionRadius,Predator.class);
+        if(turtle != null){
+            setHeading(towards(turtle)+180);
+        }
+        
+        wiggle(20);
+        return "live";
+    }
+}
+</pre>
+
+            <pre class="sh_java">public class Prey extends Turtle {
+
+    private Environment myEnv;
+
+    protected void activate() {
+        super.activate();
+        playRole("prey");
+        randomHeading();
+        randomLocation();
+        setColor(Color.white);
+        setNextAction("live");
+        myEnv = (Environment) getEnvironment();
+    }
+
+    public String live() {
+        final List< Predator > predatorsHere = getPatch().getTurtles(Predator.class);
+        if(predatorsHere.size() > 2){
+            return null;
+        }
+
+        // perception et changement de direction
+        wiggle((int) myEnv.getPredatorHeading(this.get1DIndex())+180);
+        
+        // depot de la marque de presence dans l'environnement
+        myEnv.setPreyMark(this.get1DIndex(), myEnv.getPreyMarkValue(this.get1DIndex()) + 1.0f);
+        
+        return "live";
+    }
+}
+</pre>
+
+            <br/>
+            <div class="block-title">
+                <h3>Implémentation d'une solution de rendu graphique dans TurtleKit</h3>
+            </div>
+
+            <p>Le GPGPU permet la réalisation de calculs génériques sur carte graphique. Cependant, le rôle premier de ces cartes est de gérer l'affichage et d'effectuer les calculs liés aux graphismes. Ainsi, en plus d'utiliser notre GPU pour faire du GPGPU, ne serait-il pas intéressant de l'utiliser pour réaliser aussi l'affichage du déroulement des simulations dans TurtleKit ?<br/>
+            Ceci permettrait d'atteindre deux objectifs : (1) nous limiterions, en partie, les nombreux transferts de données entre CPU et GPU (que nous avons identifiés comme extrêmement coûteux durant nos travaux) et (2) nous utiliserions un matériel dédié à l'affichage plus rapide que les différentes solutions utilisant le CPU.</p>
+
+            <h4>OpenGL</h4>
+
+            <p>OpenGL (de l'anglais <i>Open Graphics Library</i>), lancé par Silicon Graphics en 1992, se présente sous la forme d'une librairie offrant un ensemble normalisé de fonctions de calcul d'images 2D ou 3D. Regroupant environ 250 fonctions différentes, OpenGL permet l'affichage de scènes tridimensionnelles complexes à partir de simples primitives géométriques. En effet, OpenGL permet à un programme de déclarer la géométrie d'objets sous forme de points, de vecteurs, de polygones, de bitmaps et de textures. OpenGL effectue ensuite des calculs de projection en vue de déterminer l'image à l'écran, en tenant compte de la distance, de l'orientation, des ombres, de la transparence et du cadrage.</p>
+
+            <p>Cette interface de programmation est disponible sur de nombreuses plates-formes et est utilisée par une grande majorité d'applications scientifiques, industrielles, artistiques 3D et certaines applications 2D vectorielles. Cette bibliothèque est également utilisée dans l'industrie du jeu vidéo où elle est souvent en rivalité avec la bibliothèque de Microsoft : <i>Direct3D</i>. Une version nommée OpenGL ES a été conçue spécifiquement pour les applications embarquées (téléphones portables, agenda de poche, consoles de jeux, etc.).</p>
+
+            <p>En fait, si OpenGL est 100 % portable avec tous les systèmes d'exploitation, c'est tout simplement parce que ce n'est pas lui qui se charge de l'affichage. En fait, OpenGL est obligé de s'appuyer sur un système d'exploitation ayant une interface graphique : il sert d'intermédiaire entre le programme et le système d'exploitation, en adaptant et traduisant les informations données par le programme et en les envoyant au système d'exploitation.</p>
+
+            <p>Pour comprendre plus en détails comment OpenGL fonctionne, décrivons les étapes nécessaire à l'initialisation d'OpenGL : un environnement graphique dans le système d'exploitation (c'est-à-dire une fenêtre, dans le cas de Windows) doit être initialisé. Cette fenêtre sera définie de manière unique par un <i>Device Context</i>, une sorte d'interface qui permet au programme d'accéder à cette fenêtre et de lui faire subir toutes les opérations d'affichage possibles (affichage de pixels, etc.). Ensuite, le travail sera d'associer à ce <i>Device Context</i> un <i>Rendering Context</i>, qui va permettre à OpenGL de s'adresser à la fenêtre pour lui envoyer ses ordres de dessin.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/OpenGL.svg" alt=""/>
+            </div>
+
+            <p>OpenGL se contente d'adapter les informations et de les transférer au système d'exploitation qui s'occupera par la suite de les afficher. La seule contrainte pour le système d'exploitation est de réussir à communiquer avec OpenGL. Ce dialogue est rendu possible par la mise à disposition de <i>drivers</i> disponibles dès l'installation et qui s'occupent de la traduction des données OpengGL en données compréhensibles pour la carte graphique. Et c'est là qu'intervient l'accélération matérielle car OpenGL est désormais accéléré matériellement par toutes les cartes graphiques actuelles (grâce aux drivers fournis par les constructeurs de cartes).</p>
+
+            <h4>L'affichage dans TurtleKit</h4>
+
+            <p>TurtleKit met à disposition des utilisateurs des <i>Viewers</i> qui permettent de visualiser l'évolution de la simulation. Au nombre de deux, ces <i>viewers</i> utilisent la bibliothèque <i>Swing</i> qui est une bibliothèque graphique pour le langage de programmation Java. Elle a la possibilité de créer des interfaces graphiques identiques quel que soit le système d'exploitation sous-jacent. Pour ce faire, Swing hérite d'AWT (de l'anglais <i>Abstract Window Toolkit</i>) qui est une bibliothèque graphique pour Java employant les composants natifs du système d'exploitation, alors que Swing utilise des composants en pur Java. Cette abstraction offerte par Swing augmente sa portabilité mais limite ses performances.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/AffichageTK.svg" alt=""/>
+            </div>
+
+            <p>TurtleKit étant maintenant capable d'effectuer du calcul intensif grâce au GPGPU, il peut être intéressant d'optimiser l'affichage des simulations afin de ne pas perdre le temps gagné grâce au GPGPU à cause de l'affichage. Nous proposons donc d'utiliser OpenGL pour réaliser l'affichage dans TurtleKit via la librairie Java <i>JoGL</i>.</p>
+
+            <h4>Intégration d'OpenGL dans TurtleKit</h4>
+
+            <p>Le choix a été d'intégrer OpenGL via l'utilisation d'un moteur de jeu spécialement conçu pour le développement 3D : <i>jMonkeyEngine</i>. Ce moteur permet d'obtenir une gestion de la visualisation plus poussée avec, entre autre, la possibilité de se déplacer dans l'espace de simulation avec le clavier et la souris. De plus, il est capable de gérer un espace en 3 dimensions, limitant donc les modifications à effectuer au cas où TurtleKit décide de prendre en compte ce genre de simulations à l'avenir. Enfin, il possède un code source ouvert nous autorisant à le modifier selon notre convenance.</p>
+
+            <p>L'affichage fonctionne, pour les simulations en 2 dimensions, grâce à un ensemble de grilles 2D qui vont être activées en fonction de ce que l'on décide d'afficher à l'écran. En effet, chacune de ces grilles se sert de primitives OpenGL fournies par la bibliothèque JoGL pour afficher une partie bien précise de la simulation : une grille pour les agents, une grille pour les phéromones, une grille pour l'environnement, etc. Grâce à cette construction sous forme de couches, il est très facile d'étendre ou de modifier le <i>viewer 3D</i> mis en place.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/AffichageTKOpenGL.svg" alt=""/>
+            </div>
+
+            <p>En plus de ces grilles, un ensemble de caméras et de dispositifs d'interaction (par exemple avec le clavier et souris) sont intégrés grâce au moteur <i>jMonkeyEngine</i>. Des fonctions supplémentaires pourront donc être facilement implémentées comme la gestion de la lumière, de la transparence ou encore l'utilisation de <i>shaders</i> pour la réalisation d'affichages plus complexes.</p>
+
+            <p>Maintenant que l'affichage se fait par OpenGL et donc par le GPU, il peut être intéressant d'optimiser encore ce processus d'affichage en utilisant l'interopérabilité qui existe entre CUDA (les modules GPU) et OpenGL afin de limiter toujours plus les différents transferts entre CPU et GPU.</p>
+
+            <h4>Interopérabilité entre CUDA et OpenGL</h4>
+
+            <p>Des mécanismes d'interopérabilité entre CUDA et OpenGL existent. Ces mécanismes permettent d'effectuer en OpenGL le rendu et l'affichage de données calculées sur GPU avec CUDA. Ces données sont présentes dans la mémoire du GPU et leur affichage ne nécessite donc pas de transferts entre le CPU et le GPU. Il existe de nombreuses techniques permettant d'obtenir cette interopérabilité, nous présentons ici celle basée sur l'utilisation des PBO (de l'anglais <i>Pixel Buffer Object</i>).</p>
+
+            <p>Utiliser OpenGL, via les PBO, pour réaliser un affichage de données calculées par CUDA est un processus qui peut se diviser en deux phases distinctes, elles mêmes divisées en plusieurs étapes. La première consiste à créer, initialiser et configurer tous les objets nécessaires à cette interopérabilité :</p>
+
+            <ul>
+            <li><p>Création et initialisation d'un contexte OpenGL;</p></li>
+            <li><p>Création et initialisation d'un contexte CUDA;</p></li>
+            <li><p>Configuration du <i>GLviewport</i> et de son système de coordonnées;</p></li>
+            <li><p>Génération d'un ou plusieurs <i>GL buffers</i>;</p></li>
+            <li><p>Partage des <i>buffers</i> avec CUDA.</p></li>
+            </ul>
+
+            <p>Une fois tous ces éléments configurés, nous pouvons les utiliser pour réaliser un affichage via OpenGL :</p>
+
+            <ul>
+            <li><p>1. Allocation des <i>buffers</i> OpenGL correspondant à la taille de l'image à afficher;</p></li>
+            <li><p>2. Allocation des <i>textures</i> OpenGL (ayant la même taille que les <i>buffers</i>).</p></li>
+            <li><p>3. Mapping des <i>buffers</i> OpenGL dans la mémoire CUDA;</p></li>
+            <li><p>4. Écriture des données générées par CUDA dans le <i>buffers</i> OpenGL;</p></li>
+            <li><p>5. Libération du <i>buffers</i> OpenGL;</p></li>
+            <li><p>6. Liaison des textures aux <i>buffers</i> OpenGL</p></li>
+            <li><p>7. Création d'un carré spécifiant les coordonnées de la texture correspondant aux 4 coins de l'image à afficher.</p></li>
+            <li><p>8. Affichage (et échange entre les <i>buffers</i> front et back).</p></li>
+            </ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/annexes/Init.svg" alt=""/>
+                <img src="./these/annexes/Affichage.svg" alt=""/>
+            </div>
+
+            <div class="ajax-page-nav">
+                <div class="nav-item ajax-page-prev-next">
+                    <a class="ajax-page-load" href="./these/t_chap8.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                    <a class="ajax-page-load" href="./these/t_bib.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+                </div>
+                <div class="nav-item ajax-page-close-button">
+                    <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+                        sh_highlightDocument();
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+        </div>
+    </div>
+</div>

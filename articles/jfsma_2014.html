@@ -1,0 +1,100 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <h1>Systèmes Multi-Agents et GPGPU : état des lieux et directions pour l'avenir</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 col-md-8 portfolio-block">
+                <div class="block-title">
+                    <h3>Résumé</h3>
+                </div>
+                <p>Dans le domaine des systèmes multi-agents (SMA), la puissance des CPU représente parfois un frein qui limite fortement le cadre dans lequel un modèle peut être conçu et expérimenté. Le Calcul Haute Performance (HPC) et notamment le GPGPU (General-Purpose computing on Graphics Processing Units) est une solution avantageuse en termes de performance et de coût. Cette technologie vise à utiliser les GPU pour réaliser du calcul généraliste mais souffre cependant d'une très grande complexité d'implémentation et d'accessibilité qui ne favorise pas son adoption. Cet article propose un état de l'art des contributions traitant de l'utilisation du GPGPU dans le contexte des SMA et identifie les directions les plus prometteuses en vue d'une généralisation de cette technologie dans la communauté multi-agents.</p>
+
+                <br/>
+                <div class="block-title">
+                    <h3>Bibtex</h3>
+                </div>
+                <pre style="font-size: 9pt;">
+@inproceedings{Hermellin-JFSMA-2014,
+  editor    = {R{\'{e}}my Courdier and Jean{-}Paul Jamont},
+  author    = {Emmanuel Hermellin and Fabien Michel and Jacques Ferber},
+  title     = {Syst{\`{e}}mes multi-agents et {GPGPU} : {\'{e}}tat des lieux et directions pour l'avenir},
+  booktitle = {Principe de Parcimonie - {JFSMA} 14 - Vingt-deuxi{\`{e}}mes Journ{\'{e}}es Francophones sur les Syst{\`{e}}mes Multi-Agents, Loriol-sur-Dr{\^{o}}me, France, Octobre 8-10, 2014},
+  pages     = {97-106},
+  year      = {2014},
+  publisher = {C{\'{e}}padu{\`{e}}s {\'{E}}ditions},
+  isbn      = {978-2-36493-154-1},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/jfsma/2014},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}</pre>
+
+                <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+            </div>
+
+            <div class="col-sm-4 col-md-4 portfolio-block">
+                <div class="block-title">
+                    <h3>Auteurs et lien</h3>
+                </div>
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-user"></i> Emmanuel Hermellin, Fabien Michel et Jacques Ferber</p></li>
+                    <li><p><i class="fa fa-globe"></i> <a href="http://hal-lirmm.ccsd.cnrs.fr/lirmm-01236746" target="_blank">JFSMA 2014</a></p></li>
+                </ul>
+                <div class="tags-block">
+                    <div class="block-title">
+                        <h3>Mots-clés</h3>
+                    </div>
+                    <ul class="tags">
+                        <li><a>SMA</a></li>
+                        <li><a>GPGPU</a></li>
+                        <li><a>CUDA</a></li>
+                        <li><a>OpenCL</a></li>
+                    </ul>
+                </div>
+                <br/>
+                <img src="./images/recherche/publication/jfsma_2014.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>

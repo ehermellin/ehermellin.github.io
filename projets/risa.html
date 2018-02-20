@@ -1,0 +1,88 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <h1>Réduction d’Image et de Spectres d’Astrophysiques (RISA)</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-7 col-md-7 portfolio-block">
+                <div class="block-title">
+                    <h3>Présentation du projet RISA</h3>
+                </div>
+                <p>RISA représente mon projet de fin de Master 1. Ce projet avait pour but de nous faire utiliser notre double compétence en informatique et en physique. J’ai donc, avec Etienne Gibaud, hérité du projet RISA. L’objet du projet est d’abord de faire atteindre à RISA un niveau professionnel qui permettra au laboratoire de le diffuser de manière publique. Le souhait est de faire de RISA un logiciel pédagogique au service de l’enseignement de l’astrophysique au sein de différentes universités. Le travail demandé porte en grande partie sur une refonte de l’architecture actuelle du logiciel. La nouvelle architecture devra offrir la modularité, la maintenabilité et la flexibilité attendues pour tout outil d’analyse pouvant être partagé par l’ensemble d’une communauté.</p>
+
+                <p>Mais tout d’abord voici une petite présentation du logiciel RISA : il existe des logiciels professionnels (MIDAS, IRAF, …)  pour la réduction des données astronomiques recueillies aux foyers des télescopes ou de leurs instrumentations auxiliaires. Ils sont d’un apprentissage très lourd et masquent souvent la physique de la réduction de données. C’est pour pallier ces deux inconvénients qu’avait été réalisé à l’UM2, avec Christian Sam, stagiaire d’IUT informatique, en 1995 le logiciel IRIS (Initiation à la Réduction d’Images et de Spectres) qui tournait sous DOS (puis sous Windows sous sa forme Iris-fv) dans les salles de TP du CR2I puis de l’UFR. Il utilisait le format professionnel FITS et des algorithmes professionnels précis. Depuis 2007 RISA reprend et amplifie cette facilité.</p>
+
+                <p>RISA est un projet Java qui existe depuis plusieurs années. Certains choix de programmation ont été faits (faire une interface complète dès la première année, ne pas utiliser de librairie standard) au détriment de la qualité du code et du bon fonctionnement du logiciel. Nous héritons donc d’un logiciel fonctionnel mais fortement instable et contenant de nombreux bugs dont certains provoquant la fermeture brutale de RISA d’où le souhait de repartir dans la réalisation d’une refonte du logiciel. C’est dans cet esprit là que le projet a été mené et vous trouverez ci contre le rapport de projet, la javadoc ainsi que le jar du logiciel.</p>
+
+                <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+            </div>
+
+            <div class="col-sm-5 col-md-5 portfolio-block">
+                <!-- Project Description -->
+                <div class="block-title">
+                    <h3>Projet RISA</h3>
+                </div>
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-user"></i> Etienne Gibaud, Emmanuel Hermellin</p></li>
+                    <li><p><i class="fa fa-file-pdf-o"></i> <a href="./data/risa/RISA2011.pdf" target="_blank">Rapport de stage</a></p></li>
+                    <li><p><i class="fa fa-file-code-o"></i> <a href="./data/risa/RISA2011_javadoc.pdf" target="_blank">Javadoc</a></p></li>
+                    <li><p><i class="fa fa-download"></i> <a href="./data/risa/RISA2011.jar" target="_blank">RISA</a></p></li>
+                </ul>
+                <!-- /Project Description -->
+
+                <!-- Technology -->
+                <div class="tags-block">
+                    <div class="block-title">
+                        <h3>Technologie</h3>
+                    </div>
+                    <ul class="tags">
+                        <li><a>Java</a></li>
+                    </ul>
+                </div>
+                <!-- /Technology -->
+            </div>
+        </div>
+    </div>
+</div>

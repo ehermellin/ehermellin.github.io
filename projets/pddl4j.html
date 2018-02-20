@@ -1,0 +1,125 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <h1>Planification automatique</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-7 col-md-7 portfolio-block">
+                <div class="block-title">
+                    <h3>PDDL4J</h3>
+                </div>
+                <p>PDDL4J est une librairie open-source (sous licence LGPL) écrite en Java dont l'objectif est de (1) proposer un outil complet intégrant de nombreux planificateurs basés sur le langage PDDL (<i>Planning Domain Description Language</i>) et (2) faciliter le développement de nouveaux outils et logiciels Java dédiés à la planification automatique.<br/><br/>
+
+				La planification automatique est une branche de l'intelligence artificielle qui se focalise sur la réalisation de stratégies ou de séquences d'action dans le but de résoudre un problème donné, généralement pour l'exécution d'agents intelligents, de robots autonomes ou de véhicules autonomes. La librairie PDDL4J intègre donc des algorithmes innovants pour résoudre des problèmes de planification, <i>i.e.</i> d’organisation dans le temps de tâches à accomplir pour résoudre un problème donné. La caractéristique principale de la planification est sa dimension temporelle. Souvent ébauchée par une liste des choses à faire, elle se concrétise ensuite par un plan répondant de façon détaillée et concrète aux principaux aspects opérationnels du type : <i>qui</i>, <i>quoi</i>, <i>où</i>, <i>quand</i>, <i>comment</i>, <i>combien</i>.<br/>
+
+				La librairie PDDL4J fournit :</p>
+				<ul>
+					<li><p> Un parser pour le langage PDDL (en version 3.1) ainsi qu'un ensemble de classes et méthodes permettant de manipuler tous les concepts relatifs à ce langage. </p></li>
+					<li><p> Un ensemble de mécanismes permettant d'instancier et simplifier des opérateurs en actions basées sur les propriétés d'inertie. </p></li>
+					<li><p> Un ensemble d'heuristiques. </p></li>
+					<li><p> Des nombreux exemples de problèmes de planification pouvant être résolu grâce à PDDL4J. </p></li>
+				</ul>
+
+                <div class="block-title">
+                    <h3>PDDL4GUI</h3>
+                </div>
+                <p>PDDL4GUI est une petite application écrite en Java qui fournit une interface graphique à la librairie PDDL4J. PDDL4GUI propose :</p>
+                <ul>
+					<li><p> Une interface pour la résolution de problèmes de planification grâce à PDDL4J.</p></li>
+					<li><p> L'intégration de VAL (The plan validation system) qui offre la possibilité de tester la validité des solutions fournies par PDDL4J.</p></li>
+					<li><p> Un éditeur PDDL.</p></li>
+				</ul>
+				<p> Fonctionnalités qui vont être integrées par la suite :</p>
+                <ul>
+					<li><p> Une visualisation des solutions (plans).</p></li>
+					<li><p> Un comportement Anytime.</p></li>
+                    <li><p> ...</p></li>
+				</ul>
+
+                <blockquote>
+                    <h4>Références</h4>
+                    M. Ghallab, D. Nau and P. Traverso, “Automated Planning”, Morgan-Kaufman, 2004.<br/><br/>
+					S. Russell and P. Norvig, "Artificial Intelligence: A Modern Approach", chapter XI“, Prentice Hall, 2002.<br/><br/>
+					S. LaValle, Planning Algorithms, Cambridge University Press, 2006.<br/><br/>
+					P. Régnier, and V. Vidal, “Algorithmique de la planification en IA”, Cépaduès éditions, 2004.
+                </blockquote>
+
+                <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+            </div>
+
+            <div class="col-sm-5 col-md-5 portfolio-block">
+                <!-- Project Description -->
+                <div class="block-title">
+                    <h3>Projet PDDL4J</h3>
+                </div>
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-user"></i> Damien Pellier, Humbert Fiorini</p></li>
+                    <li><p><i class="fa fa-globe"></i> <a href="http://pddl4j.imag.fr" target="_blank">http://pddl4j.imag.fr</a></p></li>
+                </ul>
+
+                <div class="block-title">
+                    <h3>NotePad PDDL</h3>
+                </div>
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-user"></i> Emmanuel Hermellin</p></li>
+                    <li><p><i class="fa fa-github"></i> <a href="https://github.com/ehermellin/pddl4gui" target="_blank">PDDL4GUI on Github</a></p></li>
+                </ul>
+                <!-- /Project Description -->
+
+                <!-- Technology -->
+                <div class="tags-block">
+                    <div class="block-title">
+                        <h3>Technologie</h3>
+                    </div>
+                    <ul class="tags">
+                        <li><a>Java</a></li>
+                        <li><a>PDDL</a></li>
+                    </ul>
+                </div>
+                <!-- /Technology -->
+            </div>
+        </div>
+    </div>
+</div>

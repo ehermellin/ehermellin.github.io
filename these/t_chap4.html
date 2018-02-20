@@ -1,0 +1,616 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-prev-next">
+                <a class="ajax-page-load" href="./these/t_chap3.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                <a class="ajax-page-load" href="./these/t_chap5.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+            </div>
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <div class="chapter-title"><h2>Chapitre 4 : Le principe de délégation GPU des perceptions agents</h2></div>
+        </div>
+
+        <div class="row">
+            <br/>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap1.html"> Chapitre 1 : Simulation multi-agent</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap2.html"> Chapitre 2 : Calcul haute performance et GPGPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap3.html"> Chapitre 3 : Simulations multi-agents et GPGPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap5.html"> Chapitre 5 : Expérimentation du principe de délégation GPU</a></p></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap6.html"> Chapitre 6 : Définition d'une méthode de conception basée sur la délégation GPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap7.html"> Chapitre 7 : Conclusion</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap8.html"> Chapitre 8 : Perspectives de recherche</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_bib.html"> Bibliographie</a></p></li>
+                </ul>                
+            </div>
+
+            <p>De l'état de l'art présenté au chapitre précédent, nous avons identifié que les travaux utilisant le GPGPU dans un contexte agent pouvaient être divisés en deux catégories bien distinctes : celle des travaux misant tout sur la performance et celle des travaux tenant compte des difficultés d'implémentation relatives à l'utilisation du GPGPU. Alors que les travaux de la première catégorie adaptent les modèles multi-agents afin qu'ils s'exécutent entièrement sur le GPU, et ainsi profitent de la puissance de ces derniers, ceux de la deuxième catégorie adoptent une approche différente. Qualifiée d'hybride (utilisation conjointe du CPU et GPU), elle permet d'améliorer l'accessibilité, la réutilisabilité et la généricité des solutions développées. La prise en compte de ces trois critères est d'ailleurs considérée comme essentielle pour une meilleure intégration du GPGPU [Bourgoin2013-2].</p>
+
+            <p>Cependant, rendre l'utilisation du GPGPU transparente limite la généricité des solutions proposées. En effet, du fait de la grande diversité des modèles, les abstractions mises en place pour cacher cette technologie ne permettent pas de prendre en compte tous les cas et besoins qu'une implémentation de modèles multi-agents avec le GPGPU peut nécessiter. Ainsi, notre idée a été de trouver une approche de conception qui simplifie l'utilisation du GPGPU mais sans cacher la technologie sous-jacente.</p>
+
+            <p>Parmi tous les travaux vus et référencés, un seul proposait une telle approche : le principe de <i>délégation GPU des perceptions agents</i>. Présenté pour la première fois dans [Michel2013] et [Michel2014], la <i>délégation GPU des perceptions agents</i> est un principe de conception environnement-centré appartenant au courant E4MAS [E4MAS2015]. Ce travail avait pour objectifs de bénéficier des performances du GPGPU, afin d'être capable de réaliser des simulations à large-échelle, tout en conservant l'accessibilité et la facilité de réutilisation d'une interface de programmation orientée objet. De plus, au contraire des travaux cités précédemment, ce principe prônait une utilisation directe du GPGPU.</p>
+
+            <p>Poursuivant donc des objectifs similaires à ceux énoncés dans ce travail de thèse, nous avons fait le choix d'utiliser ce principe comme base pour nos développements. Cependant, ce travail n'avait été appliqué que sur un seul cas d'étude bien particulier. Il nous a donc fallu l'étudier en détails avant de pouvoir le prendre en main. Par la suite, notre première expérimentation, basée sur la <i>délégation GPU des perceptions agents</i>, a été réalisée sur un modèle de <i>flocking</i> [Hermellin-JFSMA-2015, Hermellin-RIA-2016, Hermellin-MABS-2015] et a mené à l'élaboration d'une version plus générique du principe que nous avons nommé principe de délégation GPU.</p>
+
+            <p>Dans ce chapitre, nous présentons le principe original et sa première application. Nous détaillons également notre première expérimentation de cette approche qui nous a permis de juger de sa faisabilité ainsi que de ses avantages et limites face aux problématiques soulevées jusqu'ici.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Exploration du principe de délégation GPU des perceptions agents</h3>
+            </div>
+
+            <p>Le principe de délégation GPU des perceptions agents est une approche qu'il convient de rapprocher des travaux de recherche qui considèrent l'environnement comme un concept fondamental des systèmes multi-agents [Weyns2007, Ricci2011].</p>
+
+            <h4>L'environnement comme abstraction de premier ordre dans les SMA</h4>
+
+            <p>Considérer l'environnement comme une abstraction de premier ordre est une idée aujourd'hui bien acceptée et son intérêt pour la modélisation et le développement de SMA n'est plus à prouver [Weyns2007]. En particulier, cela permet de déplacer la complexité du comportement des agents vers l'environnement et donc de bien mieux la gérer [Ricci2011, E4MAS2015].</p>
+
+            <p>Un exemple emblématique (validé dans un contexte industriel) est donné dans [Weyns2008] où des véhicules automatisés (AGV, <i>Automated Guided Vehicles</i>) utilisent un environnement virtuel chargé de calculer la validité de leurs mouvements futurs. Lorsque l'environnement détecte une possible collision, il établit un ordre de priorité entre les mouvements afin de résoudre automatiquement les conflits spatiaux, sans que les agents aient besoin d'intervenir. N'ayant pas à traiter ces problèmes, les agents peuvent alors se focaliser sur leur tâche principale qui est d'aller d'un point A à un point B. Ainsi, la complexité de leur comportement diminue en conséquence. Plus récemment, d'autres travaux ont suivi cette perspective comme notamment l’approche multi-environnements de [Galland2014].</p>
+
+            <p>Dans le cadre de la simulation multi-agent, [Payet2006] propose par exemple de considérer l'environnement comme un point central de la modélisation et montre que cela permet (1) de réduire la complexité du modèle et de (2) grandement faciliter la réutilisabilité et l'intégration des différents processus de simulation qui sont définis. L'approche EASS (<i>Environment As Active Support for Simulation</i>) [Balbo2012] propose de renforcer le rôle de l'environnement en lui déléguant la politique d'ordonnancement ainsi qu'un système de filtrage des perceptions. IODA (<i>Interaction Oriented Design of Agent simulations</i>) [Picault2011] est quant à elle centrée sur la notion d'interaction et considère que tout comportement réalisable par des agents peut être décrit de façon abstraite (c'est-à-dire en exprimant ce qu'il a de général) sous la forme d'une règle appelée interaction. Dans un contexte plus général, l'approche des <i>artefacts</i> intègre dans l'environnement un ensemble d'entités dynamiques structurant les ressources et les outils que les agents vont pouvoir utiliser et partager [Viroli2006, Ricci2011].</p>
+
+            <p>La considération de l'environnement comme une entité active est donc une approche très intéressante pour la simplification du processus décisionnel des agents. L'idée sous-jacente est que les agents ont finalement besoin de manipuler des percepts de haut niveau pour calculer leur comportement : ils ne sont pas intéressés par les données environnementales de bas niveau qui nécessitent un traitement pour être intelligibles. Ainsi, tous les travaux de recherche présentés ici visent à réifier une partie des calculs effectués dans le comportement des agents dans de nouvelles structures telles que les interactions ou l'environnement dans le but de répartir la complexité du code et de modulariser son implémentation. Une telle approche permet de concevoir des SMA où il existe une séparation claire entre ce qui relève véritablement des agents et ce qui peut être calculé par ailleurs dans l'environnement. C'est dans cette continuité que se place le principe de <i>délégation GPU des perceptions agents</i>.</p>
+
+            <h4>Enoncé du principe</h4>
+
+            <p>Le principe de <i>délégation GPU des perceptions agents</i> arbore un point de vue environnement-centré et s'inspire d'une approche liée au génie logiciel orienté objet tout en se basant sur une utilisation hybride du matériel.</p>
+
+            <p>En fait, il a été remarqué qu'une partie des perceptions effectuées par les agents nécessitent un pré-traitement pour rendre les données perçues intelligibles et exploitables [Payet2006, Michel2014]. Ces calculs, parfois coûteux, n'impliquent nullement l'état interne des agents et peuvent alors être réalisés sans connaître leur état. Il est donc intéressant de soulager les agents de ces traitements et de les déléguer à l'environnement. Le principe de délégation GPU des perceptions agents propose donc de transformer ces calculs en dynamiques appliquées à l'ensemble de l'environnement et traitées par des modules de calcul GPU. Autrement dit, c'est maintenant l'environnement qui pré-calcule, de manière globale, le résultat des perceptions dont les agents auront besoin.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/beforeGPUdeleg.svg" alt=""/>
+                <img src="./these/images_chap4/afterGPUdeleg.svg" alt=""/>
+            </div>
+
+            <p>Ces dynamiques, que nous pouvons qualifier d'environnementales car globales, font parties des notions centrales de cette approche et donc du travail développé dans cette thèse. Il convient donc d'en proposer une définition. Ainsi, d'après [Weyns2007, Michel2009, Ricci2011], une dynamique environnementale peut être définie de la manière suivante :</p>
+
+            <blockquote>
+                <b>Dynamiques environnementales</b><br/>Les dynamiques environnementales sont l'ensemble des dynamiques endogènes de l'environnement qui, contrairement aux agent, ne présentent aucun processus décisionnel. Ces dynamiques s'appliquent à tout l'environnement (elles sont globales) et ne changent pas dans le temps.
+            </blockquote>
+
+            <p>Le choix de déporter uniquement les dynamiques environnementales sur le GPU vient des spécificités du GPGPU qui font que les comportements des agents sont difficiles à traduire en code GPU car ils comportent généralement de nombreuses structures conditionnelles qui ne sont pas adaptées à la programmation sur GPU. Au contraire, les calculs correspondant aux dynamiques environnementales se prêtent beaucoup mieux à une parallélisation car ils consistent généralement en un traitement global d'informations dans l'environnement (le parallèle peut être fait entre les dynamiques environnementales et les lois de l'univers du modèle IRM4S (influence/réaction) [Michel2007].</p>
+
+            <p>Finalement, ce principe repose sur une séparation explicite entre le comportement des agents, géré par le CPU, et les dynamiques environnementales traitées par le GPU. L'idée sous-jacente est donc d'identifier, dans le modèle, les calculs les plus coûteux pouvant être transformés en dynamiques environnementales traitées par des modules GPU. Ce principe de conception peut ainsi être énoncé de la manière suivante :</p>
+
+            <blockquote>
+                <b>Délégation GPU des perceptions agents [Michel2014]</b><br/> Tout calcul de perception agent qui n'implique pas l'état de l'agent peut être transformé dans une dynamique endogène de l'environnement, et ainsi considéré pour une implémentation dans un module GPU indépendant.
+            </blockquote>
+
+            <h4>Premier cas d'étude du principe</h4>
+
+            <p>Le premier cas d'étude du principe de <i>délégation GPU des perceptions agents</i> [Michel2014] a été réalisé en implémentant un modèle d'émergence multi-niveaux (MLE) [Beurier2003] dans la plate-forme TurtleKit.</p>
+
+            <p><b>TurtleKit</b></p>
+
+            <p>TurtleKit est une plate-forme qui utilise un modèle multi-agent spatialisé où l'environnement est discrétisé sous la forme d'une grille de cellules [Michel2005]. Implémentée en Java à l'aide de la librairie de développement multi-agent MaDKit [Gutknecht2001], TurtleKit repose sur des modèles d'agents et d'environnements inspirés par le langage de programmation Logo. L'un des objectifs principaux de TurtleKit est de fournir aux utilisateurs finaux une API facilement accessible et extensible. En particulier, l'API de TurtleKit est orientée objet et son utilisation repose sur l'héritage de classes prédéfinies.</p>
+
+            <p>De par sa conception et l'objectif poursuivi, l'intégration du GPGPU dans TurtleKit a suivi une approche hybride qui consiste à intégrer, de manière itérative, des modules utilisant de la programmation GPU tout en conservant inchangée l'API de TurtleKit. Cependant, implémenter un programme orienté GPGPU nécessite de définir à la fois des <i>kernels</i>, qui s'exécuteront sur le GPU, mais aussi des procédures, destinées à être exécutées par le CPU pour organiser l'exécution des <i>kernels</i> et récupérer les données ainsi produites. La partie programmation GPU utilise CUDA alors que la partie CPU conserve Java comme langage principal pour TurtleKit. La liaison entre ces deux parties (Java et CUDA) est réalisée par la librairie JCUDA (<i>Java bindings for Cuda</i>) qui permet d'utiliser directement CUDA dans Java (modulo le changement de syntaxe lié au langage Java).</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/structTKwc.svg" alt=""/>
+            </div>
+
+            <p>Le choix d'utiliser la technologie CUDA pour intégrer le GPGPU dans TurlteKit est motivé par son antériorité et sa qualité reconnue qui lui permet de posséder la plus grande des communautés d'utilisateurs (en comparaison à OpenCL). De plus, bien que la portabilité offerte par la technologie OpenCL soit un atout majeur de cette dernière, elle a cependant pour conséquence de limiter les optimisations possibles lorsqu'on rentre dans le détail de la programmation d'un <i>kernel</i>. Notamment en ce qui concerne la gestion des différentes parties de la mémoire, CUDA propose depuis toujours des primitives qui permettent de gérer finement les différents types de mémoire qui peuvent être utilisés (privée au niveau des <i>threads</i>, locale à un bloc, globale, etc.). Enfin, CUDA n'abstrait aucun détail de l'architecture matérielle et permet d'avoir une idée précise des différentes possibilités d'optimisation offertes par le GPGPU.</p>
+
+            <p><b>Présentation du modèle MLE</b></p>
+
+            <p>Le modèle multi-agent MLE [Beurier2003] est très simple et repose sur un unique comportement qui permet de générer des structures complexes qui se répètent de manière fractale. Plus précisément, à partir d'un unique ensemble d'agents non structuré de niveau 0, les agents évoluent pour former des structures (des cercles) de niveau 1 qui servent ensuite à former des structures de niveau 2 et ainsi de suite. Autrement dit, les agents de niveau 0 forment des cercles autour des agents de niveau 1 qui forment eux-mêmes des cercles autour des agents de niveau 2, etc. Le comportement agent utilisé repose uniquement sur la perception, l'émission et la réaction à trois types de phéromones digitales différentes : (1) <i>présence</i>, (2) <i>répulsion</i> et (3) <i>attraction</i>.</p>
+            <ul>
+            <li><p>La phéromone de présence (1) est utilisée par un agent pour évaluer combien d'agents d'un certain niveau se trouvent à proximité. Cette phéromone sert ainsi à faire muter un agent vers un niveau supérieur ou inférieur. Dit de manière simplifiée, une mutation peut se produire lorsqu'une zone est surpeuplée ou au contraire vide.</p></li>
+            <li><p>Les phéromones de répulsion (2) et d'attraction (3) sont utilisées par les agents pour créer une zone d'attraction circulaire autour d'eux, grâce à des taux d'évaporation et de diffusion différents. Au contraire de la phéromone de répulsion, la phéromone d'attraction est émise en faible quantité mais s'évapore doucement, ce qui permet de créer une zone d'attraction circulaire autour de l'agent.</p></li>
+            </ul>
+
+            <p>Basé sur l'utilisation de ces trois phéromones digitales, le comportement de l'agent peut être décomposé en quatre étapes : <i>Perception</i>, <i>Émission</i>, <i>Mutation</i> et <i>Mouvement</i>. Ainsi, l'état d'un agent est défini uniquement par un entier faisant référence à son niveau. Pour un niveau déterminé, un agent considère uniquement les phéromones de niveaux adjacents.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/comportementsAgents.svg" alt=""/>
+            </div>
+
+            <p>Ainsi, le modèle MLE repose sur l'émission et la perception de phéromones digitales possédant des dynamiques de diffusion et d'évaporation. Ces dynamiques permettent de créer des champs de gradients qui sont utilisés par les agents et vont influencer leurs divers comportements. Cependant, calculer de telles dynamiques demande énormément de ressources de calcul, ce qui limite à la fois les performances et la scalabilité des modèles qui les utilisent, même lorsque peu de phéromones sont mises en jeu. Dans ce contexte, il est pertinent de se tourner vers le GPGPU pour accélérer le calcul de ces dynamiques afin d'améliorer les performances du modèle.</p>
+
+            <p><b>Application de la délégation GPU des perceptions agents sur le modèle MLE</b></p>
+
+            <p>L'application du principe de délégation GPU des perceptions agents sur le modèle MLE [Michel2014] a permis de traduire les dynamiques d'évaporation et de diffusion liées aux phéromones car ces calculs sont complètement découplés du modèle comportemental des entités simulées en plus d'être naturellement spatialement distribués (ce qui convient très bien à une adaptation en code GPU). En plus de ces deux dynamiques, l'ensemble des perceptions relatives aux gradients a été réifié dans une unique dynamique environnementale calculée par le GPU. Ainsi, pour ce modèle, deux modules de calculs GPU ont été créés.</p>
+
+            <p><b>Traduction GPU de la dynamique d'évaporation et de diffusion. </b> L'évaporation d'une phéromone consiste simplement à multiplier la quantité présente dans une cellule de l'environnement par un taux d'évaporation, <i>evapCoef</i>, compris entre 0 et 1. La traduction en code GPU de cette dynamique a consisté à faire correspondre à chaque cellule de la grille de l'environnement un unique <i>thread</i>, identifié par ses coordonnées <i>i</i> et <i>j</i>. Ainsi, lorsque l'exécution du <i>kernel</i> correspondant au processus d'évaporation est appelée sur le GPU, tous les <i>threads</i> alloués exécutent l'algorithme simultanément.</p>
+<pre>
+i = blockIdx.x * blockDim.x + threadIdx.x;
+j = blockIdx.y * blockDim.y + threadIdx.y;
+
+Si(i &lt; largeur et j &lt; hauteur){
+    grille[i][j] = grille[i][j] * evapCoef;
+}
+</pre>
+
+            <p>Quant à elle, la diffusion d'une phéromone dans l'environnement consiste à faire en sorte que toutes les cellules de la grille transmettent une partie de leur contenu vers leurs voisins en fonction d'un coefficient de diffusion, <i>diffCoef</i>, compris entre 0 et 1. Ainsi, la traduction de cette dynamique en code GPU repose sur une adaptation similaire à celle de l'évaporation. Cette adaptation est cependant plus complexe car le calcul correspondant doit nécessairement se faire en deux temps pour assurer la cohérence des données. Il faut tout d'abord (1) calculer la quantité de phéromone cédée par chaque cellule à ses voisins et stocker ce résultat dans une grille de données tampon (<i>grilleTampon</i>) puis (2) mettre à jour toutes les valeurs de la grille à partir du résultat précédent. De ce fait, deux <i>kernels</i> différents ont été définis et sont appelés successivement.</p>
+
+<pre>
+// Kernel diffusion vers la grille tampon
+i = blockIdx.x * blockDim.x + threadIdx.x;
+j = blockIdx.y * blockDim.y + threadIdx.y;
+
+Si(i &lt; largeur et j &lt; hauteur){
+    grilleTampon[i][j] = grille[i][j] * diffCoef;
+}
+
+// Kernel mise à jour de la diffusion
+i = blockIdx.x * blockDim.x + threadIdx.x;
+j = blockIdx.y * blockDim.y + threadIdx.y;
+
+Si(i &lt; largeur et j &lt; hauteur){
+    Pour(cellule dans voisinageMoore(grilleTampon[i][j])){
+        grille[i][j] = grille[i][j] + quantitéPhero(cellule);
+    }
+}
+</pre>
+
+            <p><b>Traduction GPU de la perception de gradients. </b>Dans le modèle MLE, chaque agent réalise, à chaque pas de la simulation, un calcul lui permettant de connaître quelle cellule voisine possède le plus, ou le moins, de phéromone d'un certain type afin de décider de son mouvement futur. De tels calculs nécessitent, pour chaque phéromone d'intérêt, de sonder l'ensemble des cellules qui se trouvent autour de l'agent puis de calculer la direction à prendre en fonction des valeurs minimales ou maximales trouvées.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/gradientPhero.svg" alt=""/>
+            </div>
+
+            <p>Du fait que le calcul de la direction d'un gradient soit indépendant de l'état des agents, il a été possible de réifier l'ensemble des perceptions relatifs aux gradients dans une unique dynamique environnementale calculée par le GPU. L'algorithme suivant présente ce <i>kernel</i> de calcul dédié aux orientations des gradients. La particularité de ce <i>kernel</i> est qu'il repose sur l'utilisation de deux tableaux de données stockant les directions minimales et maximales pour un gradient dans chaque cellule.</p>
+
+<pre>
+i = blockIdx.x * blockDim.x + threadIdx.x;
+j = blockIdx.y * blockDim.y + threadIdx.y;
+
+Si(i &lt; largeur et j &lt; hauteur){
+    Pour(cellule dans voisinageMoore(grille[i][j])){
+        Si(getDirectionMin(cellule) &lt; directionMin){
+            tabMin[i][j] = directionMin;
+        }
+        Si(getDirectionMax(cellule) &gt; directionMax){
+            tabMax[i][j] = directionMax;
+        }
+    }
+}
+</pre>
+
+            <p><b>Intégration des modules GPU dans TurtleKit. </b> Les traductions des dynamiques d'évaporation, de diffusion et de perception de gradients ont mené à la création de deux modules GPU : un module GPU pour l'évaporation et la diffusion (le module <i>Diffusion</i> et un second module GPU pour la perception des gradients de phéromones pour les agents (le module <i>Perception de gradients</i>).</p>
+
+            <p>L'intégration de ces deux modules GPU dans TurtleKit n'a pas posé de problème notamment grâce à la modularité offerte par l'indépendance de ces modules vis-à-vis du modèle agent. En particulier, on peut voir qu'un agent manipule indifféremment, suivant le contexte matériel disponible, des phéromones utilisant une implémentation classique (séquentielle) ou le module GPU correspondant. Le modèle agent n'a donc pas besoin d'être modifié.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/pheromonesKernel.svg" alt=""/>
+            </div>
+
+            <p><b>Intégration des modules GPU dans TurtleKit. </b> Des tests ont été menés dans [Michel2014] pour juger des performances de l'approche proposée. Plusieurs simulations ont donc été exécutées utilisant consécutivement la version CPU (séquentielle) puis hybride (utilisant les deux modules GPU) du modèle pour des tailles d'environnement différentes. Dans ces simulations, le niveau maximum d'un agent a été fixé à 5, de telle sorte qu'il existe au plus 15 phéromones à gérer. Ces tests ont été réalisés avec CUDA 4 et JCUDA-0.4.1 sous Linux, à l'aide d'un CPU Xeon @ 3.2 GHz (6 coeurs) et d'une carte graphique Nvidia Quadro 4000 dotée de 256 coeurs (architecture Fermi). La figure suivante regroupe les résultats ayant été obtenus lors de ces tests et montre que la version hybride du modèle permet de considérer des environnements beaucoup plus grands et avec des densités plus fortes d'agents. Les gains de performance associés à l'utilisation des modules GPU sont significatifs : la simulation GPU du modèle MLE est jusqu'à sept fois plus rapide que la version originale.</p>
+
+            <div id="chart_chap4_mle" class="chart"></div>
+
+            <p>Cependant, bien que la différence soit très marquée pour les petites densités de population, le gain tend à diminuer lorsque le nombre d'entités devient important. Les calculs consacrés aux agents, réalisés par le CPU, prennent de plus en plus de temps si bien que la partie GPU pèse de moins en moins dans le total du temps de simulation.</p>
+
+            <h4>Bilan de l'expérimentation du principe sur le modèle MLE</h4>
+
+            <p>Grâce à l'étude de cette expérimentation, nous avons conclu que la délégation GPU des perceptions agents, qui est basée sur une approche hybride, se présentait comme une solution attractive capable de répondre aux difficultés occasionnées par le GPGPU. Cette approche prouvait notamment qu'un modèle multi-agent pouvait bénéficier du GPGPU en utilisant cette technologie de manière directe plutôt que de façon transparente. Ainsi, ces travaux offraient de bons résultats en termes de performances mais aussi d'accessibilité et de réutilisabilité.</p>
+
+            <p>En effet, cette expérimentation a montré que l'application de ce principe de conception sur le modèle MLE et son intégration dans TurtleKit, en plus de se focaliser sur la modularité (grâce à l'approche hybride), permettait de (1) conserver l'accessibilité du modèle agent dans un contexte GPU (le modèle originel n'a pas été modifié), de (2) passer à l'échelle et travailler avec un grand nombre d'agents sur de grandes tailles d'environnement, (3) promouvoir la réutilisabilité des travaux effectués et enfin (4) déplacer la complexité des agents vers l'environnement. En l'occurrence, il s'agit à la fois de la complexité du code comportemental et de la complexité algorithmique des calculs effectués.</p>
+
+            <p>Cependant, malgré le fait que nous avons trouvé cette approche très prometteuse car elle répondait en partie aux différentes problématiques soulevées par l'usage du GPGPU dans un contexte agent, son expérimentation sur le modèle MLE ne représentait qu'un coup d'essai réalisé de manière <i>ad hoc</i>. Cette unique expérimentation ne nous permettait donc pas de présager ni des avantages réels de l'approche, ni de sa capacité à pouvoir être appliquée sur d'autres types de modèles. Dans ce contexte, nous avons donc choisi de réaliser un nouveau cas d'étude de ce principe.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Les <i>boids</i> de Reynolds comme cas d'étude</h3>
+            </div>
+
+            <p>L'objectif étant d'appliquer le principe de délégation GPU des perceptions agents dans un cadre différent de celui proposé par le modèle MLE, nous avons choisi de tester ce principe de conception sur un modèle classique de SMA : les <i>boids</i> de Reynolds [Reynolds1987]. Ainsi, nous pensions être plus à même de juger de la faisabilité et la généricité de cette approche à la suite de cette nouvelle étude [Hermellin-JFSMA-2015, Hermellin-RIA-2016, Hermellin-MABS-2015].</p>
+
+            <h4>Les <i>boids</i> de Reynolds</h4>
+
+            <p>En 1987, lorsque Reynolds a voulu créer une animation réaliste d'une nuée d'oiseaux virtuels (que l'on nomme <i>boids</i>), il s'est rendu compte qu'il n'était pas possible d'utiliser un script global pour réaliser ce genre d'animation. Son idée a alors été la suivante : les <i>boids</i> doivent s'influencer entre eux pour pouvoir se déplacer de manière cohérente et crédible [Reynolds1987]. Il propose donc que chaque entité du modèle soit soumise à des forces leur permettant de se déplacer tout en prenant en compte les mouvements des autres individus présents. Ainsi, chaque entité doit suivre trois règles comportementales:</p>
+            <ul>
+            <li><p><b>R.1</b> <i>Collision Avoidance</i> : éviter les collisions entre entités;</p></li>
+            <li><p><b>R.2</b> <i>Flock Centering</i> : rester le plus proche possible des autres entités);</p></li>
+            <li><p><b>R.3</b> <i>Velocity matching</i> : adapter sa vitesse à celles des autres entités).</p></li>
+            </ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/rules.jpg" alt=""/>
+            </div>
+
+            <p>Le modèle de <i>flocking</i> de Reynolds fait partie des simulations multi-agents les plus connues. Ainsi, de nombreuses plates-formes spécialisées dans le développement de SMA l'intègrent en proposant leur propre implémentation. Parmi tous les travaux identifiés, seuls les modèles pouvant être testés et qui mettent à disposition leur code source ont été sélectionnés : NetLogo, StarLogo, GAMA, MasOn, Repast et Flame GPU.</p>
+
+            <p>Dans le but d'avoir un aperçu sur la manière dont ce modèle a pu être interprété, nous avons comparé plusieurs implémentations de ce dernier. Pour ce faire, nous avons utilisé deux critères de comparaisons :</p>
+            <ul>
+            <li><p>Est-ce que toutes les règles comportementales ont été implémentées ?</p></li>
+            <li><p>Ces règles sont-elles cohérentes avec celles énoncées par Reynolds ?</p></li>
+            </ul>
+
+            <p><b>Implémentation du modèle sur différentes plates-formes</b></p>
+
+            <p>Dans NetLogo [Sklar2007], tous les agents se déplacent et essayent de se rapprocher les uns des autres. Si la distance les séparant est trop faible, ils tentent de se dégager pour éviter d'entrer en collision (R.1), sinon ils s'alignent (R.2). Cependant, R.3 n'est pas implémentée : il n'y a aucune gestion de la vitesse des agents qui reste ainsi constante tout au long de la simulation.</p>
+
+            <p>Dans StarLogo [Resnick1996], chaque agent recherche son plus proche voisin. Si la distance entre eux est trop faible, il tourne et s'éloigne pour éviter d'entrer en collision (R.1). Sinon, il s'approche de lui. La recherche de cohésion n'est pas explicitement exprimée (R.2) et comme pour le modèle précédent, la variation de la vitesse n'est pas présente (R.3).</p>
+
+            <p>Dans GAMA [Grignard2013], les agents commencent par chercher une cible (assimilable à un but) à suivre. Une fois la cible acquise, les agents se déplacent grâce à trois fonctions indépendantes qui implémentent les règles de Reynolds : une fonction pour éviter les collisions (R.1), une fonction de cohésion (R.2) et une fonction permettant aux agents d'adapter leur vitesse à celle des voisins (R.3). Ce modèle diffère de celui présenté par Reynolds car les agents ont besoin d'une cible pour avoir un comportement de <i>flocking</i>.</p>
+
+            <p>Dans MasOn [Luke2005], le modèle utilise un ensemble de vecteurs pour implémenter R.1 et R.2. Ainsi, le mouvement de chaque agent est calculé à partir d'un vecteur global, ce dernier étant composé d'un vecteur d'évitement, d'un vecteur de cohésion (un vecteur dirigé vers le "centre de masse" du groupe d'entités (R.2)), d'un vecteur moment (un vecteur du déplacement précédent), d'un vecteur de cohérence (un vecteur du mouvement global) et d'un vecteur aléatoire. La vitesse est ici aussi constante pendant toute la simulation, R.3 n'étant pas implémentée.</p>
+
+            <p>Dans Repast [Repast2007], les règles R.1 et R.2 sont explicitement implémentées. Cependant, R.1 et R.2 sont exécutées par les agents à la suite dans un comportement unique. De plus, dans le comportement de cohésion, la distance entre les agents est forcée (et ne résulte donc pas des interactions entre ces derniers). Enfin, nous notons que R.3 n'est pas implémentée.</p>
+
+            <p>Flame GPU [Richmond2010] est la seule implémentation GPGPU qui répond à nos critères et que nous avons pu tester. Dans ce modèle, R.1, R.2 et R.3 sont explicitement implémentées dans trois fonctions comportementales indépendantes.</p>
+
+            <p><b>Performances des implémentations et résumé de l'étude</b></p>
+
+            <p>Nous avons également évalué, pour chaque modèle, le temps de calcul moyen en millisecondes pour une itération (<i>ms par itér.</i>, les temps les plus faibles étant les meilleurs. Le but de cette évaluation était de donner une idée des possibilités de chaque implémentation. Ainsi, nous avons utilisé comme paramètre commun un environnement de 512 x 512 cellules contenant 4 000 agents. Notre configuration de test était alors composée d'un processeur Intel Core i7 (génération Haswell, 3.40GHz) et d'une carte graphique Nvidia Quadro K4000 (768 coeurs). Il faut noter que pour StarLogo, les résultats observés étaient d'une seconde dès 400 agents simulés. Les performances étant très en dessous des autres plates-formes, nous n'avons pas poussé les tests plus loin. Pour Repast, l'environnement n'est pas discrétisé mais continu. Enfin, pour Flame GPU, il faut préciser deux points importants : (1) la simulation est exécutée dans un environnement 3D et (2) il n'a pas été possible de modifier le nombre d'agents dans la simulation qui est fixé à 2 048. Les résultats de performance de ce dernier n'ont donc pas été pris en compte.</p>
+
+            <p>Le tableau suivant résume pour chaque modèle les règles de Reynolds implémentées, énonce les caractéristiques principales des modèles et donne des informations de performance. Le sigle <i>*</i> indique que les paramètres de test sont légèrement différents de ceux énoncés dans cette section, à cause de restrictions propres à la plate-forme utilisée ou à l'implémentation.</p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td><b></b></td>
+                        <td colspan="3"><b>Implémentation règles de Reynolds</b></td>
+                        <td><b>Caractéristiques principales</b></td>
+                        <td><b>Performances</b></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Collision R.1</td>
+                        <td>Cohésion R.2</td>
+                        <td>Vitesse R.3</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i>NetLogo</i></td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>-</td>
+                        <td>R.3 n'est pas implémentée : la vitesse des agents est fixée pendant toute la simulation</td>
+                        <td>214 ms par itér. (CPU / Logo)</td>
+                    </tr>
+                    <tr>
+                        <td><i>StarLogo</i></td>
+                        <td>X</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Implémentation minimaliste (seul l'évitement d'obstacle est implémenté)</td>
+                        <td>*1000 ms par itér. (CPU / Logo)</td>
+                    </tr>
+                    <tr>
+                        <td><i>GAMA</i></td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>Comportement de flocking seulement lorsque les agents acquièrent une cible</td>
+                        <td>375 ms par itér. (CPU / GAML)</td>
+                    </tr>
+                    <tr>
+                        <td><i>MasOn</i></td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>-</td>
+                        <td>R.1 et R.2 sont réinterprétées en un vecteur global, aucune gestion de la vitesse</td>
+                        <td>45 ms par itér. (CPU / Java)</td>
+                    </tr>
+                    <tr>
+                        <td><i>Repast</i></td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>-</td>
+                        <td>R.3 non implémentée, R.1 et R.2 exécutées à la suite par les agents dans un comportement unique</td>
+                        <td>*37 ms par itér. (CPU / Java)</td>
+                    </tr>
+                    <tr>
+                        <td><i>Flame GPU</i></td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>X</td>
+                        <td>Les trois règles sont respectées et implémentées telles que définies par Reynolds</td>
+                        <td>*82 ms par itér. (GPU / C, XML)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Proposition d'un modèle</h4>
+
+            <p>De l'aperçu des différentes implémentations des <i>boids</i> de Reynolds, il apparaît que les règles de <i>flocking</i> autorisent une grande variété d'interprétations. Ainsi, la règle pour l'adaptation de la vitesse (R.3) est la moins prise en compte comparée à R.1 et R.2 qui sont implémentées dans chaque modèle rencontré (à l'exception de StarLogo). Cependant, lorsque R.3 est implémentée, les comportements collectifs deviennent plus intéressants. En effet, bien qu'il s'agisse là d'une appréciation subjective du rendu visuel, on note que la prise en compte de cette règle influence concrètement le mouvement global des agents et fait apparaitre des dynamiques plus intéressantes car les agents n'ont pas tous la même vitesse. De même, certains travaux divisent la règle R.2 en deux comportements distincts : un comportement d'alignement et un de cohésion. Les modèles explicitant cette différence offrent des dynamiques plus complexes dans le mouvement global des agents.</p>
+
+            <p>Ainsi, afin de prendre en compte les points intéressants observés précédemment, nous avons choisi de définir notre propre modèle de <i>flocking</i> intégrant explicitement R.1, R.2 (en distinguant l'alignement et la cohésion) et R.3. Nous avons également fait le choix de suivre le principe de parcimonie pour créer un modèle minimaliste (avec le moins de paramètres possible) se focalisant sur la vitesse et l'orientation de l'agent.</p>
+
+            <p><b>Définition du modèle</b></p>
+
+            <p>Dans notre modèle, chaque entité a un comportement global qui consiste à se déplacer dans l'environnement tout en adaptant sa vitesse et sa direction en fonction de ses voisins. Ainsi, la proximité avec les autres agents est testée et selon la distance trouvée, les différentes règles de Reynolds sont activées. Plus précisément, chaque agent vérifie s'il n'a pas de voisin dans son entourage. Si aucun agent n'est présent dans son champ de vision, il continue à se déplacer dans la même direction sinon l'agent vérifie sa proximité avec ses voisins. Selon la distance trouvée, l'agent va soit se séparer (R.1) dans le cas où ses voisins sont trop proches, soit s'aligner si le nombre de voisins est inférieur à un seuil de cohésion ou rentrer en cohésion dans le cas où le nombre de voisins est supérieur au seuil défini (R.2). Ensuite, l'agent adapte sa vitesse (R.3), se déplace et recommence le processus.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/comportementsBoids.svg" alt=""/>
+            </div>
+
+            <p>Ce modèle comporte deux types différents de paramètres : 5 constantes pour le modèle et 3 attributs spécifiques aux agents. Les constantes sont les suivantes :</p>
+            <ul>
+            <li><p><i>fieldOfView</i> : le champ de vision de l'agent;</p></li>
+            <li><p><i>minimalSeparationDistance</i> : la distance minimale entre deux agents;</p></li>
+            <li><p><i>cohesionThreshold</i> : le nombre de voisins pour rentrer en cohésion;</p></li>
+            <li><p><i>maximumSpeed</i> : la vitesse maximale;</p></li>
+            <li><p><i>maximumRotation</i> : l'angle maximum de rotation.</p></li>
+            </ul>
+
+            <p>Les attributs spécifiques à chaque agent sont les suivants :</p>
+            <ul>
+            <li><p><i>heading</i> : son orientation (un angle entre 0 et 360 degré qui donne la direction de l'agent en fonction du repère fixé dans l'environnement);</p></li>
+            <li><p><i>velocity</i> : sa vitesse;</p></li>
+            <li><p><i>nearestNeighborsList</i> : la liste des voisins présents dans son champ de vision.</p></li>
+            </ul>
+
+            <p>Les comportements des agents sont les suivants :</p>
+            <ul>
+            <li><p><b>Comportement de séparation R.1</b> : la séparation se produit lorsque deux agents sont trop proches l'un de l'autre. Ce comportement consiste en la récupération des deux directions : celles de l'agent et de son plus proche voisin. Si ces deux directions mènent à une collision, les deux agents tournent pour s'éviter ;</p></li>
+            <li><p><b>Comportement d'alignement R.2</b> : l'alignement se produit lorsque deux agents se rapprochent l'un de l'autre. Ils vont, dans ce cas, adapter leur orientation de mouvement pour s'aligner et ainsi se diriger vers la même direction ;</p></li>
+            <li><p><b>Comportement de cohésion R.2</b> : quand plusieurs agents sont proches sans avoir besoin de se séparer, ils ont un comportement de cohésion. Ce dernier consiste à calculer la direction moyenne de tous les agents présents dans le champ de vision. Chaque agent va ensuite adapter son orientation en fonction de la valeur trouvée ;</p></li>
+            <li><p><b>Adaptation de la vitesse R.3</b> : avant de se déplacer, les agents doivent adapter leur vitesse (R.3). Durant toute la simulation, chaque agent modifie sa vitesse en fonction de celle de ses voisins. Si l'agent vient d'exécuter le comportement de séparation (R.1) alors il accélère pour se dégager plus rapidement. Sinon, l'agent ajuste sa vitesse pour la faire correspondre à celle de ses voisins (dans la limite autorisée par la constante <i>maximumSpeed</i>.</p></li>
+            </ul>
+
+            <h4>Application du principe de délégation GPU des perceptions agents</h4>
+
+            <p><b>Évolution du principe</b></p>
+
+            <p>Nous avons vu que la délégation GPU des perceptions agents consiste à identifier des calculs de perceptions pouvant être transformés en dynamiques environnementales pour ensuite être calculés par des modules GPU. Cette transformation ne peut être effectuée que si les calculs de perceptions n'impliquent pas les états des agents. Ainsi, pour le modèle MLE, ce sont les calculs relatifs à la diffusion, à l'évaporation et au suivi de gradient des phéromones dans l'environnement qui ont été transformés en dynamiques environnementales gérées par des modules GPU. Ces calculs sont indépendants des états des agents car ils n'utilisent les valeurs calculées qu'en tant que perceptions pour leurs comportements de déplacement ou d'évolution.</p>
+
+            <p>Cependant, en l'état, le principe de délégation GPU des perceptions agents ne pouvait pas être appliqué sur le modèle de <i>flocking</i> que nous avons proposé. En effet, le critère de ce principe ne permettait pas d'identifier des calculs de perception indépendants des états des agents. Dans notre modèle, chacun des calculs fait intervenir un état de l'agent (par exemple son orientation, sa vitesse, etc. voir section précédente). De ce fait, nous avons cherché à faire évoluer le principe afin qu'il puisse prendre en compte notre modèle.</p>
+
+            <p>Nous avons ainsi remarqué que même si chacun des calculs faisaient intervenir un état de l'agent, certains ne les modifiaient pas. Basée sur cette observation, nous avons proposé l'évolution suivante : s'il n'existe pas de calculs de perception indépendants des états des agents, il est possible d'identifier des calculs de perception ne <b>modifiant</b> pas les états des agents. Ce changement ne remet pas en cause le principe original mais étend son critère de sélection à des calculs précédemment non considérés alors que ces derniers peuvent aussi être transformés en dynamiques environnementales traitées par un module GPU (car ils ne touchent pas à l'état des agents). Nous avons donc proposé une nouvelle version du principe que nous avons nommé principe de <i>délégation GPU</i> :</p>
+
+            <blockquote>
+                <b>Principe de délégation GPU</b><br/>Tout calcul de perception ne modifiant pas l'état de l'agent peut être transformé dans une dynamique endogène de l'environnement, et ainsi considéré pour une implémentation dans un module GPU indépendant.
+            </blockquote>
+
+            <p><b>Traduction GPU du calcul des orientations moyennes</b></p>
+
+            <p>Ainsi, dans le modèle de <i>flocking</i> que nous avons proposé, le comportement de cohésion contient un calcul de perception qui se prête bien à l'application de cette nouvelle version du principe de délégation GPU. En effet, ce comportement comporte en son sein un calcul qui consiste à réaliser la moyenne des orientations des agents en fonction du champ de vision (dans TurtleKit, on appelle champ de vision le nombre de cellules, le rayon autour de la cellule sélectionnée, à prendre en compte pour le calcul de la moyenne). Pour ce faire, les agents récupèrent une liste de leurs plus proches voisins (<i>nearestNeighborsList</i>) et la parcours de manière séquentielle pour calculer la moyenne des orientations de chaque agent présent dans cette liste.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/DataComportementBoidsCPU.svg" alt=""/>
+            </div>
+
+<pre>
+Pour(bird dans nearestNeighborsList){
+    sumOfHeading += getHeading(bird);
+}
+neighborsAverageHeading = sumOfHeading / sizeOf(nearestNeighborsList);
+</pre>
+            
+            <p>Ce parcours de boucle est lourd car effectué par tous les agents dans leur propre comportement à chaque pas de simulation. Ainsi, le temps de calcul et les ressources nécessaires sont directement impactés par le nombre d'agents présents dans la simulation et par le champ de vision des agents (plus le champ est grand et plus la liste d'agents récupérée peut être longue). Il est donc intéressant de considérer la transformation de ce calcul en dynamique environnementale calculée par un module GPU.</p>
+
+            <p>Pour bien comprendre le code des <i>kernels</i> de calcul, une précision s'impose. Dans chacun des <i>kernels</i>, le lecteur notera que les tableaux de données en entrée et en sortie sont de dimension une alors que nous avons pris le temps d'expliquer comment définir et utiliser une grille de <i>threads</i> en deux dimensions sur le GPU. En fait, les spécificités de la programmation GPU font qu'il est plus performant d'utiliser des tableaux à une dimension car ils bénéficient de temps d'accès aux données plus rapide. Par ailleurs, afin de maximiser l'occupation, il est aussi plus efficace d'utiliser une grille de <i>threads</i> à deux dimensions plutôt qu'une grille de <i>threads</i> à une dimension. Ainsi, nous avons défini une fonction permettant de convertir les coordonnées 2D des <i>threads</i> en une coordonnée 1D. Cela nous autorise à utiliser des tableaux de données à une dimension tout en conservant une structuration à deux dimensions pour la grille de <i>threads</i>. L'algorithme suivant présente cette fonction (nommée <i>convert1D(x, y, sizeArray)</i>). Cette optimisation est utilisée pour toutes les implémentations réalisées dans ce manuscrit.</p>
+
+<pre>
+Return y * sizeArray + x;
+</pre>
+
+            <p>Pour pouvoir appliquer le principe de délégation GPU, il a fallu extraire de l'information des attributs <i>heading</i> des agents et transformer le calcul associé (la boucle séquentielle) en une dynamique environnementale. Ainsi, un tableau à une dimension* (<i>headingArray</i>, correspondant à la grille de l'environnement) stocke l'orientation de tous les agents en fonction de leur position. Ce tableau est ensuite envoyé au <i>kernel</i> <i>Average</i> qui se charge du calcul des orientations moyennes. En fonction du champ de vision de l'agent (<i>fieldOfView</i>), le <i>kernel</i> calcule de manière simultanée la moyenne pour tout l'environnement. Plus précisément, chaque <i>thread</i> du GPU calcule la moyenne des orientations des cellules voisines d'une cellule en fonction de sa propre position dans la grille GPU, c'est à dire ses identifiants <i>i</i> et <i>j</i>. Une fois réalisé, les orientations moyennes sont disponibles dans tout l'environnement. Les agents n'ont donc plus qu'à récupérer (à percevoir) dans un tableau à une dimensions (<i>flockCentering</i>) la valeur correspondant à leur position (pré-calculée par le <i>kernel</i>) et à adapter leur mouvement.</p>
+
+            <blockquote>
+                * Les tableaux à une dimension offrent de meilleures performances que ceux en deux dimensions. TurtleKit fournit les outils nécessaires permettant de faire le lien entre les environnements en deux dimensions et des tableaux à une dimension (fonction de conversion de coordonées, etc.).
+            </blockquote>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/DataModuleBoidsGPU.svg" alt=""/><br/>
+                <img src="./these/images_chap4/calculMoyenne.svg" alt=""/>
+            </div>
+
+            <p>Après avoir initialisé les coordonnées <i>i</i> et <i>j</i> du <i>thread</i> utilisé et les variables temporaires (<i>sumOfheading</i> et <i>flockCentering</i>), un test conditionnel vérifie si le <i>thread</i> en question ne possède pas des coordonnées supérieures à la taille de l'environnement (représenté ici par le tableau à une dimension <i>headingArray</i>). L'ensemble des orientations des voisins se trouvant dans le champ de vision est ensuite additionné puis stocké dans la variable <i>sumOfheading</i>. Cette variable est enfin divisée par le nombre de voisins pris en compte. Pour finir, le module retourne le tableau <i>flockCentering</i> contenant toutes les moyennes.</p>
+
+<pre>
+i = blockIdx.x * blockDim.x + threadIdx.x;
+j = blockIdx.y * blockDim.y + threadIdx.y;
+
+Si(i &lt; largeur et j &lt; hauteur){
+    sumOfHeading = getHeading(fieldOfView, headingArray[convert1D(i,j)]);
+}
+
+flockCentering[convert1D(i,j)] = sumOfHeading / sizeOf(nearestNeighborsList);
+</pre>
+
+            <p>Par rapport à la version séquentielle de l'algorithme, on voit que la boucle a disparu. Ainsi, nous profitons du fait que la parallélisation de cette boucle est réalisée grâce à l'architecture matérielle du GPU.</p>
+
+            <p><b>Implémentation et intégration dans TurtleKit</b></p>
+
+            <p>La traduction du calcul des orientations moyennes par le <i>kernel Average</i> a permis la création d'un module GPU : le module GPU <i>Average</i>. Tout comme pour le cas d'étude portant sur le modèle MLE, l'intégration du module GPU <i>Average</i> a été réalisée dans la plate-forme TurtleKit en version 3.0.0.4. L'environnement de développement CUDA a été utilisé en version 6.5 et la version 0.6.5 de la librairie JCUDA a servi pour faire l'interface entre CUDA et TurtleKit. La figure suivante illustre l'application du principe sur notre modèle et l'intégration du module au sein de TurtleKit.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/AverageKernelBoids.svg" alt=""/>
+            </div>
+
+            <h4>Résultats</h4>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap4/flockinglong.jpg" alt=""/>
+            </div>
+
+            <p><b>Evaluation des performances</b></p>
+
+            <p>Nous avons présenté pour chacun des modèles de <i>flocking</i> sélectionnés, des données relatives aux performances. Cependant, au vu de la très grande disparité entre les différentes implémentations et à cause de l'hétérogénéité des plates-formes (et matériels utilisés), nous n'avons pas pu prendre en compte ces valeurs dans nos résultats de performances concernant notre modèle et l'application de la <i>délégation GPU</i> sur ce dernier.</p>
+
+            <p>Le protocole expérimental permettant de tester les performances de nos implémentations a été le suivant : nous avons simulé plusieurs tailles d'environnement tout en faisant varier le nombre d'agents et exécuté successivement la version séquentielle du modèle puis la version GPGPU (utilisant le module GPU <i>Average</i>). Pour toutes les simulations lancées, le champ de vision des agents était fixé à 10 (un rayon de 10 cases autour de l'agent). Pour rester cohérent avec les critères d'analyse des modèles vus précédemment, nous avons relevé le temps de calcul d'une itération en millisecondes (les temps les plus faibles étant les meilleurs).</p>
+
+            <p>Pour ces tests, et pour tous ceux réalisés dans la suite de ce document, nous avons utilisé une configuration composée d'un processeur Intel Core i7 (génération Haswell, 3.40GHz), d'une carte graphique Nvidia Quadro K4000 (768 coeurs CUDA) et de 16Go de RAM. La figure suivante présente les résultats obtenus pour des environnements de taille 256 et 512 avec une densité d'agents variant entre 1 % et 60 %.</p>
+
+            <div id="chart_chap4_flock" class="chart"></div>
+
+            <p>Des graphiques, nous observons que dans l'environnement de taille 256, le gain augmente assez rapidement puis stagne ensuite autour d'un gain de performances de 40 à 50 % alors que dans l'environnement de taille 512, le profil d'accélération est assez différent. Il est assez lent au départ puis croît rapidement jusqu'à 40 % de gain.</p>
+
+            <p>D'une manière générale, nous remarquons que les gains de performance et le profil d'accélération sont fortement liés à la densité des agents présents dans l'environnement. En effet, lorsque cette dernière est faible (inférieure à 10 %), une grande partie des agents n'active pas leur comportement de cohésion : ils passent plus de temps à s'aligner et à se séparer. La simulation profite donc moins de l'accélération offerte par l'utilisation du module GPU. Cependant, passé un certain seuil (une densité d'agents d'environ 15 %), le basculement devient clairement visible dans les résultats et l'utilisation conjointe du CPU et du GPU devient plus efficace. Ainsi, plus la densité d'agents dans l'environnement est importante et plus les gains de performance observés augmentent.</p>
+
+            <p>L'utilisation du GPGPU permet donc de travailler avec des environnements plus grands et/ou des populations d'agents plus importantes. C'est d'ailleurs dans ces situations que cette technologie exprime tout son potentiel. Cependant, il y a des limites. En effet, on peut observer, dans l'environnement de taille 256, une stagnation des performances au dessus d'une certaine densité d'agents (25 %). Cela s'explique par le fait que, dans notre modèle, seul un calcul profite du GPGPU. Ainsi, les ressources consommées par les comportements et par l'ordonnancement des agents limitent les performances générales (ces derniers étant toujours exécutés par le CPU). Étant basé sur une approche hybride, le principe de délégation GPU ne transforme que les calculs identifiés comme coûteux et répondant aux critères de ce dernier. Ainsi, seul une partie du modèle profite de la parallélisation sur GPU.</p>
+
+            <p>Enfin, il faut aussi prendre en compte que les performances obtenues sont significatives si l'on considère le matériel utilisé : notre carte graphique Nvidia Quadro K4000 n'est composée que de 768 coeurs CUDA alors que la nouvelle Nvidia Titan X (Pascal) en contient 3 584.</p>
+
+            <div id="chart_chap4_flock_2" class="chart"></div>
+
+            <p><b>Avantages conceptuels de l'approche</b></p>
+
+            <p>Un des premiers avantages que nous pouvons souligner est que le module GPU créé à la suite de la délégation du calcul des orientations moyennes est au final indépendant du modèle pour lequel il a été conçu. En effet, les agents ne font que déposer de l'information dans des structures de données adaptées et gérées par les dynamiques environnementales qui sont ensuite envoyées au module GPU.</p>
+
+            <p>Ainsi, le module réalisé grâce au principe de délégation GPU ne fait que recevoir et traiter un flux de données. Il n'est donc pas limité au contexte pour lequel il a été conçu. Ce résultat est important car une majorité des travaux traitant de l'utilisation du GPGPU dans un contexte de simulations multi-agents est souvent à "usage unique" et non réutilisable. On a donc une augmentation de la réutilisatilité des outils créés.</p>
+
+            <p>De plus, l'application du principe de délégation GPU se base sur un critère simple indépendant de l'implémentation. Cela permet de convertir le modèle et de créer le(s) module(s) GPU de manière assez rapide.</p>
+
+            <p>Enfin, la traduction d'une perception calculée dans le comportement de l'agent en une dynamique de l'environnement permet de déplacer une partie de la complexité des agents vers l'environnement. Ceci a pour effet de simplifier le codage du comportement, sa lisibilité et donc de faciliter la compréhension de ce dernier.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Exploration du principe de délégation GPU des perceptions agents</h3>
+            </div>
+
+            <p>Dans ce chapitre, nous avons introduit la <i>délégation GPU des perceptions agents</i> [Michel2014] : un principe de conception permettant de répondre, en partie, aux problèmes de réutilisabilité, généricité et accessibilité souvent occasionnés par l'utilisation du GPGPU dans le contexte des simulations multi-agents. Ce principe se veut différent des autres solutions déjà existantes car il propose de transformer un modèle pour qu'il puisse tirer partie de la puissance du GPU plutôt que d'imposer une utilisation transparente de cette technologie impactant la généricité de la solution.</p>
+
+            <p>Cependant, la délégation GPU des perceptions agents n'avait été expérimentée que sur un seul modèle multi-agent et implémentée de manière <i>ad hoc</i>. La possibilité de réutiliser ce principe dans un autre contexte n'était donc pas avérée. Afin de juger des capacités réelles de cette approche, nous avons proposé de réaliser un nouveau cas d'étude autour de ce principe.</p>
+
+            <p>A cause du caractère très restrictif du principe de délégation GPU des perceptions agents (il n'est possible de déléguer que les calculs de perception indépendants des états des agents), nous avons dû proposer une évolution au critère de ce principe car, en l'état, il ne pouvait être appliqué que sur le modèle multi-agent avec lequel il a été expérimenté. Ainsi, étendre le critère du principe aux calculs de perception ne modifiant pas les états des agents, nous a permis d'appliquer le principe de délégation GPU sur notre modèle de <i>flocking</i>.</p>
+
+            <p>Grâce aux tests effectués, nous avons pu constater que, du point de vue des performances, l'utilisation du GPGPU au travers du principe de délégation GPU a permis d'obtenir des gains de performance intéressant (l'exécution du modèle de <i>flocking</i> est jusqu'à 40 % plus rapide). Ces résultats sont bien sûr fortement liés à la densité des agents, à la taille de l'environnement ainsi qu'à l'optimisation des outils et au matériel utilisé mais préfigure d'un très bon potentiel. D'autre part, le principe de délégation GPU représente un modèle de développement qui permet de promouvoir la réutilisabilité des outils créés alors que ce critère essentiel est souvent délaissé dans un contexte GPGPU. En effet, l'utilisation de la délégation GPU permet une séparation explicite entre le modèle agent (les comportements de l'agent) et les dynamiques environnementales autorisant ainsi la création de modules GPU génériques indépendants du modèle agent et donc réutilisables dans d'autres contextes (pour le modèle de <i>flocking</i>, un module <i>Average</i> a été créé et est maintenant réutilisable).</p>
+
+            <p>Ainsi, les résultats observés lors de ces premières expérimentations (MLE et <i>flocking</i>) ont été encourageants que ce soit vis-à-vis des performances ou d'un point de vue conceptuel. Ces deux études ont représenté une preuve de concept soulignant que l'utilisation du GPGPU pour le développement multi-agents est possible, mais elles n'étaient que préliminaires et un certain nombre d'étapes restait alors à franchir. En effet, malgré que l'on ait amélioré le champ d'application du principe de délégation (le rendant plus générique), il était encore trop tôt pour présager des réelles avancées qu'allait permettre ce principe de conception. Il nous fallait tout d'abord l'appliquer sur plus de modèles multi-agents.</p>
+
+            <div class="ajax-page-nav">
+                <div class="nav-item ajax-page-prev-next">
+                    <a class="ajax-page-load" href="./these/t_chap3.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                    <a class="ajax-page-load" href="./these/t_chap5.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+                </div>
+                <div class="nav-item ajax-page-close-button">
+                    <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+                </div>
+            </div>   
+
+            <script type="text/javascript">
+                function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+                        Highcharts.chart('chart_chap4_mle', {
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: 'Modèle MLE, Gains de performance'
+                            },
+                            xAxis: {
+                                title: {
+                                    text: 'Densité des agents'
+                                },
+                                categories: ['5', '10', '20', '40', '60', '80']
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Gains de performance'
+                                }
+                            },
+                            series: [{
+                                name: 'MLE (env 500)',
+                                data: [3.42, 2.68, 1.89, 1.54, 1.32, 1.33]
+                            },{
+                                name: 'MLE (env 1000)',
+                                data: [4.37, 3.46, 2.25, 1.48, 1.48, 1.34]
+                            },{
+                                name: 'MLE (env 1600)',
+                                data: [6.96, 4.95, 3.29, 1.94, 1.78, 1.61]
+                            }]
+                        });
+
+                        Highcharts.chart('chart_chap4_flock', {
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: 'Modèle Flocking, résultats de performance'
+                            },
+                            xAxis: {
+                                title: {
+                                    text: 'Densité des agents'
+                                },
+                                categories: ['5', '10', '15', '30', '60']
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Temps de calcul par itération [ms]'
+                                }
+                            },
+                            series: [{
+                                name: 'CPU (env 256)',
+                                data: [36, 77, 108, 255, 518]
+                            },{
+                                name: 'CPU (env 512)',
+                                data: [116, 201, 487, 1186, 2797]
+                            },{
+                                name: 'Hybride (env 256)',
+                                data: [28, 56, 79, 182, 338]
+                            },{
+                                name: 'Hybride (env 512)',
+                                data: [105, 179, 431, 959, 2002]
+                            }]
+                        });
+
+                        Highcharts.chart('chart_chap4_flock_2', {
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: 'Modèle Flocking, Gains de performance'
+                            },
+                            xAxis: {
+                                title: {
+                                    text: 'Densité des agents'
+                                },
+                                categories: ['5', '10', '15', '30', '60']
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'Gains de performance'
+                                }
+                            },
+                            series: [{
+                                name: 'Flocking (env 256)',
+                                data: [1.28, 1.37, 1.375, 1.40, 1.403]
+                            },{
+                                name: 'Flocking (env 512)',
+                                data: [1.10, 1.12, 1.13, 1.23, 1.40]
+                            }]
+                        });
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+
+            </script>
+        </div>
+    </div>
+</div>

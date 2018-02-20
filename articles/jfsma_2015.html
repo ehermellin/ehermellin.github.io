@@ -1,0 +1,100 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <h1>Délégation GPU des perceptions agents : application aux boids de Reynolds</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 col-md-8 portfolio-block">
+                <div class="block-title">
+                    <h3>Résumé</h3>
+                </div>
+                <p>L'utilisation du GPGPU (General-Purpose Computing on Graphics Processing Units) pour la simulation multiagent permet d'améliorer les performances des modèles et lève une partie des contraintes liées au passage à l'échelle. Cependant, adapter un modèle pour qu'il utilise le GPU est une tâche complexe car le GPGPU repose sur une programmation extrêmement spécifique et contraignante. C'est dans ce contexte que la <i>délégation GPU des perceptions agents</i> a été proposée. Ce principe consiste à réaliser une séparation claire entre les comportements de l'agent (gérés par le CPU) et les dynamiques environnementales (manipulées par le GPU) dans le but de faciliter l'implémentation de SMA sur GPU. Il a été appliqué sur un cas d'étude et a montré de bons résultats en termes de performances et de conception. Dans cet article, nous proposons de tester la généricité de cette approche en appliquant le principe de délégation GPU sur un modèle agent très classique : les boids de Reynolds. Nous montrons que le principe de délégation offre des résultats intéressants au niveau des performances mais aussi d'un point de vue conceptuel. </p>
+
+                <br/>
+                <div class="block-title">
+                    <h3>Bibtex</h3>
+                </div>
+                <pre style="font-size: 9pt;">
+@inproceedings{Hermellin-JFSMA-2015,
+  editor    = {Laurent Vercouter and Gauthier Picard},
+  author    = {Emmanuel Hermellin and Fabien Michel},
+  title     = {D{\'{e}}l{\'{e}}gation {GPU} des perceptions agents : Application aux Boids de Reynolds},
+  booktitle = {Environnements socio-techniques - {JFSMA} 15 - Vingt-troisi{\`{e}}mes Journ{\'{e}}es Francophones sur les Syst{\`{e}}mes Multi-Agents, Rennes, France, June 30th-July 1st, 2015},
+  pages     = {185-194},
+  year      = {2015},
+  publisher = {C{\'{e}}padu{\`{e}}s {\'{E}}ditions},
+  isbn      = {978-2-36493-191-6},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/jfsma/HermellinM15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}</pre>
+
+                <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+            </div>
+
+            <div class="col-sm-4 col-md-4 portfolio-block">
+                <div class="block-title">
+                    <h3>Auteurs et lien</h3>
+                </div>
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-user"></i> Emmanuel Hermellin et Fabien Michel</p></li>
+                    <li><p><i class="fa fa-globe"></i> <a href="http://hal-lirmm.ccsd.cnrs.fr/lirmm-01236841" target="_blank">JFSMA 2015</a></p></li>
+                </ul>
+                <div class="tags-block">
+                    <div class="block-title">
+                        <h3>Mots-clés</h3>
+                    </div>
+                    <ul class="tags">
+                        <li><a>SMA</a></li>
+                        <li><a>GPGPU</a></li>
+                        <li><a>CUDA</a></li>
+                        <li><a>Flocking</a></li>
+                    </ul>
+                </div>
+                <br/>
+                <img src="./images/recherche/publication/jfsma_2015.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,441 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-prev-next">
+                <a class="ajax-page-load" href="./these/t_chap1.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                <a class="ajax-page-load" href="./these/t_chap3.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+            </div>
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <div class="chapter-title"><h2>Chapitre 2 : Calcul haute performance et GPGPU</h2></div>
+        </div>
+
+        <div class="row">
+            <br/>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap1.html"> Chapitre 1 : Simulation multi-agent</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap3.html"> Chapitre 3 : Simulations multi-agents et GPGPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap4.html"> Chapitre 4 : Le principe de délégation GPU des perceptions agents</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap5.html"> Chapitre 5 : Expérimentation du principe de délégation GPU</a></p></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-6 subpage-block">
+                <ul class="project-general-info">
+                    
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap6.html"> Chapitre 6 : Définition d'une méthode de conception basée sur la délégation GPU</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap7.html"> Chapitre 7 : Conclusion</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_chap8.html"> Chapitre 8 : Perspectives de recherche</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a class="ajax-page-load" href="./these/t_bib.html"> Bibliographie</a></p></li>
+                </ul>                
+            </div>
+
+            <p>Le calcul haute performance (aussi appelé calcul intensif) fait référence au domaine dédié au développement des architectures matérielles capables d'exécuter plusieurs milliards d'opérations à la seconde ainsi qu'aux méthodes et techniques de programmation massivement parallèles qui leurs sont associées. Parmi les architectures dédiées au HPC, les super-ordinateurs peuvent être vus comme un grand nombre de machines (<i>e.g.</i> des serveurs de calcul) composées de plusieurs milliers de processeurs reliés entres eux par des réseaux à très haut débit et capables de pouvoir traiter plus rapidement :</p>
+            <ul>
+            <li><p> Une simulation donnée en partageant sur un ensemble de serveurs le travail à réaliser (en parallélisant le calcul) ;</p></li>
+            <li><p> Un grand nombre de simulations exécutées sur l'ensemble des serveurs de calcul en faisant varier par exemple des paramètres d'entrées comme la température ou la pression d'un fluide, la déformation d'un solide, la volatilité d'un produit dérivé financier, etc.</p></li>
+            </ul>
+
+            <p>Ainsi, un calcul qui s'exécute en 24 heures sur un PC (de l'anglais <i>Personnal Computer</i>) classique ne prendrait que quelques minutes sur un super-ordinateur. Ces gains en temps permettent de réduire les coûts à chaque étape de la vie d'un produit ou d'un process (conception, optimisation, validation) et concernent potentiellement de nombreux domaines de recherche et applicatifs industriels tels que l'environnement, l'automobile, l'aéronautique et le spatial, la chimie, la médecine et la biologie, les matériaux, l'énergie, la finance, le traitement massif de données multimédia, etc.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Une réponse à des besoins de calculs</h3>
+            </div>
+
+            <p>Les super-ordinateurs sont devenus des outils omniprésents dans le monde de la recherche et du développement car ils offrent la possibilité d'évaluer des situations, d'expérimenter mais aussi de réaliser des expériences qui ne peuvent être menées en laboratoire à cause de coûts trop élevés, de danger, ou d'impossibilité physique de mise en oeuvre.</p>
+
+            <p>Ainsi, la puissance disponible au sein des super-ordinateurs a augmenté parallèlement aux progrès de l'électronique et suit la théorie énoncée par Gordon Moore. Cette dernière énonce un doublement de la puissance disponible tous les 18 mois. Pour mesurer cette puissance, il est usuel d'utiliser une unité dédiée : le Flops (de l'anglais <i>Floating point Operations Per Second</i>). La figure ci-dessous présente une évolution de l'évolution de cette puissance (Sum représente la puissance combinée des 500 plus gros super-calculateurs, N = 1 la puissance du super-calculateur le plus rapide et N = 500 la puissance du super-calculateur se trouvant à la place 500) pour les 500 meilleurs super-calculateurs de 1993 à 2014.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap2/top500.svg" alt=""/>
+            </div>
+
+            <p>Pour atteindre de telles capacités de calcul, les super-ordinateurs sont obligés d'utiliser un grand nombre de processeurs (plusieurs milliers), aussi appelés CPU (de l'anglais <i>Central Processing Unit</i>), qui vont fonctionner de manière conjointe. Cette utilisation parallèle des CPU est une spécificité introduite par ces super-ordinateurs. </p>
+
+            <p>En effet, avant l'émergence de ce mouvement de parallélisation, les ordinateurs ne contenaient qu'un seul CPU dont la fréquence de fonctionnement était la seule caractéristique permettant d'évaluer la performance de la machine. La règle était alors relativement simple : plus la fréquence était élevée, plus le CPU était rapide. Ainsi, il était alors possible de permettre à un programme limité par la vitesse du CPU de s'exécuter plus rapidement sans la moindre adaptation (un CPU plus rapide permet d'effectuer plus d'opérations par seconde).</p>
+
+            <p>Cependant, l'augmentation de la fréquence au sein d'un CPU est limitée par l'apparition de multiple obstacles physiques, notamment en termes de miniaturisation (finesse de gravure du CPU) et de dissipation thermique. Le parallélisme est donc apparu comme la solution pour contourner ces difficultés afin d'augmenter les performances des ordinateurs. L'accroissement de la puissance de calcul est alors réalisée grâce à la multiplication du nombre de CPU et du nombre de coeurs d'exécution (processeur multi-coeurs) et/ou par une interconnexion entre de nombreuses machines (serveurs de calcul). </p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Le parallélisme</h3>
+            </div>
+
+            <p>Les architectures parallèles sont devenues omniprésentes et chaque ordinateur possède maintenant un processeur reposant sur ce type d'architecture matérielle. Le parallélisme consiste à utiliser ces architectures parallèles pour traiter des informations et des données de manière simultanée dans le but de réaliser le plus grand nombre d'opérations par seconde.</p>
+
+            <h4>La taxonomie de Flynn</h4>
+
+            <p>La <i>taxonomie</i> établie par Michael J. Flynn [Flynn1972] est l'un des premiers systèmes de classification qui classe les architectures des ordinateurs selon le type d'organisation du flux de données et du flux d'instructions qu'ils utilisent. Il référence ainsi quatre types différents d'architecture qui vont du plus simple traitant uniquement une donnée à la fois, ils sont dits <i>séquentiels</i>, aux plus complexes traitant de nombreuses données et instructions en simultané, ils sont qualifiés de <i>parallèles</i>.</p>
+            <ul>
+            <li><p>Architecture SISD (<i>Single instruction Single Data</i>) : systèmes séquentiels qui traitent une donnée à la fois.</p></li>
+            <li><p>Architecture SIMD (<i>Single instruction Multiple Data</i>) : systèmes parallèles traitant de grandes quantités de données d'une manière uniforme.</p></li>
+            <li><p>Architecture MIMD (<i>Multiple instruction Multiple Data</i>) : systèmes parallèles traitant de grandes quantités de données de manières hétérogènes.</p></li>
+            <li><p>Architecture MISD (<i>Multiple instruction Single Data</i>) : systèmes parallèles traitant une seule donnée de manière hétérogène.</p></li>
+            </ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap2/Flynn.svg" alt=""/>
+            </div>
+
+            <p>Cette classification montre clairement deux types de parallélismes différents : le <i>MIMD</i> et le <i>SIMD</i>. Le <i>MIMD</i> correspond au parallélisme par flot d'instructions, également nommé <i>parallélisme de traitement</i> ou de contrôle, dans lequel plusieurs instructions différentes sont exécutées simultanément. Le <i>SIMD</i> fait référence au <i>parallélisme de données</i>, où les mêmes opérations sont répétées sur des données différentes.</p>
+
+            <h4>Efficacité du parallélisme</h4>
+
+            <p>Cependant, il serait naïf de penser que la parallélisation d'un programme ou d'un algorithme apporte nécessairement un gain de performance important. De façon idéale, l'accélération induite par la parallélisation devrait être linéaire. En doublant le nombre d'unités de calcul, on devrait réduire de moitié le temps d'exécution, et ainsi de suite. Malheureusement très peu de programmes peuvent prétendre à de tels résultats. En effet, l'accélération que peut apporter la parallélisation est limitée par le nombre d'exécutions parallèles possibles au sein de l'algorithme ou du programme. </p>
+
+            <p>Dans les années 1960, Gene Amdahl formula une loi empirique restée célèbre [Amdahl1967]. La loi d'Amdahl affirme qu'il existe, dans tout programme, une partie du code source qui ne peut être parallélisée et qui limite la vitesse d'exécution globale. Ainsi, cette loi établie une relation entre le ratio de code parallélisé et la vitesse globale d'exécution du programme. Dans la pratique, si un programme peut être parallélisé à 90 %, l'accélération maximale théorique sera de x10, quel que soit le nombre de processeurs utilisés.</p>
+
+            <p>D'autres lois ont suivi, telle que la loi de Gustafson [Gustafson1988] qui prédit que le gain de vitesse obtenu est proportionnel à la fois au taux que représente la partie non-parallélisable et au nombre de processeurs. La métrique de Karp-Flatt [Karp1990], proposée en 1990, est plus complexe et efficace que les deux autres lois. Elle intègre le coût lié au temps d'exécutions des instructions qui mettent en oeuvre le parallélisme.</p>
+
+            <h4>Solutions de parallélisation</h4>
+
+            <p>Avant de paralléliser un programme ou algorithme, il est important de choisir le matériel sur lequel va être implémenté le programme. Il existe plusieurs types d'architectures matérielles dédiées au parallélisme, chacune d'entre elles possédant des caractéristiques qui lui sont propres (types et taille de la mémoire, vitesse, opérations réalisables, etc.) et appartenant donc à un type de parallélisme particulier (SIMD, MIMD, MISD). Parmi les architectures matérielles les plus connues, on retrouve donc :</p>
+            <ul>
+            <li><p>Processeur multi-coeurs : processeur composé de plusieurs unités de calcul "autonomes" permettant d'effectuer plusieurs opérations en parallèle, et donc d'accroître les performances globales du système. Cependant, les programmeurs doivent modifier leurs programmes pour bénéficier des avantages apportés par ces puces.</p></li>
+            <li><p>Coprocesseur : processeur composé d'unités de calcul spécialisées, c'est à dire dédiées à des traitements particuliers tels que les opérations mathématiques sur les flottants, le calcul vectoriel, etc. Les efforts nécessaires à la transformation du code d'un programme pour prendre en compte cette architecture matérielle sont réalisés en partie par les compilateurs et les bibliothèques dédiées.</p></li>
+            <li><p>Carte graphique (GPU, de l'anglais <i>Graphics Processing Unit</i>) : processeur composé de centaines (voir de milliers) de coeurs dédiés, à la base, au calcul et rendu graphique. Ils sont cependant de plus en plus utilisés pour faire du calcul généraliste. Cette technologie nécessite une transformation complète du code du programme pour bénéficier des performances offertes par ces cartes.</p></li>
+            </ul>
+
+            <p>Cependant, de par la spécificité de ces architectures matérielles, les programmes doivent être entièrement pensés dans l'optique d'être utilisés sur ce matériel particulier : l'implémentation d'un programme est directement impactée par le choix du matériel sur lequel il va être exécuté. De plus, un programme réalisé pour une architecture spécifique n'est pas compatible avec une autre et ne peut que très rarement être réutilisé. En effet, paralléliser un programme sur plusieurs unités de traitements (pour un processeur multi-coeurs par exemple) est très différent d'une parallélisation sur une carte graphique possédant des milliers d'unités de traitement. Enfin, les performances offertes ainsi que l'efficacité énergétique de ces différentes architectures varient énormément sans forcément se valoir. Faire le bon choix d'architecture est donc essentiel.</p>
+
+            <p>Une fois le matériel choisi, il est nécessaire d'utiliser un langage de programmation adapté à la programmation parallèle. Parmi les plus connus, nous pouvons en présenter quatre :</p>
+            <ul>
+            <li><p>OpenMP (<i>Open Multi-Processing</i>) est une interface de programmation pour le calcul parallèle sur architecture à mémoire partagée. OpenMP est portable et permet de développer rapidement des applications parallèles en restant proche du code séquentiel.</p></li>
+            <li><p>MPI (<i>The Message Passing Interface</i>) est une interface de programmation dédiée au calcul parallèle aussi bien sur des machines massivement parallèles à mémoire partagée que sur des clusters d'ordinateurs hétérogènes à mémoire distribuée. MPI est grandement portable (car MPI a été implémenté sur presque toutes les architectures de mémoire) et rapide (car chaque implémentation a été optimisée pour le matériel sur lequel il s'exécute).</p></li>
+            <li><p>OpenCL (<i>Open Computing Language</i>) est la combinaison d'une API (de l'anglais <i>Application Program Interface</i>) et d'un langage de programmation dérivé du C, proposé comme un standard ouvert par le Khronos Group. OpenCL est conçu pour programmer des systèmes parallèles hétérogènes comprenant par exemple à la fois un CPU multi-coeurs et un GPU.</p></li>
+            <li><p>CUDA (<i>Compute Unified Device Architecture</i>) est aussi une combinaison entre une API et un langage de programmation dérivé du C. Il est dédié à la programmation sur GPU, c'est-à-dire qu'il permet d'utiliser un processeur graphique (GPU) pour exécuter des calculs généraux habituellement exécutés par le processeur central (CPU).</p></li>
+            </ul>
+
+            <h4>Les cartes graphiques : une alternative intéressante pour le calcul intensif</h4>
+
+            <p>Les processeurs multi-coeurs et les coprocesseurs font partis des architectures matérielles privilégiées pour faire du calcul intensif. Cependant, bien qu’offrant de très bonnes performances [Hamidouche2009], ces solutions n’offrent pas toujours d’outils d’assez haut niveau pour être exploitables massivement par les programmeurs [Bourgoin2013]. De plus, l'investissement nécessaire pour développer une application sur ce type d'architecture (achat du matériel et temps de développement) ainsi que le coût d'exploitation (consommation énergétique) peut vite devenir très important.</p>
+
+            <p>Ces contraintes ont poussé à étudier d’autres solutions, comme la possibilité d'utiliser les cartes graphiques pour faire du calcul intensif. En effet, ces cartes sont déjà bien connues dans le monde du graphisme et offrent de très bonnes performances [Owens2007, Che2008]. De plus, de nos jours, tout ordinateur personnel est équipé d'une carte graphique. Enfin, ces cartes possèdent un autre avantage non négligeable : leur prix très accessible. </p>
+
+            <p>Ainsi, c'est leur rapport prix/performance et leur disponibilité qui nous ont poussés à choisir cette plateforme matérielle pour nos développements et implémentations. Cependant, la technologie associée, appelée GPGPU (de l'anglais <i>General-Purpose computing on Graphics Processing Units</i>, qui permet de faire du calcul intensif sur ces cartes), s'appuie sur un parallélisme de type SIMD. Très différent d'une approche de programmation séquentielle classique, ce type de parallélisme qui nécessite notamment de suivre les principes de la programmation par traitement de flot de données est très spécifique et complexe. Nos travaux de thèse s'appuyant en grande partie sur l'utilisation de cette technologie, nous proposons maintenant d'introduire en détails le GPGPU.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>General-Purpose computing on Graphics Processing Units</h3>
+            </div>
+
+            <p>Une carte graphique repose sur une architecture matérielle <i>many-core</i> proposant un très grand nombre de coeurs d'exécution. Très rapidement, l'intérêt d'utiliser ces cartes pour faire du HPC est venu du fait qu'elles sont faites pour être performantes en calcul numérique (<i>e.g.</i> calcul géométrique dans les jeux vidéo, calcul matricielle pour le graphisme) et offrent un rapport performance/coût supérieur aux autres solutions existantes. Cependant, effectuer du calcul généraliste n'a pas toujours été un des rôles des GPU. Comme nous allons le voir, ces architectures ont énormément évoluées avec le temps pour devenir, aujourd'hui, de véritables plateformes dédiées au calcul intensif.</p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td><b></b></td>
+                        <td colspan="2"><b>CPU</b></td>
+                        <td><b>GPU Desktop</b></td>
+                        <td><b>GPU HPC</b></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Core i7-4790</td>
+                        <td>Core i7-6700K</td>
+                        <td>Geforce GTX 980</td>
+                        <td>Tesla K80</td>
+                    </tr>
+                    <tr>
+                        <td># Unités de calcul</td>
+                        <td>4 (8 Threads)</td>
+                        <td>4 (8 Threads)</td>
+                        <td>2 048</td>
+                        <td>4 992</td>
+                    </tr>
+                    <tr>
+                        <td>Fréquence</td>
+                        <td>3.6 GHz</td>
+                        <td>4.0 GHz</td>
+                        <td>1.2 GHz</td>
+                        <td>875 MHz</td>
+                    </tr>
+                    <tr>
+                        <td>Mémoire Max</td>
+                        <td>32 GB</td>
+                        <td>64 GB</td>
+                        <td>4 GB</td>
+                        <td>24 GB</td>
+                    </tr>
+                    <tr>
+                        <td>GFlops (simple précision)</td>
+                        <td>27.15</td>
+                        <td>43.83</td>
+                        <td>4 612</td>
+                        <td>8 736</td>
+                    </tr>
+                    <tr>
+                        <td>GFlops (double précision)</td>
+                        <td>15.34</td>
+                        <td>22.76</td>
+                        <td>144</td>
+                        <td>2 912</td>
+                    </tr>
+                    <tr>
+                        <td>Prix</td>
+                        <td>325 €</td>
+                        <td>425 €</td>
+                        <td>520 €</td>
+                        <td>5 000 €</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Historique et évolution des capacités des GPU</h4>
+
+            <p>Dans les années 1980, les cartes graphiques ont été développées avec, comme objectif premier, de soulager les processeurs (CPU) de la charge que demandait l'affichage du texte et, plus tard, la gestion graphique de chaque pixel de l'écran. Ces cartes sont des processeurs (GPU) secondaires, dotés de leur propre espace mémoire, connectés et contrôlés par le CPU. </p>
+    
+            <p>Avec l'engouement des années 90 pour les graphismes dans le jeu vidéo (couleur, animations et nombre de pixels à afficher de plus en plus important), ces cartes ont rapidement été amenées à traiter de plus en plus d'opérations (déléguées par le CPU) et se sont donc perfectionnées jusqu'à devenir des GPU programmables capables d'exécuter des programmes spécialement écrits pour eux. Ces capacités de programmation sont très limitées et ne sont accessibles que par le biais de bibliothèques de rendu graphique comme OpenGL (de l'anglais <i>Open Graphics Library</i>) et DirectX.</p>
+
+            <p>C'est au début des années 2000 que le GPGPU commence à être utilisé. Il n'existait alors aucune interface de programmation spécialisée et les rares personnes intéressées détournaient donc "à la main" les fonctionnalités graphiques de la carte pour réaliser des calculs relevant d'un autre contexte [Owens2007]. Par exemple, il était nécessaire d'utiliser les textures graphiques comme structures de données : chaque <i>texel</i> de la texture permettait de stocker 4 variables (de 8 bits) à la place des valeurs usuelles rouge, bleu, vert et alpha. Ces données étaient ensuite traitées et manipulées par des scripts, les <i>shaders</i>, exécutés par le GPU. Du fait de la complexité associée à cette utilisation non conventionnelle du GPU, celle-ci est longtemps restée réservée à une petite communauté de programmeurs. </p>
+            
+            <p>Il aura fallu attendre 2007 pour que sorte la première interface de programmation dédiée au GPGPU. Mise à disposition par Nvidia, CUDA a pour objectif de fournir un meilleur support et une plus grande accessibilité à cette technologie. Ainsi, CUDA fournit un environnement logiciel de haut niveau permettant aux développeurs de définir et contrôler les GPU de la marque Nvidia par le biais d'une extension du langage C. Cette solution a été suivie en 2008 par OpenCL, un <i>framework</i> de développement permettant l'exécution de programmes sur des plateformes matérielles hétérogènes (un ensemble de CPU et/ou GPU sans restriction de marques). OpenCL est un standard ouvert, fourni par le consortium industriel <i>Khronos Group</i>, qui s'utilise aussi comme une extension du langage C. CUDA et OpenCL sont actuellement les deux solutions les plus populaires pour faire du GPGPU.</p>
+
+            <p>De nos jours, l'utilisation des GPU comme architecture dédiée au calcul intensif devient si populaire que la marque Nvidia communique de plus en plus sur les capacités en terme de puissance de calcul de ses cartes alors que cette communication était auparavant axée sur les capacités graphiques dans les jeux vidéo.</p>
+
+            <h4>Une nouvelle architecture d'exécution</h4>
+
+            <p>Afin de développer les capacités GPGPU des cartes graphiques, les GPU ont évolué et sont maintenant composés de centaines d'ALU (de l'anglais <i>Arithmetic Logic Units</i>) formant une structure hautement parallèle capable de réaliser des tâches plus variées. Ces ALU ne sont pas très rapides (beaucoup moins qu'un CPU) mais permettent d'effectuer des milliers de calculs similaires de manière simultanée. Une des grandes différences entre l'architecture CPU et l'architecture GPU vient donc du nombre de coeurs d'exécution (d'ALU) qui composent un GPU, bien plus important que pour un CPU.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap2/cpu_gpu_image.png" alt=""/>
+            </div>
+
+            <p>Ainsi, les GPU sont des architectures hautement parallèles qui exigent des modèles de programmation spécifiques [Bourgoin2013]. Le paradigme de programmation derrière le GPGPU est basé sur le modèle de calcul parallèle SIMD que l'on appelle aussi <i>Stream Processing</i> (<i>cf.</i> traitement de flux). Il consiste en l'exécution simultanée d'une série d'opérations (un noyau de calcul – <i>kernel</i>) sur un jeu de données (le flux – <i>stream</i>). Lorsque la structure de données s'y prête, l'architecture massivement parallèle du GPU permet d'obtenir des gains de performance très élevés.</p>
+
+            <p>L'architecture GPGPU des cartes se base sur l'utilisation de plusieurs éléments :</p>
+            <ul>
+            <li><p> Des <i>threads</i> ;</p></li>
+            <li><p>Des <i>blocs</i> contenant un certain nombre de <i>threads</i> ;</p></li>
+            <li><p>Une <i>grille</i> contenant un certain nombre de <i>blocs</i>.</p></li>
+            </ul>
+
+            <p>La figure ci-dessous illustre, de manière simplifiée, cette architecture GPGPU en présentant une grille ainsi que l'architecture mémoire qui lui est associée. Celle-ci est divisée en plusieurs catégories possédant chacune des caractéristiques propres (vitesse de lecture et écriture, taille, droits d'accès, latence, etc.) :</p>
+            <ul>
+            <li><p>Une mémoire <i>globale</i> accessible par tous les <i>threads</i> de la grille;</p></li>
+            <li><p>Une mémoire <i>partagée</i> entre tous les <i>threads</i> au sein d'un même bloc;</p></li>
+            <li><p>Une mémoire <i>locale</i> à chaque <i>thread</i>;</p></li>
+            <li><p>Des mémoires <i>spécifiques</i> dépendant du matériel utilisé.</p></li>
+            </ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap2/ArchitectureMemoireGPU.svg" alt=""/>
+            </div>
+
+            <h4>Modèle de programmation</h4>
+
+            <p>La figure précédente a présenté une schématisation très simplifiée de l'architecture GPGPU d'une carte graphique avec uniquement deux blocs de deux <i>threads</i>. En pratique, le modèle de programmation GPGPU se caractérise par l'utilisation la plus importante possible du découpage en <i>threads</i> et en <i>blocs</i> : il n'est pas rare d'avoir des <i>kernels</i> s'exécutant sur des milliers de <i>threads</i> en simultané.</p> 
+
+            <p>Que l'on utilise CUDA ou OpenCL, l'utilisation de ces différents éléments (<i>grille</i>, <i>blocs</i> et <i>threads</i>) reste la même et peut être définie de la façon suivante : le CPU, appelé <i>host</i>, joue le rôle du chef d'orchestre. Il va gérer la répartition des données et exécuter les <i>kernels</i> : les fonctions spécialement créées pour s'exécuter sur le GPU, qui est lui qualifié de <i>device</i>. Ce dernier est capable d'exécuter un <i>kernel</i> des milliers de fois en parallèle grâce aux <i>threads</i>. Ces <i>threads</i> sont regroupés par <i>blocs</i> (les paramètres <i>blockDim.x</i>, <i>blockDim.y</i> définissent la taille de ces blocs), qui sont eux-mêmes rassemblés dans une <i>grille globale</i>. Chaque <i>thread</i> au sein de cette structure est identifié par des coordonnées uniques 3D (<i>threadIdx.x</i>, <i>threadIdx.y</i>, <i>threadIdx.z</i>) lui permettant d'être localisé. De la même façon, un <i>bloc</i> possède aussi des coordonnées 3D qui lui permettent d'être identifié dans la <i>grille</i> (respectivement <i>blockIdx.x</i>, <i>blockIdx.y</i>, <i>blockIdx.z</i>).</p> 
+
+            <p>Une fois la grille définie (nombre de <i>blocs</i> et de <i>threads</i>), elle est projetée sur les multiprocesseurs matériels du dispositif utilisé. En général, et dans la suite de ce document, les identifiants des <i>threads</i> dans la <i>grille</i> globale du GPU seront notés <i>i</i> et <i>j</i> (nous travaillons sur des environnements 2D) : ces identifiants correspondent aux coordonnées spatiales 2D du <i>thread</i>. Ainsi, les <i>threads</i> vont exécuter le même <i>kernel</i> mais vont traiter des données différentes selon leur localisation spatiale dans la <i>grille</i> globale (identifiant) :</p> 
+            <ul>
+            <li><p>Coordonée x d'un <i>thread</i> : i = blockIdx.x * blockDim.x + threadIdx.x .</p></li>
+            <li><p>Coordonée y d'un <i>thread</i> : j = blockIdx.y * blockDim.y + threadIdx.y .</p></li>
+            </ul>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap2/grilleBlocThread.svg" alt=""/>
+            </div>
+
+            <p>Cependant, la carte graphique ne fonctionne pas de manière indépendante : son utilisation est contrôlée par le CPU. Ainsi, le modèle de programmation GPGPU impose une préparation de l'exécution et des données, puis une récupération des résultats et une libération des ressources après l'exécution des <i>kernels</i> sur le GPU. Toutes ces étapes sont initiées et régulées par le CPU. Le processus de calcul sur GPU est donc découpée en six phases :</p>
+            <ul>
+            <li><p>Phase (1) : allocations des ressources sur le GPU (par le CPU).</p></li>
+            <li><p>Phase (2) : copie des données dans la mémoire globale du GPU (par le CPU).</p></li>
+            <li><p>Phase (3) : initialisation de l'exécution d'un ou plusieurs <i>kernels</i> sur le GPU (par le CPU).</p></li>
+            <li><p>Phase (4) : exécution des différents <i>kernels</i> de calcul sur le GPU.</p></li>
+            <li><p>Phase (5) : copie des résultats (par le CPU).</p></li>
+            <li><p>Phase (6) : libération des ressources allouées sur le GPU (par le CPU).</p></li>
+            </ul>
+        
+            <p>Une des particularités étant que toutes les phases de ce cycle sont indépendantes les unes des autres et peuvent être exécutées de manière concurrente : il est alors possible d'initier un calcul sur GPU (avec un kernel) aussi bien que plusieurs <i>kernels</i> en simultané.</p>
+
+            <div class="portfolio-page-image">
+                <img src="./these/images_chap2/processingFlow.svg" alt=""/>
+            </div>
+
+            <p>Finalement, un programme utilisant le GPGPU est divisé en deux parties distinctes composées d'un côté des <i>kernels</i> qui s'exécutent sur le GPU et de l'autre du code <i>host</i> CPU qui contrôle l'exécution des kernels. L'algorithme suivant donne un exemple générique de la structuration d'un <i>kernel</i> et du code <i>host</i> associé.</p>
+<pre>
+#include "main.h"
+#define sizeGrid 1024
+
+__global__ type fonction() { // Definition du kernel de calcul
+    // Initialisation du thread
+    i = blockIdx.x * blockDim.x + threadIdx.x;
+    j = blockIdx.y * blockDim.y + threadIdx.y;
+    [...]
+    // Test conditionnel sur la taille de la grille de threads  
+    if(i &lt; sizeGrid and j &lt; sizeGrid){
+        [...] // Realisation des calculs
+    }
+    [...] // Ecriture des resultats
+}
+
+int main( void ) { // Definition du programme host
+    // Definition et initialisation des variables
+    [...]
+    // Allocation memoire sur le GPU (phase 1)
+    cudaMalloc( ... );
+    // Copie des donnees sur le GPU (phase 2)
+    cudaMemcpy( ..., cudaMemcpyHostToDevice );
+    // Initialisation de l'execution du kernel (phase 3)
+    int threads = 32;
+    int blocs = sizeGrid / threads;
+    // Execution du kernel (phase 4)
+    fonction&lt;&lt;&lt;blocs,threads&gt;&gt;&gt;( ... );
+    // Copie des resultats (phase 5)
+    cudaMemcpy( ..., cudaMemcpyDeviceToHost );
+    // Liberation des ressources allouees (phase 6)
+    cudaFree( ... );
+}
+</pre>
+
+            <h4>Exemple d'implémentation</h4>
+
+            <p>Comme le montre la section précédente, le modèle de programmation associé au GPGPU est très particulier. Ainsi, nous proposons d'illustrer son utilisation avec un exemple simple et concret : le calcul de pi. Afin de souligner les particularités du GPGPU, nous le comparons à une implémentation en C et en MPI C.</p> 
+
+            <p>L'implémentation du calcul de pi en C est la plus simple à comprendre car le programme ne présente aucune difficulté. Nous retrouvons en effet une programmation séquentielle classique comprenant une seule boucle itérative.</p>
+<pre>
+x, pi = 0;
+
+Pour(i = 1 à precision){
+    x = (i * 1.0 / precision);
+    pi = pi + ( (1.0 / precision) * 1 / ( 1 + (x * x) ));
+}
+
+pi = pi * 4;
+</pre>
+
+            <p>Au contraire, l'implémentation du calcul de pi en MPI C est bien plus complexe. En effet, le langage MPI permet de paralléliser le calcul sur CPU ce qui nécessite d'intégrer dans le programme des variables relatives aux caractéristiques du processeur utilisé (nombre de coeurs, identifiant du coeur, etc.) ainsi que des fonctions permettant la communication entre les différents coeurs du processeur. </p>
+<pre>
+x, tmp = 0;
+intervalParCPU = (bornsup - borninf) / nbCPU;
+borneIdCPU = intervalParCPU * idCPU;
+
+Pour(i = 1 à $precision){
+    x = borneIdCPU + (i * intervalParCPU / precision);
+    tmp = tmp + ( (intervalParCPU / precision) * 1 / ( 1 + (x * x) ));
+}
+
+Reduce(tmp, nbCPU, idCPU);
+
+Si(idCPU == 0){
+    pi = pi * 4;
+}
+</pre>
+
+            <p>Enfin, l'implémentation parallèle du calcul de pi en CUDA C est relativement simple à comprendre (en plus d'être courte). Elle ne contient que l'initialisation du <i>thread</i>, le test conditionnel sur la taille de la grille et le calcul de pi sur les données correspondant à l'identifiant du <i>thread</i> initialisé : la boucle itérative a disparu. Ainsi, tout l'intérêt de la version GPU tient dans le fait que la parallélisation de cette boucle est réalisée grâce à l'architecture matérielle et non à l'aide de code additionnel : le code réside maintenant dans la structure.</p>
+<pre>
+i = blockIdx.x * blockDim.x + threadIdx.x$ ;
+
+Si(i &lt; precision){
+    pi[i] = ( (1.0 / precision) * 1 / ( 1 + (interv[i] * interv[i]) ));
+}
+</pre>
+
+            <p>Cependant, comme indiqué précédemment, le calcul sur GPU s'accompagne de plusieurs phases de préparation (copie des données, allocation des ressources, initiation des calculs) et de finalisation (copie des résultats, libération des ressources allouées) qui complexifient énormément son utilisation. Ces phases sont essentielles car elles vont conditionner l'obtention de bonnes performances.</p>
+
+<pre>
+Pour(i = 1 à precision){
+    interval[i] = i * (1.0 / precision);
+    pi[i] = 0;
+}
+
+\*Allocation mémoire sur le GPU*\
+cudaMalloc(interval[],pi[]);
+\*Copie des données sur le GPU*\
+cudaMemcpy(interval[],pi[]);
+\*Exécution du kernel*\
+calculPiGPU(precision,interval[],pi[]);
+\*Copie des résultats*\
+cudaMemcpy(pi[]);
+\*Libération des ressources allouées*\
+cudaFree(interval[],pi[]);
+
+Pour(i = 1 à precision){
+    pi = pi + pi[i];
+}
+</pre>
+
+            <p>Les travaux d'Owens [Owens2007] permettent également d'avoir une meilleure compréhension du domaine car ils présentent en détails les différents aspects techniques autour de la programmation sur GPU. Enfin, les sites internet de Nvidia et OpenCL regorgent de cours et d'informations permettant une meilleure prise en main de cette technologie qui peut sembler au premier abord très complexe.</p>
+
+            <h4>Aspects importants autour de la programmation GPU</h4>
+
+            <p>L'architecture GPU est très spécifique de par son design mais aussi de par la programmation particulière qu'elle nécessite pour être utilisée de manière efficiente. Ainsi, il existe un ensemble de recommandations sur la bonne manière de programmer sur GPU dans le but d'obtenir un programme efficace [CUDA}.</p>
+
+            <p><b>La minimisation des coûts de transferts :</b> comme nous l'avons vu précédemment, une exécution est précédée d'une phase de préparation des données (formatage, transferts, etc.). Le coût des transferts étant important, il est nécessaire d'en réduire le nombre ou de les regrouper. Cependant, réduire le nombre de transferts n'est pas toujours possible car chaque donnée utilisée sur le GPU doit être explicitement copiée pour qu'elle puisse être utilisée par les <i>kernels</i> de calcul. Dans ce cas, une solution peut être de réduire la fréquence de synchronisation de la valeur de cette donnée entre CPU et GPU, ou en augmentant le temps passé sur le périphérique entre chaque retour sur le CPU. Le regroupement est un autre moyen de minimiser le coût total des transferts, en utilisant la bande passante importante disponible entre CPU et GPU. Ce regroupement est aussi facilité par les différents mécanismes de copie mis à disposition par les différentes interfaces de programmation GPU. Dans le cadre des simulations multi-agents, les agents doivent avoir accès aux résultats à chaque pas de temps pour pouvoir calculer leur comportement. Cette contrainte requiert d'utiliser, pour chaque itération, des primitives qui permettent de forcer la synchronisation entre les exécutions du CPU et du GPU. Ces primitives sont très coûteuses car elles obligent des transferts de données entre CPU et GPU. Il est donc important de bien organiser les différentes tâches exécutées par le GPU afin de minimiser les transferts nécessaires. Ainsi, nous effectuerons qu'une seule synchronisation par pas de temps et nous utiliserons cette optimisation pour les différentes expérimentations menées dans ce manuscrit.</p>
+
+            <p><b>Maximiser l'occupation :</b> un des points essentiels, pour l'obtention de bonnes performances sur GPU, est de <i>maximiser l'occupation</i> c'est-à-dire utiliser le plus efficacement possible les nombreux coeurs d'exécution offerts par l'architecture GPU. Il faudra donc veiller sur les ressources consommées par chaque <i>thread</i> (une utilisation trop importante des registres par les <i>threads</i> est susceptible d'empêcher l'utilisation de tous les coeurs d'exécution disponibles), sur le nombre de conditions présentes dans l'algorithme (une utilisation trop importante des structures conditionnelles est susceptible de causer une réduction de l'occupation des coeurs d'exécution) et sur le nombre de <i>threads</i> total lancés (une utilisation efficace du GPU repose sur une utilisation adéquate de l'ensemble des <i>threads</i> disponibles). Par exemple, si la capacité d'un bloc est de 1 024 <i>threads</i> (celle-ci dépend du matériel), il est possible de travailler avec une grille de 1 000 x 1 000 en allouant une grille de blocs d'une taille de 32 x 32, avec chaque bloc ayant lui-même une taille de 32 x 32. Ce qui produit une matrice surdimensionnée de 1 024 x 1 024 <i>threads</i>. Cette taille, trop large par rapport aux données considérées, ne pose pas de problème car elle est gérée au niveau du code GPU et permet d'utiliser un maximum de <i>threads</i>.</p>
+
+            <p><b>Accès mémoires :</b> un autre point sur lequel joué est l'<i>optimisation des accès mémoires</i>. En effet, il existe plusieurs types de mémoire au sein d'un GPU (locales, globales, partagées), chacune possédant des caractéristiques propres et des latences d'accès aux données différentes. Ainsi, il est possible d'optimiser l'exécution des <i>kernels</i> et améliorer les performances des programmes en minimisant les latences d'accès aux données en utilisant de manière réfléchie chaque type de mémoire en tirant partie de leurs différents avantages.</p>
+
+            <p><b>Une optimisation difficile :</b> cette liste de conseils n'est pas exhaustive, il existe encore de nombreux points sur lesquels jouer pour améliorer l'utilisation du GPGPU au sein des programmes. En effet, il y a beaucoup d'aspects à prendre en compte qui peuvent directement impacter les performances d'exécution. Il est très facile de créer un <i>kernel</i> de calcul sur GPU (quelques minutes suffises), l'obtention de gains de performances importants nécessitera cependant une longue phase d'optimisation. Par ailleurs, un des avantages de cette technologie vient de sa communauté très dynamique qui gravite autour d'elle permettant ainsi d'avoir un nombre très important de ressources et de cours.</p>
+
+            <br/>
+            <div class="block-title">
+                <h3>Résumé du chapitre et début de problématique</h3>
+            </div>
+
+            <p>Les performances constituent un verrou majeur dans de nombreux domaines et les orientations qui sont prises en direction du calcul haute performance par différents groupes de recherche et industriels le montrent clairement. En effet, le calcul intensif, de par l'utilisation de super-ordinateurs, permet de subvenir aux besoins toujours croissant en puissance de calcul. Néanmoins, ces super-ordinateurs nécessitent des investissements très lourds et des coûts de développement difficilement supportables pour un grand nombre d'acteurs de la recherche et de l'industrie. </p>
+
+            <p>Ainsi, de nouvelles solutions dédiées au HPC ont vu le jour, comme le GPGPU qui propose d'utiliser l'architecture massivement parallèle des cartes graphiques pour faire du calcul généraliste. Réelle révolution technologique, le GPGPU possède de nombreux avantages comme son rapport prix/performance parmi les meilleurs et sa disponibilité. En effet, de nos jours, quasiment tous les ordinateurs ont une carte graphique dédiée ou intégrée au CPU possédant des capacités GPGPU capables, suivant le contexte, d'accélérer considérablement les performances des programmes qui l'utilisent [Che2008]. Dans le cadre des simulations multi-agents, utiliser le GPGPU peut être une solution pour pallier les problèmes de performances et le manque en ressources de calcul que l'on peut rencontrer lors de la simulation de modèles multi-agents.</p>
+
+            <p>Cependant, la programmation sur GPU n’est pas chose aisée car elle repose sur une architecture matérielle spécifique qui définit un contexte de développement très particulier. Ce contexte architectural nécessite notamment de suivre les principes de la programmation par traitement de flot de données [Owens2007] et requiert des connaissances avancées qui limitent son utilisation. Ainsi, une implémentation sur GPU est bien plus complexe qu'un simple changement de langage de programmation [Bourgoin2013]. En particulier, le problème doit pouvoir être représenté par des structures de données distribuées et indépendantes. De plus, il n'est pas possible d'adopter une démarche orientée objet classique. De fait, les modèles de simulation multi-agent couramment utilisés, parce qu'ils reposent souvent sur des implémentations orientées objet, ne peuvent être utilisés sur une architecture GPU sans un effort de traduction conséquent et non trivial. De plus, la majorité des problèmes liée à l'implémentation de simulations multi-agents va être exacerbée par l'utilisation de cette technologie.</p>
+
+            <p>C'est dans ce contexte que nous proposons, un état de l'art des contributions traitant de l'utilisation du GPGPU pour la modélisation et l'implémentation de simulations multi-agents. Dans ce chapitre, nous verrons que le faible engouement pour le GPGPU de la communauté multi-agent vient, en partie, de l'architecture spécifique des GPU qui impose des contraintes très fortes sur à la fois, ce qui peut être parallélisé, et la manière de le faire. Non seulement le GPGPU est difficile d'accès, mais il est également si contraint qu'il oblige à repenser la modélisation multi-agents. Ainsi, il est donc compréhensible que peu de travaux soient enclins à investir du temps dans l'utilisation du GPGPU car la pérennité du code produit est difficile à obtenir. Finalement, cet état de l'art permettra d'identifier les deux principaux verrous liés à la technologie GPGPU qui limitent son utilisation : l'accessibilité et la réutilisabilité, deux critères déjà rencontrés au chapitre précédent et que nous considérerons comme essentiels pour une meilleure adoption du GPGPU dans les simulations multi-agents.</p>
+
+
+            <div class="ajax-page-nav">
+                <div class="nav-item ajax-page-prev-next">
+                    <a class="ajax-page-load" href="./these/t_chap1.html"><i class="pe-7s-icon pe-7s-angle-left"></i></a>
+                    <a class="ajax-page-load" href="./these/t_chap3.html"><i class="pe-7s-icon pe-7s-angle-right"></i></a>
+                </div>
+                <div class="nav-item ajax-page-close-button">
+                    <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+                </div>
+            </div>   
+
+            <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+        </div>
+    </div>
+</div>

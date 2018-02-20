@@ -1,0 +1,106 @@
+<div id="ajax-page" class="ajax-page-content">
+    <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-close-button">
+                <a id="ajax-page-close-button" href="#"><i class="pe-7s-icon pe-7s-close"></i></a>
+            </div>
+        </div>
+
+        <div class="ajax-page-title">
+            <h1>GPU Environmental Delegation of Agent Perceptions: Application to Reynolds's Boids</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 col-md-8 portfolio-block">
+                <div class="block-title">
+                    <h3>Résumé</h3>
+                </div>
+                <p>Using Multi-Agent Based Simulation (MABS), computing resources requirements often limit the extent to which a model could be experimented with. Regarding this issue, some research works propose to use the General-Purpose Computing on Graphics Processing Units (GPGPU) technology. GPGPU allows to use the massively parallel architecture of graphic cards to perform general-purpose computing with huge speedups. Still, GPGPU requires the underlying program to be compliant with the specific architecture of GPU devices, which is very constraining. Especially, it turns out that doing MABS using GPGPU is very challenging because converting Agent Based Models (ABM) accordingly is a very difficult task. In this context, the <i>GPU Environmental Delegation of Agent Perceptions</i> principle has been proposed to ease the use of GPGPU for MABS. This principle consists in making a clear separation between the agent behaviors, managed by the CPU, and environmental dynamics, handled by the GPU. For now, this principle has shown good results, but only on one single case study. In this paper, we further trial this principle by testing its feasibility and genericness on a classic ABM, namely Reynolds's boids. To this end, we first review existing boids implementations to then propose our own benchmark model. The paper then shows that applying GPU delegation not only speeds up boids simulations but also produces an ABM which is easy to understand, thanks to a clear separation of concerns.</p>
+
+                <br/>
+                <div class="block-title">
+                    <h3>Bibtex</h3>
+                </div>
+                <pre style="font-size: 9pt;">
+@inproceedings{Hermellin-MABS-2015,
+  author    = {Emmanuel Hermellin and
+               Fabien Michel},
+  title     = {{GPU} Environmental Delegation of Agent Perceptions: Application to
+               Reynolds's Boids},
+  booktitle = {Multi-Agent-Based Simulation {XVI} - International Workshop, {MABS}
+               2015, Istanbul, Turkey, May 5, 2015, Revised Selected Papers},
+  pages     = {71--86},
+  editor    = {Benoit Gaudou and
+               Jaime Sim{\~{a}}o Sichman},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9568},
+  publisher = {Springer},
+  year      = {2016},
+  isbn      = {978-3-319-31446-4},
+  url       = {https://doi.org/10.1007/978-3-319-31447-1_5},
+  doi       = {10.1007/978-3-319-31447-1_5},
+}</pre>
+
+                <script type="text/javascript">
+                    function customAjaxScroll() {
+                        var windowWidth = $(window).width();
+                        if (windowWidth > 991) {
+                            // Custom Ajax Page Scroll
+                            $("#ajax-page").mCustomScrollbar({
+                                scrollInertia: 8,
+                                documentTouchScroll: false
+                            });
+                        } else {
+                            $("#ajax-page").mCustomScrollbar('destroy');
+                        }
+                    }
+
+                    jQuery(document).ready(function($){
+
+                        // Ajax Loaded Page Scroll
+                        customAjaxScroll();
+
+
+                        $('.portfolio-page-carousel').owlCarousel({
+                            smartSpeed:1200,
+                            items: 1,
+                            loop: true,
+                            dots: true,
+                            nav: true,
+                            navText: false,
+                            margin: 10
+                        });
+
+                    });
+
+                    jQuery(window).on('resize', function() {
+                        customAjaxScroll();
+                    });
+                </script>
+            </div>
+
+            <div class="col-sm-4 col-md-4 portfolio-block">
+                <div class="block-title">
+                    <h3>Auteurs et lien</h3>
+                </div>
+                <ul class="project-general-info">
+                    <li><p><i class="fa fa-user"></i> Emmanuel Hermellin et Fabien Michel</p></li>
+                    <li><p><i class="fa fa-globe"></i> <a href="https://doi.org/10.1007/978-3-319-31447-1_5" target="_blank">MABS 2015</a></p></li>
+                </ul>
+                <div class="tags-block">
+                    <div class="block-title">
+                        <h3>Mots-clés</h3>
+                    </div>
+                    <ul class="tags">
+                        <li><a>MABS</a></li>
+                        <li><a>Flocking</a></li>
+                        <li><a>CUDA</a></li>
+                        <li><a>GPGPU</a></li>
+                    </ul>
+                </div>
+                <br/>
+                <img src="./images/recherche/publication/mabs_2015.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
