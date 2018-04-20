@@ -141,7 +141,7 @@
                     </div>
 
                     <ul class="ul-card">
-                      <li>
+                      <li class="past">
                         <div class="dy">
                           <span class="degree">Février 2018</span>
                         </div>
@@ -150,7 +150,7 @@
                           <p class="where">"Multi-Agent Based Simulations on massively parallel architectures: Experimentation, method and application"</p>
                         </div>
                       </li>
-                      <li>
+                      <li class="past">
                         <div class="dy">
                           <span class="degree">Janvier 2018</span>
                         </div>
@@ -159,7 +159,7 @@
                           <p class="where">"Plongez deux heures dans la deeptech numérique pour découvrir comment des projets issus de travaux de recherche passent de l’idée scientifique à la startup", <a href="http://www.festival-transfo.fr/agenda/105/13-petit-dejeuner-linksium-la-deeptech-est-elle-soluble-dans-le-numerique-ai-drone....htm" target="_blank">en savoir plus ...</a></p>
                         </div>
                       </li>
-                      <li>
+                      <li class="past">
                         <div class="dy">
                           <span class="degree">Janvier 2018</span>
                         </div>
@@ -168,7 +168,7 @@
                           <p class="where">Comprendre les différentes étapes et le processus d'accompagnement d'un projet vers une startup</p>
                         </div>
                       </li>
-                      <li>
+                      <li class="past">
                         <div class="dy">
                           <span class="degree">Septembre 2017</span>
                         </div>
@@ -373,7 +373,7 @@
                 <div class="section-title-block">
                   <div class="section-title-wrapper">
                     <h2 class="section-title">Recherche</h2>
-                    <h5 class="section-description">Intelligence artificielle, calcul haute performances, ...</h5>
+                    <h5 class="section-description">Intelligence artificielle, calcul haute performance, ...</h5>
                   </div>
                 </div>
 
@@ -428,15 +428,19 @@
 
                     <ul>
                       <li><p><b>1. Génie logiciel orienté agent (AOSE).</b><br/>
-                      Il est clair que l'on a besoin de solutions qui facilitent la modélisation et l’implémentation de simulations multi-agents et cela quelque soit le contexte technologique. En s'inscrivant dans le courant E4MAS, notre méthode de conception poursuit cette quête de simplification au travers d'une décomplexification des comportements agents rendue possible grâce à la place donnée aux environnements (l'environnement est considéré comme essentiel). Bien que l'on ait mis de côté jusqu'ici cet aspect (la diminution de la complexité n'était pas le but premier de ces travaux de thèse), la question de la complexité prend tout son sens avec la méthode que nous proposons car le fait de se baser sur le principe de délégation GPU (qui explicite la séparation entre le modèle agent et l'environnement) et le fait de choisir ce qui va être exécuté par le GPU (grâce à l'approche hybride), permet de fournir à l'agent des percepts et des moyens d'action de haut niveau, afin de simplifier son comportement et d'en garder l'essentiel. En ce sens, nos contributions poursuivent bien les perspectives du courant E4MAS et s'inscrivent dans la lignée de travaux tels que [Viroli et al., 2006 , Weyns et al., 2007, Ricci et al., 2011, Michel, 2015, Weyns and Michel, 2015].<br/>
-                      - Ainsi, dans une démarche de génie logiciel orienté agent (AOSE), il est pertinent d'étudier l'impact que peut avoir notre méthode sur la programmation multi-agents en évaluant la capacité de notre méthode à simplifier l'implémentation et la modélisation multi-agent et cela en dehors d'un contexte GPGPU.<br/>
-                      - De plus, dans un contexte hardware de plus en plus hétérogène, distribué, connecté, interactif (<i>eg</i> IoT), réussir à déléguer une partie d'un système ou modulariser son implémentation va devenir crucial pour assurer son bon fonctionnement. Tout l'enjeu consistera à définir des méthodes de conception efficaces capables de s'adapter au contexte matériel sans en être dépendant. En ce sens, le principe de délégation porté par notre méthode est un bon point de départ dans le domaine des simulations multi-agents.</p>
+                      Il est clair que l'on a besoin de solutions qui facilitent la modélisation et l’implémentation de simulations multi-agents et cela quelque soit le contexte technologique. En s'inscrivant dans le courant E4MAS, notre méthode de conception poursuit cette quête de simplification au travers d'une décomplexification des comportements agents rendue possible grâce à la place donnée aux environnements (l'environnement est considéré comme essentiel). Bien que l'on ait mis de côté jusqu'ici cet aspect (la diminution de la complexité n'était pas le but premier de ces travaux de thèse), la question de la complexité prend tout son sens avec la méthode que nous proposons car le fait de se baser sur le principe de délégation GPU (qui explicite la séparation entre le modèle agent et l'environnement) et le fait de choisir ce qui va être exécuté par le GPU (grâce à l'approche hybride), permet de fournir à l'agent des percepts et des moyens d'action de haut niveau, afin de simplifier son comportement et d'en garder l'essentiel. En ce sens, nos contributions poursuivent bien les perspectives du courant E4MAS et s'inscrivent dans la lignée de travaux tels que [Viroli et al., 2006 , Weyns et al., 2007, Ricci et al., 2011, Michel, 2015, Weyns and Michel, 2015].</p>
+                      <ul>
+                        <li><p>Ainsi, dans une démarche de génie logiciel orienté agent (AOSE), il est pertinent d'étudier l'impact que peut avoir notre méthode sur la programmation multi-agents en évaluant la capacité de notre méthode à simplifier l'implémentation et la modélisation multi-agent et cela en dehors d'un contexte GPGPU.</p></li>
+                        <li><p>De plus, dans un contexte hardware de plus en plus hétérogène, distribué, connecté, interactif (<i>eg</i> IoT), réussir à déléguer une partie d'un système ou modulariser son implémentation va devenir crucial pour assurer son bon fonctionnement. Tout l'enjeu consistera à définir des méthodes de conception efficaces capables de s'adapter au contexte matériel sans en être dépendant. En ce sens, le principe de délégation porté par notre méthode est un bon point de départ dans le domaine des simulations multi-agents.</p></li>
+                      </ul>
                       </li>
 
                       <li><p><b>2. Ordonnancement et simultanéité</b><br/>
-                      L'autre axe concerne l'ordonnancement et la simultanéité dans les simulations multi-agents. En effet, l'application de notre méthode sur un modèle peut ne pas être neutre (apparition de nouvelles dynamiques suite aux modifications engendrées) mais elle souligne également l'importance que l'on doit donner à l'ordonnancement : l’ordre dans lequel les agents sont activés et produisent leurs perceptions et actions. Il existe d'ailleurs de nombreux de travaux qui traitent de l'ordonnancement dans les systèmes multi-agents et de l'impact qu'il peut avoir sur l'exécution et la dynamique des systèmes. Parmi ces travaux, on peut citer par exemple [Fatès and Chevrier, 2010] qui montre que même avec seulement deux agents aux comportements minimalistes, plongés dans un environnement simple, il est possible d’obtenir des dynamiques très différentes suivant la manière dont le reste du modèle est élaboré (perception, action, temps, interaction, etc.) ou encore IRM4S qui traite de l'utilisation des notions d'influence et de réaction pour la simulation de systèmes multi-agents [Michel, 2007, Chevrier and Fatès, 2008].<br/>
-                      - Nous avons d'ailleurs montré que, notre méthode, de par sa conception hybride, impose de séparer les calculs liés aux agents (CPU), des calculs liés à l’environnement (GPU) ce qui introduit un mécanisme en deux phases sur les parties du modèle concernées. Ce mécanisme peut être, à juste titre, relié à une approche de type IRM4S [Hermellin-ECAL-2017]. Ainsi, un des axes de recherche est de mener une réflexion autour de l'ordonnancement des agents et sur son impact sur la dynamique des systèmes dans un contexte d'utilisation hybride du GPGPU ou plus généralement d'architectures matérielles massivement parallèles. Surtout, considérant que ce genre d'architecture matérielle va se généraliser dans les années à venir.<br/>
-                      - Cependant, malgré la possibilité d'intégrer des solutions telle qu'IRM4S dans notre approche, cette dernière souffrira toujours de biais introduits par l'utilisation du calcul parallèle et par les contraintes intrinsèques à ces technologies (<i>e.g.</i> synchronisation) pouvant d'une part limiter les performances mais aussi modifier le comportement des agents. En effet, l'activation de ces derniers et l'ordonnancement de leurs actions seraient toujours contraints par l'implémentation du modèle et par l'architecture matérielle sur laquelle la simulation est exécutée. Ainsi, il serait pertinent de s'intéresser aux recherches menées dans le domaine des systèmes dynamiques asynchrone dans un cadre discret [Contassot-Vivier, 2006] et tout particulièrement au cas du comportement des réseaux d’automates à états finis. En effet, ces derniers permettent de modéliser de nombreux systèmes complexes et en particulier leurs processus itératifs parallèles. L'activation des agents pouvant être vue comme un processus itératif parallèle, un lien pourrait être fait entre des deux domaines.</p>
+                      L'autre axe concerne l'ordonnancement et la simultanéité dans les simulations multi-agents. En effet, l'application de notre méthode sur un modèle peut ne pas être neutre (apparition de nouvelles dynamiques suite aux modifications engendrées) mais elle souligne également l'importance que l'on doit donner à l'ordonnancement : l’ordre dans lequel les agents sont activés et produisent leurs perceptions et actions. Il existe d'ailleurs de nombreux de travaux qui traitent de l'ordonnancement dans les systèmes multi-agents et de l'impact qu'il peut avoir sur l'exécution et la dynamique des systèmes. Parmi ces travaux, on peut citer par exemple [Fatès and Chevrier, 2010] qui montre que même avec seulement deux agents aux comportements minimalistes, plongés dans un environnement simple, il est possible d’obtenir des dynamiques très différentes suivant la manière dont le reste du modèle est élaboré (perception, action, temps, interaction, etc.) ou encore IRM4S qui traite de l'utilisation des notions d'influence et de réaction pour la simulation de systèmes multi-agents [Michel, 2007, Chevrier and Fatès, 2008].
+                      <ul>
+                        <li><p> Nous avons d'ailleurs montré que, notre méthode, de par sa conception hybride, impose de séparer les calculs liés aux agents (CPU), des calculs liés à l’environnement (GPU) ce qui introduit un mécanisme en deux phases sur les parties du modèle concernées. Ce mécanisme peut être, à juste titre, relié à une approche de type IRM4S [Hermellin-ECAL-2017]. Ainsi, un des axes de recherche est de mener une réflexion autour de l'ordonnancement des agents et sur son impact sur la dynamique des systèmes dans un contexte d'utilisation hybride du GPGPU ou plus généralement d'architectures matérielles massivement parallèles. Surtout, considérant que ce genre d'architecture matérielle va se généraliser dans les années à venir.</p></li>
+                        <li><p> Cependant, malgré la possibilité d'intégrer des solutions telle qu'IRM4S dans notre approche, cette dernière souffrira toujours de biais introduits par l'utilisation du calcul parallèle et par les contraintes intrinsèques à ces technologies (<i>e.g.</i> synchronisation) pouvant d'une part limiter les performances mais aussi modifier le comportement des agents. En effet, l'activation de ces derniers et l'ordonnancement de leurs actions seraient toujours contraints par l'implémentation du modèle et par l'architecture matérielle sur laquelle la simulation est exécutée. Ainsi, il serait pertinent de s'intéresser aux recherches menées dans le domaine des systèmes dynamiques asynchrone dans un cadre discret [Contassot-Vivier, 2006] et tout particulièrement au cas du comportement des réseaux d’automates à états finis. En effet, ces derniers permettent de modéliser de nombreux systèmes complexes et en particulier leurs processus itératifs parallèles. L'activation des agents pouvant être vue comme un processus itératif parallèle, un lien pourrait être fait entre des deux domaines.</p></li>
+                      </ul>
                       </li>
                     </ul>
 
