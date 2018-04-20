@@ -30,22 +30,34 @@
                 <div class="block-title">
                     <h3>PDDL4GUI</h3>
                 </div>
+
+                <img src="images/projet/pddl4gui.jpg" alt="pddl4gui"/>
+
                 <p>PDDL4GUI est une petite application écrite en Java qui fournit une interface graphique à la librairie PDDL4J. PDDL4GUI propose :</p>
                 <ul>
 					<li><p> Une interface pour la résolution de problèmes de planification grâce à PDDL4J.</p></li>
+                    <li><p> Un comportement Anytime pour les planners compatibles (disponible avec PDDL4J 4.0).</p></li>
 					<li><p> L'intégration de VAL (The plan validation system) qui offre la possibilité de tester la validité des solutions fournies par PDDL4J.</p></li>
 					<li><p> Un éditeur PDDL.</p></li>
 				</ul>
 				<p> Fonctionnalités qui vont être integrées par la suite :</p>
                 <ul>
 					<li><p> Une visualisation des solutions (plans).</p></li>
-					<li><p> Un comportement Anytime.</p></li>
                     <li><p> ...</p></li>
 				</ul>
 
-                <div>
-                    <img src="images/recherche/pddl4gui.jpg" alt=""/>
-                </div>
+                <p><b>Comment l'utiliser</b></p>
+
+                <p>Télécharger ou cloner le repository.<br/>
+                Sous windows avec la ligne de commande :</p>
+
+                <pre>java -javaagent:libs/pddl4j-3.5.0.jar -server -Xms2048m -Xmx2048m -jar pddl4gui.jar</pre>
+
+                <p>Sous linux avec le script pddl4gui.sh disponible à la racine du repository :</p>
+
+                <pre>./pddl4gui.sh</pre>
+
+                <p><i>Note : les dossiers libs et resources sont nécessaires car non intégré dans le jar.</i></p>
 
                 <blockquote>
                     <h4>Références</h4>
@@ -101,7 +113,8 @@
                 <ul class="project-general-info">
                     <li><p><i class="fa fa-user"></i> <a href="https://lig-membres.imag.fr/PPerso/membres/pellier/" target="_blank">Damien Pellier</a>, <a href="http://magma.imag.fr/content/humbert-fiorino" target="_blank">Humbert Fiorini</a></p></li>
                     <li><p><i class="fa fa-globe"></i> <a href="http://pddl4j.imag.fr" target="_blank">http://pddl4j.imag.fr</a></p></li>
-                    <li><a href='http://pddl4j.imag.fr/jenkins/job/pddl4j-base/'><img src='http://pddl4j.imag.fr/jenkins/job/pddl4j-base/badge/icon?style=flat'/></a></li>
+                    <li>Master: <a href='http://pddl4j.imag.fr/jenkins/job/pddl4j-base/'><img src='http://pddl4j.imag.fr/jenkins/job/pddl4j-base/badge/icon?style=flat'/></a></li>
+                    <li>Dev: <a href='http://pddl4j-dev.imag.fr/jenkins/job/PDDL4J-dev/'><img src='http://pddl4j-dev.imag.fr/jenkins/job/PDDL4J-dev/badge/icon?style=flat'/></a></li>
                 </ul>
 
                 <div class="block-title">
