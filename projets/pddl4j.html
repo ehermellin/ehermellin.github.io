@@ -48,10 +48,22 @@
 
                 <p><b>Comment l'utiliser</b></p>
 
-                <p>Télécharger ou cloner le repository.<br/>
-                    Sous windows avec la ligne de commande :</p>
+                <p>Télécharger ou cloner le repository.</p>
 
-                <pre>java -javaagent:libs/pddl4j-3.5.0.jar -server -Xms2048m -Xmx2048m -jar pddl4gui.jar</pre>
+                <p>Avec Gradle :</p>
+
+                <pre># Build PDDL4GUI (compile, assemble, jar, checkstyle)
+./gradlew build
+# Generate .jar file
+./gradlew jar
+# Generate javadoc
+./gradlew javadoc
+# Run PDDL4GUI
+./gradlew run</pre>
+
+                <p>Avec les lignes de commande Java :</p>
+
+                <pre>java -javaagent:libs/pddl4j-3.7.1.jar -server -Xms2048m -Xmx2048m -jar pddl4gui-1.0.jar</pre>
 
                 <p>Sous linux avec le script pddl4gui.sh disponible à la racine du repository :</p>
 
