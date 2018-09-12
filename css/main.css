@@ -1259,7 +1259,7 @@ ul.social-links li:last-child a {
     padding-left: 20px;
     padding-bottom: 20px;
     height: 175px;
-    max-height: 175px;
+    max-height: 200px;
 }
 
 .timeline-event:last-child {
