@@ -38,15 +38,22 @@
                 <ul>
                     <li><p> Une interface pour la résolution de problèmes de planification grâce à PDDL4J.</p></li>
                     <li><p> Une interface pour la résolution de problèmes de planification grâce au service web PDDL4J et une API RESTFull.</p></li>
-                    <li><p> Un comportement Anytime pour les planners compatibles (disponible avec PDDL4J 4.0).</p></li>
+                    <li><p> Un comportement Anytime pour les planners compatibles.</p></li>
                     <li><p> L'intégration de VAL (The plan validation system) qui offre la possibilité de tester la validité des solutions fournies par PDDL4J.</p></li>
-                    <li><p> Un éditeur PDDL.</p></li>
                 </ul>
                 <p> Fonctionnalités qui vont être integrées par la suite :</p>
                 <ul>
                     <li><p> Une visualisation des solutions (plans).</p></li>
                     <li><p> ...</p></li>
                 </ul>
+                
+                <p><b>Dépendance</b></p>
+                
+                <p>Pour Windows 10, télécharger le JDK Java corresondant à l'architecture de votre ordinateur : <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank"> Java</a>. Après l'installation du JDK, il faut ajouter java au <b>PATH</b>.</p>
+                
+                <p>Pour Linux (Debian / Ubuntu), il suffit d'installer OpenJDK-8</p>
+                <pre>
+sudo apt-get install openjdk-8-jdk</pre>
 
                 <p><b>Comment l'utiliser</b></p>
 
@@ -60,16 +67,20 @@
 ./gradlew jar
 # Generate javadoc
 ./gradlew javadoc
-# Run PDDL4GUI
-./gradlew run</pre>
+# Run PDDL4GUI (LOCAL)
+./gradlew run -PArgs=-LOCAL
+# Run PDDL4GUI (REST)
+./gradlew run -PArgs=-REST</pre>
 
                 <p>Avec les lignes de commande Java :</p>
 
-                <pre>java -javaagent:libs/pddl4j-3.7.2.jar -server -Xms2048m -Xmx2048m -jar pddl4gui-1.0.jar</pre>
+                <pre>java -javaagent:libs/pddl4j-3.8.jar -server -Xms2048m -Xmx2048m -jar pddl4gui-1.0.jar -LOCAL
+java -javaagent:libs/pddl4j-3.8.jar -server -Xms2048m -Xmx2048m -jar pddl4gui-1.0.jar -REST</pre>
 
-                <p>Sous linux avec le script pddl4gui.sh disponible à la racine du repository :</p>
+                <p>Sous linux avec les scripts disponible à la racine du repository :</p>
 
-                <pre>./pddl4gui.sh</pre>
+                <pre>./pddl4gui_loc.sh  # Run PDDL4GUI (LOCAL)
+./pddl4gui_rest.sh # Run PDDL4GUI (REST)</pre>
 
                 <p><i>Note : les dossiers libs et resources sont nécessaires car non intégré dans le jar.</i></p>
 
@@ -126,7 +137,9 @@
                 </div>
                 <ul class="project-general-info">
                     <li><p><i class="fa fa-user"></i> <a href="https://lig-membres.imag.fr/PPerso/membres/pellier/" target="_blank">Damien Pellier</a>, <a href="http://magma.imag.fr/content/humbert-fiorino" target="_blank">Humbert Fiorini</a></p></li>
-                    <li><p><i class="fa fa-globe"></i> <a href="http://pddl4j.imag.fr" target="_blank">http://pddl4j.imag.fr</a></p></li>
+                    <li><p><i class="fa fa-globe"></i> <a href="http://pddl4j.fr" target="_blank">http://pddl4j.fr</a></p></li>
+                    <li><p><i class="fa fa-github"></i> <a href="https://github.com/pellierd/pddl4j" target="_blank">PDDL4J on Github</a></p></li>
+                    <li><p><i class="fa fa-external-link"></i> <a href="https://search.maven.org/search?q=g:%22com.github.pellierd%22%20AND%20a:%22pddl4j%22" target="_blank">PDDL4J on Maven Central</a></p></li>
                 </ul>
 
                 <div class="block-title">
