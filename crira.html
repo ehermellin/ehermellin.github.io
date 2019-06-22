@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="Emmanuel Hermellin - Thèse" />
+        <meta name="keywords" content="thèse, vcard, recherche" />
+        <meta name="author" content="Emmanuel Hermellin" />
+        <link rel="icon" href="favicon.gif">
+        <title>Emmanuel Hermellin Vcard - ArtGpu / Crira</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <!-- Animation -->
+        <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+        <!-- Light Case -->
+        <link rel="stylesheet" href="css/lightcase.min.css" type="text/css">
+        <!-- Template style -->
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <!-- Code style -->
+        <link rel="stylesheet" href="css/sh_vim.css" type="text/css">
+    </head>
+    <body>
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="preloader-circle">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- /preloader -->
+
+        <div class="wrapper-page">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <div class="profile-picture-block">
+                        <div class="my-photo">
+                            <img src="images/avatar.jpeg" class="img-fluid" alt="image">
+                        </div>
+                    </div>
+                    <!-- Header Head -->
+                    <div class="site-title-block">
+                        <div class="site-title">Emmanuel Hermellin</div>
+                        <div class="type-wrap">
+                            <div class="typed-strings">
+                                <span>ArtGpu / Crira</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Header Head -->
+
+                    <!-- Navigation -->
+                    <div class="site-nav">
+                        <!-- Main menu -->
+                        <ul class="header-main-menu">
+                            <li><a href="index.html"><i class="fas fa-undo"></i>Retour</a></li>
+                        </ul> 
+                        <!-- /Main menu -->
+
+                        <!-- Copyrights -->
+                        <br/>
+                        <div class="copyrights">© 2019 All rights reserved.</div>
+                        <!-- / Copyrights -->
+                    </div>
+                    <!-- /Navigation -->
+                </div>
+            </header>
+            <!-- /Header -->
+
+            <!-- Mobile Header -->
+            <div class="responsive-header">
+                <div class="responsive-header-name">
+                    <img class="responsive-logo" src="images/avatar.jpeg" alt="" />
+                    Emmanuel Hermellin
+                </div> 
+                <span class="responsive-icon"><i class="lnr lnr-menu"></i></span>
+            </div>
+            <!-- /Mobile Header -->
+
+            <!-- Main Content Pages -->
+            <div class="content-pages">
+                <!-- Subpages -->
+                <div class="sub-home-pages">
+                    <div class="section-title">
+                        <div class="main-title">
+                            <br/><br/>
+                            <div class="title-main-page">
+                                <h4>ArtGPU : solution de rendu graphique grâce au GPGPU</h4>
+                                <p>Projet de stage de master 2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="container">
+                        <!-- Blog Posts -->
+                        <div class="blog-page">
+                            <div class="row">
+                                <!-- Post Content -->
+                                <div class="col-lg-8 col-md-8">
+                                    <div class="block-title">
+                                        <h3>Présentation du projet</h3>
+                                    </div>
+                                    <p>Le code Crira, Calcul de Rayonnement Infrarouge des Aéronefs, a pour but principal d'établir la signature infrarouge (SIR) passive d'un aéronef en vol, en fonction de paramètres d'environnement globaux et propres à l'avion et des paramètres du capteur employé pour la simulation (cette partie est bien distincte du code et est en fait un traitement sur les images calculées précédemment). Les premières études ayant amené à la création de cet ensemble d'outils datent du milieu des années 70. Actuellement, ce logiciel utilise un raytracer CPU, équipé d’un octree, d’un calcul de réflexions diffuses et effectue ses calculs d’éclairement avec des BRDF. Cette suite logicielle est à vocation interne et externe, fournie à la DGA et à des industriels. Le code Crira travaille sur scène fixe, dans laquelle les objets ne se déplacent pas. Il se divise en quatre grandes parties, ou passes: Passe 1 Calcul des paramètres généraux en fonction de la scène que l'on souhaite, et calcul du(es) jet(s); Passe 2 Rendu géométrique de l'avion; Passe 3 Calcul radiatif de l’aéronef en luminance, avec prise en compte des BRDF. Passe 4 Génération d’images en luminance à la résolution de l’entrée capteur.</p>
+
+                                    <p>Crira / ARTGpu est mon sujet de stage de fin d’étude. Durant ce stage, je devais mettre en place un découpage de l’espace pour accélérer le raytracer sous CUDA et ainsi accélérer la pass2 du logiciel Crira. La recherche d’une solution technique a été effectuée dans un premier temps, et nous a conduit à faire le choix de développer un nouvel outil basé sur Optix et CUDA.</p>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="counter-block">
+                                            <p><i class="fa fa-user"></i> Emmanuel Hermellin</p>
+                                            <p><i class="fa fa-file"></i> <a href="./data/artgpu/RapportStage.pdf" target="_blank">Rapport de stage</a><br/>
+                                            <i class="fa fa-file"></i> <a href="./data/artgpu/ManuelUtilisation.pdf" target="_blank">Manuel d'utilisation</a></p>
+                                            <p><i class="fa fa-download"></i> <a href="./data/artgpu/artgpu.zip" target="_blank">ArtGpu</a></p>
+                                    </div>
+                                    <br/>
+                                    <div class="counter-block" style="background-color: #fff; padding:10px;">
+                                        <img src="./data/artgpu/artgpu.jpg" alt="" />
+                                    </div>
+                                </div>
+                                <!-- Content / End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Main Content -->
+
+        <!--JS Files-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!--Owl Coursel-->
+        <script src="js/owl.carousel.min.js"></script>
+        <!--Images LightCase-->
+        <script src="js/lightcase.min.js"></script>
+        <!-- Portfolio filter -->
+        <script src="js/jquery.isotope.min.js"></script>
+        <!-- Wow Animation -->
+        <script src="js/wow.min.js"></script>
+        <!-- Main Script -->
+        <script src="js/script.js"></script>
+    </body>
+</html>

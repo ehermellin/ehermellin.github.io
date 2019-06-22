@@ -1,1192 +1,847 @@
 <!DOCTYPE html>
-<html lang="fr" class="no-js">
+<html lang="fr">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <title>vCard Emmanuel Hermellin</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="description" content="vCard Emmanuel Hermellin" />
-        <link rel="shortcut icon" href="favicon.png">
-
+        <meta name="description" content="Emmanuel Hermellin - vCard" />
+        <meta name="keywords" content="personnal, vcard" />
+        <meta name="author" content="Emmanuel Hermellin" />
+        <link rel="icon" href="favicon.gif">
+        <title>Emmanuel Hermellin Vcard</title>
+        <!-- Bootstrap -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="css/normalize.css" type="text/css">
-        <link rel="stylesheet" href="css/animate.css" type="text/css">
-        <link rel="stylesheet" href="css/transition-animations.css" type="text/css">
-        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" type="text/css">
-        <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-        <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-        <link type="text/css" rel="stylesheet" href="css/sh_vim-dark.css">
-        <link rel="stylesheet" href="css/main.css" type="text/css">
-
-        <script src="js/jquery-2.1.3.min.js"></script>
-        <script src="js/modernizr.custom.js"></script>
+        <!-- Animation -->
+        <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+        <!-- Light Case -->
+        <link rel="stylesheet" href="css/lightcase.min.css" type="text/css">
+        <!-- Template style -->
+        <link rel="stylesheet" href="css/style.css" type="text/css">
     </head>
-
     <body>
-        <!-- Loading animation -->
-        <div class="preloader">
-            <div class="preloader-animation">
-                <div class="dot1"></div>
-                <div class="dot2"></div>
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="preloader-circle">
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <!-- /Loading animation -->
+        <!-- /preloader -->
 
-        <!--<div id="page" class="page template-style-dark">-->
-        <div id="page" class="page layout-menu template-style-light">
+        <div class="wrapper-page">
             <!-- Header -->
-            <!--<header id="site_header" class="header mobile-menu-hide header-color-dark">-->
-            <header id="site_header" class="header mobile-menu-hide header-color-light">
-                <div class="my-photo tilt-effect">
-                    <img src="images/main_photo_lac.jpg" alt="image"/>
-                    <div class="border-block-bottom-40"></div>
-                </div>
+            <header class="header">
+                <div class="header-content">
+                    <div class="profile-picture-block">
+                        <div class="my-photo">
+                            <img src="images/avatar.jpeg" class="img-fluid" alt="image">
+                        </div>
+                    </div>
+                    <!-- Header Head -->
+                    <div class="site-title-block">
+                        <div class="site-title">Emmanuel Hermellin</div>
+                        <div class="type-wrap">
+                            <div class="typed-strings">
+                                <span>vCard</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Header Head -->
 
-                <div class="site-title-block">
-                    <h1 class="site-title">Emmanuel Hermellin</h1>
-                </div>
+                    <!-- Navigation -->
+                    <div class="site-nav">
+                        <!-- Main menu -->
+                        <ul class="header-main-menu" id="header-main-menu">
+                            <li><a href="#about-me"><i class="fas fa-user-tie"></i> Présentation</a></li>
+                            <li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Enseignements</a></li>
+                            <li><a href="./recherche.html"><i class="fas fa-atom"></i> Recherches</a></li>
+                            <li><a href="#project"><i class="fas fa-business-time"></i> Projets</a></li>
+                            <li><a href="https://ehermellin.github.io/portfolio/"><i class="fas fa-camera"></i> Portfolio</a></li>
+                        </ul> 
+                        <!-- /Main menu -->
 
-                <!-- Navigation -->
-                <div class="site-nav">
-                    <!-- Main menu -->
-                    <ul id="nav" class="site-main-menu">
-                        <li>
-                            <a class="pt-trigger" href="#me" data-animation="21"><i class="menu-icon pe-7s-icon pe-7s-user"></i>Présentation</a>
-                        </li>
-                        <li>
-                            <a class="pt-trigger" href="#projet_page" data-animation="1"><i class="menu-icon pe-7s-icon pe-7s-portfolio"></i>Projets</a>
-                        </li>
-                        <li>
-                            <a class="pt-trigger" href="#research" data-animation="1"><i class="menu-icon pe-7s-icon pe-7s-science"></i>Recherche</a>
-                        </li>
-                        <li>
-                            <a class="pt-trigger" href="#publication" data-animation="1"><i class="menu-icon pe-7s-icon pe-7s-note"></i>Publication</a>
-                        </li>
-                        <li>
-                            <a class="pt-trigger" href="#enseignement" data-animation="1"><i class="menu-icon pe-7s-icon pe-7s-study"></i>Enseignement</a>
-                        </li>
-                        <li>
-                            <a class="ext" href="./portfolio.html"><i class="menu-icon pe-7s-icon pe-7s-photo"></i>Portfolio</a>
-                        </li>
-                    </ul>
-                    <!-- /Main menu -->
+                        <!-- Copyrights -->
+                        <div class="copyrights">© 2019 All rights reserved.</div>
+                        <!-- / Copyrights -->
+                    </div>
+                    <!-- /Navigation -->
                 </div>
-                <!-- Navigation -->
             </header>
             <!-- /Header -->
 
             <!-- Mobile Header -->
-            <div class="mobile-header mobile-visible">
-                <div class="mobile-logo-container">
-                    <div class="mobile-site-title">Emmanuel Hermellin</div>
-                </div>
-
-                <a class="menu-toggle mobile-visible">
-                    <i class="fa fa-bars"></i>
-                </a>
+            <div class="responsive-header">
+                <div class="responsive-header-name">
+                    <img class="responsive-logo" src="images/avatar.jpeg" alt="" />
+                    Emmanuel Hermellin
+                </div> 
+                <span class="responsive-icon"><i class="lnr lnr-menu"></i></span>
             </div>
             <!-- /Mobile Header -->
 
-            <!-- Main Content -->
-            <div id="main" class="site-main">
-                <!-- Page changer wrapper -->
-                <!--<div class="pt-wrapper" style="background-image: url(images/main_bg_dark.jpg);">-->
-                <div class="pt-wrapper" style="background-image: url(images/main_bg_light.jpg);">
-                    <!-- Subpages -->
-                    <div class="subpages">
+            <!-- Main Content Pages -->
+            <div class="content-pages">
+                <!-- Subpages -->
+                <div class="sub-home-pages">
 
-                        <!-- About Me Subpage -->
-                        <section class="pt-page pt-page-1" data-id="me">
-                            <div class="border-block-top-110"></div>
-                            <div class="section-inner">
-                                <div class="section-title-block">
-                                    <div class="section-title-wrapper clearfix">
-                                        <h2 class="section-title">About Me</h2>
-                                        <h5 class="section-description">Ingénieur de recherche, docteur en informatique</h5>
+                    <!-- About Me Subpage -->
+                    <section id="about-me" class="sub-page start-page">
+                        <div class="sub-page-inner">
+                            <div class="section-title">
+                                <div class="main-title">
+                                    <div class="title-main-page">
+                                        <h4>About me</h4>
+                                        <p>Ingénieur de recherche, docteur en informatique</p>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="section-content">
 
-                                <div class="row">
-                                    <div class="col-sm-3 col-md-3">
-                                        <div class="my-photo-block">
+                                <!-- about me -->
+                                <div class="row pb-30">
+                                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                                        <div class="counter-block" style="background-color: #fff; padding:10px;">
                                             <img src="images/main_photo_lac.jpg" alt="" />
-                                            <div class="border-block-bottom-60"></div>
                                         </div>
-                                    </div>    
+                                    </div>
+                                    <div class="col-xs-11 col-sm-11 col-md-8 col-lg-8">
+                                        <h3>Emmanuel Hermellin</h3>
+                                        <span class="about-location"><i class="lnr lnr-map-marker"></i>ONERA, Palaiseau, France</span>
+                                        <p class="about-content">
+                                            Actuellement <i>ingénieur d'études et de recherches</i> à l'<a href="https://www.onera.fr/" target="_blank">ONERA</a>. L’Office national d'études et de recherches aérospatiales est le principal centre de recherche français du secteur aéronautique, spatial et défense.<br/>
+                                            Mon rôle est de contribuer à la mise en oeuvre de simulations de systèmes aérospatiaux complexes. Dans ce contexte, mes missions consistent ainsi en :
+                                        </p>
+                                        <ol>
+                                            <li>l'intégration et le développement de modèles en collaboration avec les différents experts métiers de l'ONERA ;</li>
+                                            <li>au développement de l'infrastructure de simulation générique ;</li>
+                                            <li>la mise en place des scénarios et réalisation des exploitations.</li>
+                                        </ol>
 
-                                    <div class="col-sm-9 col-md-9">
-                                        <h3>Actuellement <i>ingénieur d'études et de recherche</i> @ <a href="https://www.onera.fr" target="_blank">ONERA - The French Aerospace Lab</a></h3>
-                                        <p> Titulaire d'un doctorat en informatique (Intelligence Artificielle et Calcul Haute Performance), j'occupe actuellement un poste d'<i>ingénieur d'études et de recherche en simulation de systèmes</i> au sein de l'établissement de Palaiseau de l'Office national d'études et de recherches aérospatiales (ONERA).
-
-                                        <br/><br/><br/>
-
-                                        <ul class="info-list">
-                                            <li><span class="title">Adresse </span> <span class="value"> <i class="fa fa-building"></i> 8 Chemin de la Hunière, 91120 Palaiseau</span></li>
-                                            <li><span class="title">E-mail </span> <span class="value"> <i class="fa fa-envelope"></i> <a href="mailto:emmanuel.hermellin@pm.me"> Emmanuel.Hermellin (at) pm (dot) me</a></span></li>
-                                            <li><span class="title">Curriculum Vitae </span> <span class="value"> <i class="fa fa-id-badge"></i> <a href="./data/cv_fr.pdf" target="_blank">CV</a></span> | <span class="value"> <i class="fa fa-id-badge"></i> <a href="./data/cv_ac.pdf" target="_blank">CV (académique)</a></span></li>
-                                            <li><span class="title">Médias sociaux </span> <span class="value"> <i class="fa fa-twitter"></i> <a href="https://twitter.com/Ehermellin" target="_blank">Twitter</a></span> | <span class="value"> <i class="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/emmanuel-hermellin/" target="_blank">LinkedIn</a></span> | <span class="value"> <i class="fa fa-github"></i> <a href="https://github.com/ehermellin" target="_blank">Github</a></span></li>
+                                        <p> En parallèle de ces activités, je suis amené à contribuer à la réalisation d'études et travaux de recherche dans le domaine de l'intelligence artificielle et  du génie logiciel.</p>
+                                        <ul class="bout-list-summry row">
+                                            <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="icon-info">
+                                                    <i class="lnr lnr-location"></i> 
+                                                </div>
+                                                <div class="details-info">
+                                                    <h6>Adresse</h6>
+                                                    <p>6, chemin de la Vauve aux Granges, Palaiseau</p>
+                                                </div>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="icon-info">
+                                                    <i class="lnr lnr-envelope"></i> 
+                                                </div>
+                                                <div class="details-info">
+                                                    <h6>E-mail</h6>
+                                                    <p><a href="mailto:emmanuel.hermellin@pm.me"> Emmanuel.Hermellin (at) pm (dot) me</a></p>
+                                                </div>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="icon-info">
+                                                    <i class="lnr lnr-user"></i> 
+                                                </div>
+                                                <div class="details-info">
+                                                    <h6>Curriculum Vitae</h6>
+                                                    <p><a href="./data/cv_fr.pdf" target="_blank">CV</a> | <a href="./data/cv_ac.pdf" target="_blank">CV (académique)</a></p>
+                                                </div>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="icon-info">
+                                                    <i class="lnr lnr-earth"></i> 
+                                                </div>
+                                                <div class="details-info">
+                                                    <h6>Médias sociaux</h6>
+                                                    <p>
+                                                        <a href="https://twitter.com/Ehermellin" target="_blank">Twitter</a> | 
+                                                        <a href="https://www.linkedin.com/in/emmanuel-hermellin/" target="_blank">LinkedIn</a> |
+                                                        <a href="https://github.com/ehermellin" target="_blank">Github</a>
+                                                    </p>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
+                                <!-- /about me -->
 
-                                <!--CV section -->
-                                <div class="row">
-                                    <div class="col-sm-7 col-md-7">
-                                        <br/>
-                                        <div class="block-title">
-                                            <h3>Expériences</h3>
-                                        </div>
-                                        <div class="timeline">
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Sept. 2017 - Mars 2019</h5>
-                                                <h4 class="event-name">Ingénieur de recherche</h4>
-                                                <span class="event-description"><a href="https://www.linksium.fr" target="_blank">Linksium <i class="fa fa-globe"></i></a> et <a href="https://www.liglab.fr" target="_blank">LIG <i class="fa fa-globe"></i></a></span>
-                                                <p>Maturation, évolution et valorisation d'un outil de planification automatique (<a href="https://github.com/pellierd/pddl4j" target="_blank"> PDDL4J</a>), dans le domaine de l'intelligence artificielle. À terme, l'objectif est de réaliser un transfert technologique des travaux de recherche, ayant menés à la création de cet outil.</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Juin 2017 - Août 2017</h5>
-                                                <h4 class="event-name">Chercheur informaticien</h4>
-                                                <span class="event-description"><a href="http://www.itk.fr" target="_blank">ITK  <i class="fa fa-globe"></i></a></span>
-                                                <p>R&D pour l'édition d'Outils d'Aide à la Décision (OAD) dédiés au monde agricole. Développeur full stack et devops.</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Oct. 2016 - Mai 2017</h5>
-                                                <h4 class="event-name">ATER (attaché temporaire d'enseignement et de recherche)</h4>
-                                                <span class="event-description">Université de Montpellier - LIRMM</span>
-                                                <p>Chargé de TD et TP en informatique (niveau Master et Licence, 90 heures), recherche dans le domaine des systèmes multi-agents.</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Sept. 2013 - Sept. 2016</h5>
-                                                <h4 class="event-name">Moniteur (doctorant)</h4>
-                                                <span class="event-description">Université de Montpellier</span>
-                                                <p>Chargé de TD et TP en informatique (niveau Master et Licence, 292.5 heures).</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Mars 2012 - Août 2012</h5>
-                                                <h4 class="event-name">Ingénieur de recherche (stagiaire)</h4>
-                                                <span class="event-description">Office National d’Études et de Recherches Aérospatiales (ONERA)</span>
-                                                <p>Réalisation d’un logiciel de rendu graphique sous GPU (raytracing, path tracing, photon mapping) en CUDA, OPTIX, C++, Perl.</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Avril 2011 - Juil. 2012</h5>
-                                                <h4 class="event-name">Ingénieur de développement (stagiaire)</h4>
-                                                <span class="event-description">Laboratoire Univers et Particules de Montpellier (LUPM)</span>
-                                                <p>Réalisation d’un logiciel en Java (RISA) pour l’interprétation, le calcul et la réduction de spectres astrophysiques.</p>
-                                            </div>
-                                        </div>
+                                <!-- actualites -->
+                                <div class="row pb-30 pt-30">
+                                    <div class="section-head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h4>
+                                            <span>Activités</span>
+                                            Actualités
+                                        </h4>
                                     </div>
-
-
-                                    <div class="col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-2">
-                                        <br/>
-                                        <div class="block-title">
-                                            <h3>Programmation</h3>
-                                        </div>
-                                        <div class="skills-info">
-                                            <h4>Programmation orientée objet</h4>          
-                                            <p>Java, C++, Python</p>
-
-                                            <h4>Programmation orientée agent</h4>
-                                            <p>Java, Logo, Gama</p>
-
-                                            <h4>Programmation parallèle, HPC</h4>
-                                            <p>CUDA, MPI, centre HPC@LR</p>
-
-                                            <h4>Programmation graphique, GUI</h4>
-                                            <p>OpenGL, Java, Python</p>
-
-                                            <h4>Programmation Web</h4>
-                                            <p>HTML, CSS, JS, CMS (Wordpress, ...)</p>
-                                        </div>
-
-                                        <div class="block-title">
-                                            <h3>Système</h3>
-                                        </div>
-                                        <div class="skills-info">
-                                            <h4>Administration système</h4>
-                                            <p>Ansible, Bash, Perl, Python</p>
-
-                                            <h4>OS</h4>
-                                            <p>GNU/Linux, Windows</p>
-
-                                            <h4>Gestionnaire de versions / CI</h4>                               
-                                            <p>Git, SVN / GitLab, Jenkins, Gradle</p>
-                                        </div>
-
-                                        <div class="block-title">
-                                            <h3>Création graphique</h3>
-                                        </div>
-                                        <div class="skills-info">
-                                            <h4>Photographie</h4>
-                                            <p>Photoshop, Lightroom, DxO PhotoLabs</p>
-
-                                            <h4>Graphisme</h4>
-                                            <p>Photoshop, Illustrator</p>
-
-                                            <h4>Multimédia</h4>
-                                            <p>After Effect, Première</p>
-                                        </div>
-
-                                        <div class="block-title">
-                                            <h3>Autres</h3>
-                                        </div>
-                                        <div class="skills-info">
-                                            <h4>Modélisation de processus (BPM)</h4>
-                                            <p>BPMN</p>
-                                            
-                                            <h4>Logiciel de calcul scientifique</h4>
-                                            <p>Matlab, Scilab, Octave</p>
-
-                                            <h4>Bureautique</h4>
-                                            <p>LaTeX, Office, GNUplot</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <br/>
-                                        <div class="block-title">
-                                            <h3>Formation</h3>
-                                        </div>
-                                        <div class="timeline">
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Oct. 2013 - Nov. 2016</h5>
-                                                <h4 class="event-name">Doctorat Informatique</h4>
-                                                <span class="event-description">Université de Montpellier - LIRMM</span>
-                                                <p>A la frontière entre deux domaines, cette thèse traite de la nécessité de trouver de nouveaux modèles de simulations plus adaptés aux nombreuses spécificités associées à la programmation sur architectures massivement parallèles.</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Sept. 2010 - Sept. 2012</h5>
-                                                <h4 class="event-name">Master Physique et Informatique</h4>
-                                                <span class="event-description">Université de Montpellier</span>
-                                                <p>Ce parcours offre une double compétence en Physique et Informatique ainsi qu'une spécialisation en « Physique Numérique » (en anglais : Computational Physics).</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Sept. 2009 - Juin 2010</h5>
-                                                <h4 class="event-name">Master de Physique fondamentale</h4>
-                                                <span class="event-description">Université Joseph Fourrier - Grenoble</span>
-                                                <p>Ce parcours débouche sur une spécialisation recherche dans des domaines de la physique très présents à Grenoble.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <br/><br/>
-                                        <div class="block-title">
-                                            <h3></h3><br/>
-                                        </div>
-                                        <div class="timeline">
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Sept. 2008 - Juin 2009</h5>
-                                                <h4 class="event-name">Licence de Physique fondamentale</h4>
-                                                <span class="event-description">Université d'Avignon et des pays du Vaucluse</span>
-                                                <p>Les enseignements du parcours sciences physiques visent à former les étudiants dans des domaines assez larges de manière à appréhender la physique pour poursuivre des études scientifiques ou être correctement préparé pour les concours.</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">Sept. 2006 - Juin 2008</h5>
-                                                <h4 class="event-name">Deug Maths - Informatique option concours Polytechnique</h4>
-                                                <span class="event-description">Université d'Avignon et des pays du Vaucluse</span>
-                                                <p>Formation qui prépare à l'entrée en écoles d'ingénieurs comme l'ENAC, réseau polytech, INSA, UTC, UTT, Seatech,INP Grenoble (ENSE3,PHELMA), ...</p>
-                                            </div>
-
-                                            <div class="timeline-event te-primary">
-                                                <h5 class="event-date">2006</h5>
-                                                <h4 class="event-name">Bac Scientifique option Sciences de l’Ingénieur</h4>
-                                                <span class="event-description">Lycée Jean Cocteau, Miramas</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-12 col-md-12">
-                                        <br/>
-                                        <div class="block-title">
-                                            <h3>Associatif, mandat, bénévolat</h3>
-                                        </div>
-
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                         <ul class="ul-card">
                                             <li>
                                                 <div class="dy">
-                                                    <span class="degree">Représentant doctorant élu</span>
+                                                    <span class="degree">Juin 2019</span>
                                                 </div>
                                                 <div class="description">
-                                                    <p class="waht">Université de Montpellier</p>
-                                                    <p class="where">Représenter les doctorants de l'école doctorale I2S dans les conseils scientifique et académique de l’université.</p>
+                                                    <p class="what">Rencontre Infrastructure de Recherche - Horizon H2020</p>
+                                                    <p class="where">Journée nationale d'information sur les appels à projet europpéens au Ministère de l'Enseignement supérieur et de la Recherche</p>
                                                 </div>
                                             </li>
+                                        </ul>
+                                        <ul class="ul-card">
                                             <li>
                                                 <div class="dy">
-                                                    <span class="degree">Organisation de séminaires</span>
+                                                    <span class="degree">Avril 2019</span>
                                                 </div>
                                                 <div class="description">
-                                                    <p class="waht">Montpellier</p>
-                                                    <p class="where">Organisation de séminaires scientifiques dédiés aux doctorants et de conférences de vulgarisation scientifique.</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="dy">
-                                                    <span class="degree">Animateur associatif</span>
-                                                </div>
-                                                <div class="description">
-                                                    <p class="waht">Montpellier</p>
-                                                    <p class="where">Animation de rencontres photographiques et de cours photos.</p>
+                                                    <p class="what">Formation animateur qualité</p>
+                                                    <p class="where">Formation dispensé par la société CEGOS (<a href="./data/certification_qualite.pdf" target="_blank">certification</a>)</p>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
-
                                 </div>
-                                <!-- CV section -->
+                                <!-- /actualites -->
 
-                                <!-- Interest block -->
-                                <div class="block-title">
-                                    <h3>Centres d’intérêt</h3>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="service-block"> 
-                                            <div class="service-info">
-                                                <i class="service-icon pe-7s-icon pe-7s-camera"></i>
-                                                <h4>Création graphique</h4>
-                                                <p>Pratique de la photographie durant mes voyages et au sein d’une association universitaire. Micro-entreprise dédiée au montage vidéo et à la création numérique.</p>
+                                <!-- activités -->
+                                <div class=" pb-30 pt-30">
+                                    <div class="row">   
+                                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="section-head">
+                                                <h4>
+                                                    <span>Activités</span>
+                                                    Associatif, mandat, bénévolat
+                                                </h4>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="service-block"> 
-                                            <div class="service-info">
-                                                <i class="service-icon pe-7s-icon pe-7s-plane"></i>
-                                                <h4>Voyage</h4>
-                                                <p>Pour des moments sportifs (raid aventure au Canada), professionnels (Pays-Bas, Turquie, Singapour) ou culturels (Italie, Espagne).</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="service-block"> 
-                                            <div class="service-info">
-                                                <i class="service-icon pe-7s-icon pe-7s-science"></i>
-                                                <h4>Sciences</h4>
-                                                <p>Veille liée aux nouvelles technologies, aux sciences (physique, informatique et météorologie) mais aussi à la politique et à l’économie.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="service-block"> 
-                                            <div class="service-info">
-                                                <i class="service-icon pe-7s-icon pe-7s-notebook"></i>
-                                                <h4>Lecture</h4>
-                                                <p>Livres d’Histoire, de S.F. ou des romans.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="service-block"> 
-                                            <div class="service-info">
-                                                <i class="service-icon pe-7s-icon pe-7s-bicycle"></i>
-                                                <h4>Sports</h4>
-                                                <p>Sports mécaniques, ski, parachutisme, natation, escalade et randonnée, ...</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-md-4">
-                                        <div class="service-block"> 
-                                            <div class="service-info">
-                                                <i class="service-icon pe-7s-icon pe-7s-album"></i>
-                                                <h4>Musique</h4>
-                                                <p>Pratique du piano.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End of Interest block -->
-                            </div>
-                        </section>
-                        <!-- End of About Me Subpage -->
-
-                        <!-- Research Subpage -->
-                        <section class="pt-page pt-page-2" data-id="research">
-                            <div class="border-block-top-110"></div>
-                            <div class="section-inner">
-                                <div class="section-title-block">
-                                    <div class="section-title-wrapper">
-                                        <h2 class="section-title">Recherche</h2>
-                                        <h5 class="section-description">Intelligence artificielle, calcul haute performance, ...</h5>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="ajax-page-title">
-                                        <div class="chapter-title"><h2>Paradigme Agent et Calcul Haute Performance</h2></div>
-                                        <ul class="tags">
-                                            <li><a>SMA</a></li>
-                                            <li><a>MABS</a></li>
-                                            <li><a>HPC</a></li>
-                                            <li><a>GPGPU</a></li>
-                                        </ul>
-                                        <br/>
-
-                                        <div>
-                                            <img src="images/recherche/intro.jpg" alt=""/>
-                                        </div>
-                                    </div>
-
-                                    <br/>
-                                    <div class="block-title">
-                                        <h3>Travaux de recherche</h3>
-                                    </div>
-
-                                    <p><b>Contexte</b><br/> 
-                                        La grande diversité des objectifs que la simulation multi-agents peut adresser (étude de systèmes complexes, de phénomènes biologiques, conception de systèmes multi-agents pour la robotique, etc.) montre toute la richesse du paradigme multi-agent. L'augmentation des capacités de calcul de nos ordinateurs actuels ainsi que la qualité (et la variété) des outils existants, dédiés à ce paradigme de conception, ont permis une envolée spectaculaire du nombre de simulations multi-agents et témoignent de sa popularité grandissante.</p>
-
-                                    <p>Cependant, nous avons montré, dans mon travail de thèse, que les performances constituent un verrou majeur dans ce domaine. Ainsi, il n'est pas rare de devoir simplifier le modèle ou de faire des compromis sur les caractéristiques de ce dernier pour compenser les limites introduites par ce manque de performance. D'autant plus, à l'heure où il est de plus en plus question de simulations à large échelle et/ou multi-niveaux, on peut facilement prédire que le besoin en ressources de calcul va augmenter de manière quasi exponentielle à court et moyen termes.</p>
-
-                                    <p>Ainsi, la motivation derrière ces travaux de recherche est d'apporter des solutions aux problèmes de performance que l'on peut rencontrer quand on simule des modèles multi-agents. Suivant les orientations prises en direction du calcul haute performance par différents groupes de recherche et industriels, nous nous sommes tournés en particulier vers l'utilisation de la puissance computationnelle des cartes graphiques via le GPGPU. Cette technologie offre en effet un des meilleurs rapports en termes de performance, prix et consommation énergétique tout en permettant à tout un chacun d'utiliser une solution de calcul intensif grâce à la disponibilité de cette dernière dans de nombreux ordinateurs.</p>
-
-                                    <p>Néanmoins, malgré les avantages que peut avoir le GPGPU, nous avons souligné que cette technologie est difficile à mettre en oeuvre. Le GPGPU s'accompagne en effet d'un contexte de programmation particulier du fait qu'il s'appuie sur un parallélisme de type SIMD qui nécessite notamment de suivre les principes de la programmation par traitement de flux de données (<i>stream processing paradigm</i>). Utiliser le GPGPU de manière efficiente peut donc être très complexe selon le cadre et les objectifs poursuivis.</p>
-
-                                    <p><b>Problématiques abordées</b><br/>
-                                        Dans le cadre des simulations multi-agents, les spécificités d'implémentation qui accompagnent la programmation sur GPU obligent à repenser la modélisation multi-agents, notamment car il n'est pas possible d'adopter une conception orientée objet classique. De ce fait, les modèles multi-agents usuels ne peuvent être simulés sur GPU sans un effort de traduction conséquent et non trivial.</p>
-
-                                    <p>De plus, considérer l'utilisation des GPU, reposant sur des architectures massivement parallèles, pour accélérer l'exécution des simulations exacerbe les problèmes d'implémentation déjà présents en séquentiel. En effet, les différents outils dédiés à la simulation multi-agent proposent une programmation haut niveau limitant la réutilisabilité des modèles sur d'autres plates-formes. Cela oblige également d'adopter une philosophie et une modélisation propre à chacun des outils ce qui restreint fortement l'accessibilité de ces derniers.</p>
-
-                                    <p>Dans ce contexte, l'état de l’art réalisé [Hermellin et al., 2014, Hermellin et al., 2015] nous a permis d'argumenter qu'une meilleure intégration du GPGPU ne pouvait se faire qu'avec une amélioration de l'accessibilité, de la réutilisabilité et de la généricité des solutions proposées et qu'elle passait nécessairement par l'utilisation d'une approche hybride. La difficulté était donc de trouver une solution répondant à ces critères.</p>
-
-                                    <p><b>Contributions scientifiques</b><br/>
-                                    <p>Ainsi, nous avons présenté le principe de <i>délégation GPU</i>. Celui-ci propose d'utiliser de manière directe le GPGPU (et donc de profiter de la puissance des GPU) au travers d'une approche hybride tout en conservant l'accessibilité et la facilité de réutilisation d'une interface de programmation orientée objet.</p>
-
-                                    <p>Ce principe de conception, qui appartient au courant E4MAS [Weyns and Michel, 2015], s'inspire de travaux tels que [Weyns et al., 2007, Ricci et al., 2011]. Ainsi, de la même manière que pour les <i>artefacts</i>, ce principe propose de réifier une partie des calculs du modèle (comme les calculs de perception) dans l'environnement sous la forme de dynamiques environnementales traitées par des modules de calcul GPU.</p>
-
-                                    <p>Les différentes expérimentations de ce principe sur une variété de modèles multi-agents [Hermellin and Michel, 2015,Hermellin and Michel, 2016b, Hermellin and Michel, 2016e, Hermellin and Michel, 2016c] ont souligné le caractère générique de l'approche mais aussi sa capacité à produire des modules GPU indépendants et réutilisables. De plus, grâce à la modularité apportée par l'approche hybride utilisée, les modules GPU créés reposent sur des noyaux de calcul (<i>kernels</i>) très simples (seulement quelques lignes de code) améliorant de ce fait l'accessibilité du GPGPU.</p>
-
-                                    <p>D'ailleurs, il est apparu durant ces applications successives du principe de <i>délégation GPU</i> que nous suivions toujours le même processus d'implémentation [Hermellin and Michel, 2016f]. Nous avons généralisé l'application du principe de <i>délégation GPU</i> sous la forme d'une méthode de conception basée sur ce principe. Ici, l'objectif était de permettre à un développeur n'ayant aucune expérience dans le domaine de la programmation GPU de l'aborder d'une manière simple, et surtout itérative.</p>
-
-                                    <p><b>Perspectives</b><br/>
-                                        Les perspectives de recherche autour de ces travaux de recherche sont nombreuses. D'ailleurs, deux axes sont tout particulièrement prometteurs et intéressants :</p>
-
-                                    <ul>
-                                        <li><p><b>1. Génie logiciel orienté agent (AOSE).</b><br/>
-                                            Il est clair que l'on a besoin de solutions qui facilitent la modélisation et l’implémentation de simulations multi-agents et cela quelque soit le contexte technologique. En s'inscrivant dans le courant E4MAS, notre méthode de conception poursuit cette quête de simplification au travers d'une décomplexification des comportements agents rendue possible grâce à la place donnée aux environnements (l'environnement est considéré comme essentiel). Bien que l'on ait mis de côté jusqu'ici cet aspect (la diminution de la complexité n'était pas le but premier de ces travaux de thèse), la question de la complexité prend tout son sens avec la méthode que nous proposons car le fait de se baser sur le principe de délégation GPU (qui explicite la séparation entre le modèle agent et l'environnement) et le fait de choisir ce qui va être exécuté par le GPU (grâce à l'approche hybride), permet de fournir à l'agent des percepts et des moyens d'action de haut niveau, afin de simplifier son comportement et d'en garder l'essentiel. En ce sens, nos contributions poursuivent bien les perspectives du courant E4MAS et s'inscrivent dans la lignée de travaux tels que [Viroli et al., 2006 , Weyns et al., 2007, Ricci et al., 2011, Michel, 2015, Weyns and Michel, 2015].</p>
-                                            <ul>
-                                                <li><p>Ainsi, dans une démarche de génie logiciel orienté agent (AOSE), il est pertinent d'étudier l'impact que peut avoir notre méthode sur la programmation multi-agents en évaluant la capacité de notre méthode à simplifier l'implémentation et la modélisation multi-agent et cela en dehors d'un contexte GPGPU.</p></li>
-                                                <li><p>De plus, dans un contexte hardware de plus en plus hétérogène, distribué, connecté, interactif (<i>eg</i> IoT), réussir à déléguer une partie d'un système ou modulariser son implémentation va devenir crucial pour assurer son bon fonctionnement. Tout l'enjeu consistera à définir des méthodes de conception efficaces capables de s'adapter au contexte matériel sans en être dépendant. En ce sens, le principe de délégation porté par notre méthode est un bon point de départ dans le domaine des simulations multi-agents.</p></li>
-                                            </ul>
-                                        </li>
-
-                                        <li><p><b>2. Ordonnancement et simultanéité</b><br/>
-                                            L'autre axe concerne l'ordonnancement et la simultanéité dans les simulations multi-agents. En effet, l'application de notre méthode sur un modèle peut ne pas être neutre (apparition de nouvelles dynamiques suite aux modifications engendrées) mais elle souligne également l'importance que l'on doit donner à l'ordonnancement : l’ordre dans lequel les agents sont activés et produisent leurs perceptions et actions. Il existe d'ailleurs de nombreux de travaux qui traitent de l'ordonnancement dans les systèmes multi-agents et de l'impact qu'il peut avoir sur l'exécution et la dynamique des systèmes. Parmi ces travaux, on peut citer par exemple [Fatès and Chevrier, 2010] qui montre que même avec seulement deux agents aux comportements minimalistes, plongés dans un environnement simple, il est possible d’obtenir des dynamiques très différentes suivant la manière dont le reste du modèle est élaboré (perception, action, temps, interaction, etc.) ou encore IRM4S qui traite de l'utilisation des notions d'influence et de réaction pour la simulation de systèmes multi-agents [Michel, 2007, Chevrier and Fatès, 2008].
-                                            <ul>
-                                                <li><p> Nous avons d'ailleurs montré que, notre méthode, de par sa conception hybride, impose de séparer les calculs liés aux agents (CPU), des calculs liés à l’environnement (GPU) ce qui introduit un mécanisme en deux phases sur les parties du modèle concernées. Ce mécanisme peut être, à juste titre, relié à une approche de type IRM4S [Hermellin-ECAL-2017]. Ainsi, un des axes de recherche est de mener une réflexion autour de l'ordonnancement des agents et sur son impact sur la dynamique des systèmes dans un contexte d'utilisation hybride du GPGPU ou plus généralement d'architectures matérielles massivement parallèles. Surtout, considérant que ce genre d'architecture matérielle va se généraliser dans les années à venir.</p></li>
-                                                <li><p> Cependant, malgré la possibilité d'intégrer des solutions telle qu'IRM4S dans notre approche, cette dernière souffrira toujours de biais introduits par l'utilisation du calcul parallèle et par les contraintes intrinsèques à ces technologies (<i>e.g.</i> synchronisation) pouvant d'une part limiter les performances mais aussi modifier le comportement des agents. En effet, l'activation de ces derniers et l'ordonnancement de leurs actions seraient toujours contraints par l'implémentation du modèle et par l'architecture matérielle sur laquelle la simulation est exécutée. Ainsi, il serait pertinent de s'intéresser aux recherches menées dans le domaine des systèmes dynamiques asynchrone dans un cadre discret [Contassot-Vivier, 2006] et tout particulièrement au cas du comportement des réseaux d’automates à états finis. En effet, ces derniers permettent de modéliser de nombreux systèmes complexes et en particulier leurs processus itératifs parallèles. L'activation des agents pouvant être vue comme un processus itératif parallèle, un lien pourrait être fait entre des deux domaines.</p></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
-                                    <blockquote>
-                                        <h4>Références</h4>                        
-                                        [Chevrier and Fatès, 2008] Chevrier, V. and Fatès, N. (2008). Multi-agent Systems as Discrete Dynamical Systems : Influences and Reactions as a Modelling Principle. Research report.
-                                        <br/><br/>
-                                        [Contassot-Vivier, 2006] Contassot-Vivier, S. (2006). Asynchronism : Continuous and discrete contexts. Habilitation à diriger des recherches, Université de Franche-Comté.
-                                        <br/><br/>
-                                        [Fatès and Chevrier, 2010] Fatès, N. and Chevrier, V. (2010). How important are updating schemes in multi-agent systems? an illustration on a multi-turmite model. In van der Hoek, W., Kaminka, G. A., Lespérance, Y., Luck, M., and Sen, S., editors, 9th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2010), Toronto, Canada, May 10-14, 2010, Volume 1-3, pages 533–540. IFAAMAS.
-                                        <br/><br/>
-                                        [Michel, 2015] Michel, F. (2015). Approches environnement-centrées pour la simulation de systèmes multi-agents. Pour un déplacement de la complexité des agents vers l’environnement. PhD thesis, Université de Montpellier.
-                                        <br/><br/>
-                                        [Michel, 2007] Michel, F. (2007). Le modèle irm4s, de l’utilisation des notions d’influence et de réaction pour la simulation de systèmes multi-agents. Revue d’Intelligence Artificielle, 21(5-6) :757–779.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2017] Hermellin, E. and Michel, F. (2017).Complex flocking dynamics without global stimulus. In Proceedings of the Fourteenth European Conference Artificial Life, ECAL 2017, Lyon, France, September 4-8, 2017, pages 513--520, MIT Press.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2016a] Hermellin, E. and Michel, F. (2016a). Defining a Methodology Based on GPU Delegation for Developing MABS using GPGPU. In Antunes, L. and Nardin, L. G., editors, Multi-Agent Based Simulation XVII, International Workshop, MABS 2016, Singapore, May 10, Revised Selected Papers, pages 24--41, Lecture Notes in Computer Science (10399), Springer.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2016b] Hermellin, E. and Michel, F. (2016b). Expérimentation du principe de délégation GPU pour la simulation multiagent. les boids de reynolds comme cas d’étude. Revue d’Intelligence Artificielle, 30(1-2) :109–132.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2016c] Hermellin, E. and Michel, F. (2016c). Gpu delegation : Toward a generic approach for developping mabs using gpu programming. In Proceedings of the 2016 International Conference on Autonomous Agents & Multiagent Systems, AAMAS ’16, pages 1249–1258, Richland, SC. International Foundation for Autonomous Agents and Multiagent Systems.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2016d] Hermellin, E. and Michel, F. (2016d). Méthodologie pour la modélisation et l’implémentation de simulations multi-agents utilisant le GPGPU. In Michel, F. and Saunier, J., editors, Systèmes Multi-Agents et simulation - Vingt-quatrièmes journées francophones sur les systèmes multi-agents, JFSMA 16, Saint-Martin-du-Vivier (Rouen), France, Octobre 5-7, 2016., pages 107–116. Cépaduès Éditions.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2016e] Hermellin, E. and Michel, F. (2016e). Multi-Agent Based Simulation XVI : International Workshop, MABS 2015, Istanbul, Turkey, May 5, 2015, Revised Selected Papers, volume 9568, chapter GPU Environmental Delegation of Agent Perceptions : Application to Reynolds’s Boids, pages 71–86. Springer International Publishing.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2016f] Hermellin, E. and Michel, F. (2016f). Overview of case studies on adapting MABS models to GPU programming. In Bajo, J., Escalona, M. J., Giroux, S., Hoffa-Dabrowska, P., Julián, V., Novais, P., Pi, N. S., Unland, R., and Silveira, R. A., editors, Highlights of Practical Applications of Scalable Multi-Agent Systems. The PAAMS Collection - International Workshops of PAAMS 2016, Sevilla, Spain, June 1-3, 2016. Proceedings, volume 616 of Communications in Computer and Information Science, pages 125–136. Springer.
-                                        <br/><br/>
-                                        [Hermellin and Michel, 2015] Hermellin, E. and Michel, F. (2015). Délégation GPU des perceptions agents : Application aux boids de reynolds. In Vercouter, L. and Picard, G., editors, Environnements socio-techniques - JFSMA 15 - Vingt-troisièmes Journées Francophones sur les Systèmes Multi-Agents, Rennes, France, June 30th-July 1st, 2015, pages 185–194. Cépaduès Éditions.
-                                        <br/><br/>
-                                        [Hermellin et al., 2015] Hermellin, E., Michel, F., and Ferber, J. (2015). État de l’art sur les simulations multi-agents et le GPGPU. Revue d’Intelligence Artificielle, 29(3-4) :425–451.
-                                        <br/><br/>
-                                        [Hermellin et al., 2014] Hermellin, E., Michel, F., and Ferber, J. (2014). Systèmes multi-agents et GPGPU : état des lieux et directions pour l’avenir. In Courdier, R. and Jamont, J., editors, Principe de Parcimonie - JFSMA 14 - Vingt-deuxièmes Journées Francophones sur les Systèmes Multi-Agents, Loriol-sur-Drôme, France, Octobre 8-10, 2014, pages 97–106. Cépaduès Éditions.
-                                        <br/><br/>
-                                        [Ricci et al., 2011] Ricci, A., Piunti, M., and Viroli, M. (2011). Environment programming in multi-agent systems : an artifact-based perspective. Autonomous Agents and Multi-Agent Systems, 23(2) :158–192.
-                                        <br/><br/>
-                                        [Viroli et al., 2006] Viroli, M., Omicini, A., and Ricci, A. (2006). Engineering MAS environment with artifacts. In Weyns, D., Parunak, H. V. D., and Michel, F., editors, Environments for Multi-Agent Systems, volume 3830 of Lecture Notes in Computer Science, pages 62–77. Springer Berlin Heidelberg
-                                        <br/><br/>
-                                        [Weyns and Michel, 2015] Weyns, D. and Michel, F. (2015). Agent Environments for Multi-Agent Systems IV, 4th International Workshop, E4MAS 2014 - 10 Years Later, Paris, France, May6, 2014, Revised Selected and Invited Papers, volume 9068 of LNCS. Springer.
-                                        <br/><br/>
-                                        [Weyns et al., 2007] Weyns, D., Omicini, A., and Odell, J. (2007). Environment as a first class abstraction in multiagent systems. Autonomous Agents and Multi-Agent Systems, 14(1) :5–30.
-                                    </blockquote>
-
-                                    <div style="text-align: center;"><a class="pt-trigger button" href="#publication" data-animation="5">Publication</a></div>
-
-                                    <br/><br/>
-
-                                    <div class="block-title">
-                                        <h3>Thèse de doctorat</h3>
-                                    </div>
-
-                                    <div class="col-sm-8 col-md-8 subpage-block">
-                                        <ul class="info-list">
-                                            <li><span class="title">Titre</span><span class="value">Modélisation et implémentation de simulations multi-agents sur architectures massivement parallèles</span></li>
-                                        </ul>
-                                        <br/>
-                                        <ul class="info-list">
-                                            <li><span class="title">Résumé</span></li>
-                                        </ul>
-                                        <p>La simulation multi-agent représente une solution pertinente pour l’ingénierie et l’étude des systèmes complexes dans de nombreux domaines (vie artificielle, biologie, économie, etc.). Cependant, elle requiert parfois énormément de ressources de calcul, ce qui représente un verrou technologique majeur qui restreint les possibilités d'étude des modèles envisagés (passage à l’échelle, expressivité des modèles proposés, interaction temps réel, etc.).</p>
-
-                                        <p>Parmi les technologies disponibles pour faire du calcul intensif (<i>High Performance Computing</i>, HPC), le GPGPU (<i>General-Purpose computing on Graphics Processing Units</i>) consiste à utiliser les architectures massivement parallèles des cartes graphiques (GPU) comme accélérateur de calcul. Cependant, alors que de nombreux domaines bénéficient des performances du GPGPU (météorologie, calculs d’aérodynamique, modélisation moléculaire, finance, etc.), celui-ci est peu utilisé dans le cadre de la simulation multi-agent. En fait, le GPGPU s'accompagne d’un contexte de développement très spécifique qui nécessite une transformation profonde et non triviale des modèles multi-agents. Ainsi, malgré l'existence de travaux pionniers qui démontrent l'intérêt du GPGPU, cette difficulté explique le faible engouement de la communauté multi-agent pour le GPGPU.</p>
-
-                                        <p>Dans cette thèse, nous montrons que, parmi les travaux qui visent à faciliter l'usage du GPGPU dans un contexte agent, la plupart le font au travers d’une utilisation transparente de cette technologie. Cependant, cette approche nécessite d’abstraire un certain nombre de parties du modèle, ce qui limite fortement le champ d’application des solutions proposées. Pour pallier ce problème, et au contraire des solutions existantes, nous proposons d'utiliser une approche hybride (l'exécution de la simulation est partagée entre le processeur et la carte graphique) qui met l'accent sur l'accessibilité et la réutilisabilité grâce à une modélisation qui permet une utilisation directe et facilitée de la programmation GPU. Plus précisément, cette approche se base sur un principe de conception, appelé délégation GPU des perceptions agents, qui consiste à réifier une partie des calculs effectués dans le comportement des agents dans de nouvelles structures (<i>e.g.</i> dans l’environnement). Ceci afin de répartir la complexité du code et de modulariser son implémentation. L'étude de ce principe ainsi que les différentes expérimentations réalisées montre l'intérêt de cette approche tant du point de vue conceptuel que du point de vue des performances. C'est pourquoi nous proposons de généraliser cette approche sous la forme d'une méthode de modélisation et d'implémentation de simulations multi-agents spécifiquement adaptée à l'utilisation des architectures massivement parallèles.</p>
-                                        <br/>
-                                        <div style="text-align: center;"><a class="button ajax-page-load" target="_blank" href="./these/t_intro.html">Manuscrit</a></div>
-                                    </div>
-
-                                    <div class="col-sm-4 col-md-4 subpage-block">
-                                        <ul class="info-list">
-                                            <li><span class="title">Encadrement  </span><span class="value">Fabien Michel et Jacques Ferber</span></li>
-                                        </ul>
-                                        <br/>
-                                        <ul class="info-list">  
-                                            <li><span class="title">Financement  </span><span class="value">Bourse ministérielle</span></li>
-                                            <li><span class="title">Soutenance   </span><span class="value">18 novembre 2016</span></li>
-                                        </ul>
-                                        <br/>
-                                        <ul class="info-list">  
-                                            <li><span class="title">Président du jury</span></li>
-                                        </ul>
-                                        <p>Olivier Simonin, Professeur, INSA Lyon, France</p>
-                                        <ul class="info-list">
-                                            <li><span class="title">Rapporteurs</span></li>
-                                        </ul>
-                                        <p>Alessandro Ricci, Professeur, Université de Bologne, Italie<br/>Vincent Chevrier, Professeur, Université de Lorraine, France</p>
-                                        <ul class="info-list">
-                                            <li><span class="title">Examinateurs</span></li>
-                                        </ul>
-                                        <p>Olivier Simonin, Professeur, INSA Lyon, France<br/>Jean-Christophe Soulié, Cadre de recherche, CIRAD Montpellier, France</p>
-                                    </div>
-
-                                    <br/>
-
-                                    <div class="col-sm-12 col-md-12 subpage-block">
-                                        <div class="block-title">
-                                            <h3>Ressources et exemples</h3>
-                                        </div>
-
-                                        <div id="projet_grid" class="portfolio-grid portfolio-masonry masonry-grid-3">
-
-                                            <!-- Item 1 -->
-                                            <figure class="item">
-                                                <a class="ajax-page-load" href="./projets/turtlekit.html">
-                                                    <img src="images/recherche/tk.jpg" alt=""/>
-                                                    <div>
-                                                        <h5 class="name">TurtleKit</h5>
-                                                        <small>Développement logiciel</small>
-                                                        <i class="pe-7s-icon pe-7s-display2"></i>
+                                            <div class="counter-block">
+                                                <div class="services-list">
+                                                    <div class="service-block">
+                                                        <div class="service-icon">
+                                                            <i class="lnr lnr-camera-video"></i>
+                                                        </div>
+                                                        <div class="service-text">
+                                                            <h4>Micro-entrepreneur</h4>
+                                                            <p>Avec <a href="https://ehermellin.github.com/comforlab" target="_blank">Com. For LAB</a>, l'idée est de proposer à des laboratoires et/ou équipes de recherche des services de communication. Cela pour valoriser et communiquer autour des travaux de recherche d'un projet ou d'une équipe sous une forme différente (vidéo, clip, animation, etc.), en parallèles des publications scientifiques classiques tout en permettant également de toucher un public plus large, voir même non scientifique.
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                </a>
-                                            </figure>
-                                            <!-- Item 1 -->
 
-                                            <!-- Item 2 -->
-                                            <figure class="item">
-                                                <a class="ajax-page-load" href="./projets/mabs.html">
-                                                    <img src="images/recherche/boids.jpg" alt=""/>
-                                                    <div>
-                                                        <h5 class="name">Simulations multi-agents et GPGPU</h5>
-                                                        <small>Développement logiciel et recherche</small>
-                                                        <i class="pe-7s-icon pe-7s-display2"></i>
+                                                    <div class="service-block">
+                                                        <div class="service-icon">
+                                                            <i class="lnr lnr-sync"></i>
+                                                        </div>
+                                                        <div class="service-text">
+                                                            <h4>Représentant doctorant élu</h4>
+                                                            <p>Ma mission consistait à représenter et défendre les doctorants de l'école doctorale I2S dans les conseils scientifique et académique de l’Université de Montpellier (suppléant en 2014, titulaire de 2015 à 2016).</p>
+                                                        </div>
                                                     </div>
-                                                </a>
-                                            </figure>
-                                            <!-- Item 2 -->
+
+                                                    <div class="service-block">
+                                                        <div class="service-icon">
+                                                            <i class="lnr lnr-bubble"></i>
+                                                        </div>
+                                                        <div class="service-text">
+                                                            <h4>Organisation de séminaires</h4>
+                                                            <p>Au sein de l'association SeminDoc, nous organisions des séminaires scientifiques dédiés aux doctorants et des conférences de vulgarisation scientifique ouvertes à tous.</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="service-block">
+                                                        <div class="service-icon">
+                                                            <i class="lnr lnr-camera"></i>
+                                                        </div>
+                                                        <div class="service-text">
+                                                            <h4>Animateur associatif</h4>
+                                                            <p>Au sein de l'association D'Clic, animation de rencontres photographiques et de cours photos.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="section-head-right">
+                                                <h4>
+                                                    <span>Activités</span>
+                                                    Centres d’intérêt
+                                                </h4>
+                                            </div>
+                                            <div class="counter-block">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="services-list">
+                                                            <div class="service-block">
+                                                                <div class="service-icon">
+                                                                    <i class="lnr lnr-pencil"></i>
+                                                                </div>
+                                                                <div class="service-text">
+                                                                    <h4>Création graphique</h4>
+                                                                    <p>Pratique de la photographie durant mes voyages et au sein d’une association universitaire. Micro-entreprise dédiée au montage vidéo et à la création numérique.</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="service-block">
+                                                                <div class="service-icon">
+                                                                    <i class="lnr lnr-rocket"></i>
+                                                                </div>
+                                                                <div class="service-text">
+                                                                    <h4>Voyage</h4>
+                                                                    <p>Pour des moments sportifs (raid aventure au Canada), professionnels (Pays-Bas, Turquie, Singapour) ou culturels (Italie, Espagne).</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="service-block">
+                                                                <div class="service-icon">
+                                                                    <i class="lnr lnr-alarm"></i>
+                                                                </div>
+                                                                <div class="service-text">
+                                                                    <h4>Sciences</h4>
+                                                                    <p>Veille liée aux nouvelles technologies, aux sciences (physique, informatique et météorologie) mais aussi à la politique et à l’économie.</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="service-block">
+                                                                <div class="service-icon">
+                                                                    <i class="lnr lnr-coffee-cup"></i>
+                                                                </div>
+                                                                <div class="service-text">
+                                                                    <h4>Activités</h4>
+                                                                    <p>Livres d’Histoire, de S.F. ou des romans; Sports mécaniques, ski, parachutisme, natation, escalade et randonnée; Pratique du piano.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
-                        <!-- End Research Subpage -->
+                                <!-- /activités -->
 
-                        <!-- Publication Subpage -->
-                        <section class="pt-page pt-page-3" data-id="publication">
-                            <div class="border-block-top-110"></div>
-                            <div class="section-inner">
-                                <div class="section-title-block">
-                                    <div class="section-title-wrapper">
-                                        <h2 class="section-title">Publication</h2>
-                                        <h5 class="section-description">Articles, Proceedings, Posters...</h5>
+                                <!-- experiences -->
+                                <div class="row pb-30 pt-30">
+                                    <div class="section-head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h4>
+                                            <span>Parcours</span>
+                                            Expériences professionnelles
+                                        </h4>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                        <div class="main-timeline">
+                                            <div class="timeline">
+                                                <div class="timeline-icon">
+                                                    <a href="https://www.linksium.fr" target="_blank"><img src="images/resume/linksium.png" alt=""></a>
+                                                </div>
+                                                <div class="timeline-content">
+                                                    <span class="date">Setpembre 2017 - Mars 2019</span>
+                                                    <h5 class="title">Ingénieur de recherche</h5>
+                                                    <span class="about-location"><i class="lnr lnr-map-marker"></i>LIG et Linksium, Grenoble, France</span>
+                                                    <p class="description">
+                                                        Maturation, évolution et valorisation d'un outil de planification automatique, dans le domaine de l'intelligence artificielle. À terme, l'objectif est de réaliser un transfert technologique des travaux de recherche, ayant menés à la création de cet outil, par la création d'une start-up.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="timeline">
+                                                <div class="timeline-icon">
+                                                    <a href="http://www.itk.fr" target="_blank"><img src="images/resume/itk.png" alt=""></a>
+                                                </div>
+                                                <div class="timeline-content">
+                                                    <span class="date">Juin 2017 - Août 2017</span>
+                                                    <h5 class="title">Chercheur informaticien</h5>
+                                                    <span class="about-location"><i class="lnr lnr-map-marker"></i>ITK, Clapiers, France</span>
+                                                    <p class="description">
+                                                        R&D pour l'édition d'Outils d'Aide à la Décision (OAD) dédiés au monde agricole. Développeur full stack et devops.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="timeline">
+                                                <div class="timeline-icon">
+                                                    <a href="https://www.umontpellier.fr" target="_blank"><img src="images/resume/um2.png" alt=""></a>
+                                                </div>
+                                                <div class="timeline-content  s-m-0 pb-0">
+                                                    <span class="date">Octobre 2016 - Mai 2017</span>
+                                                    <h5 class="title">ATER (attaché temporaire d'enseignement et de recherche)</h5>
+                                                    <span class="about-location"><i class="lnr lnr-map-marker"></i>LIRMM et Université de Montpellier, Montpellier, France</span>
+                                                    <p class="description">
+                                                        Chargé de TD et TP en informatique (niveau Master et Licence, 90 heures), recherche dans le domaine des systèmes multi-agents.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="timeline">
+                                                <div class="timeline-icon">
+                                                    <a href="https://www.umontpellier.fr" target="_blank"><img src="images/resume/um2.png" alt=""></a>
+                                                </div>
+                                                <div class="timeline-content  s-m-0 pb-0">
+                                                    <span class="date">Sept. 2013 - Sept. 2016</span>
+                                                    <h5 class="title">Doctorant moniteur</h5>
+                                                    <span class="about-location"><i class="lnr lnr-map-marker"></i>LIRMM et Université de Montpellier, Montpellier, France</span>
+                                                    <p class="description">
+                                                        Chargé de TD et TP en informatique (niveau Master et Licence, 292.5 heures), recherche dans le domaine des systèmes multi-agents.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="timeline">
+                                                <div class="timeline-icon">
+                                                    <a href="https://www.onera.fr" target="_blank"><img src="images/resume/onera.png" alt=""></a>
+                                                </div>
+                                                <div class="timeline-content  s-m-0 pb-0">
+                                                    <span class="date">Mars 2012 - Août 2012</span>
+                                                    <h5 class="title">Ingénieur de recherche (stagiaire)</h5>
+                                                    <span class="about-location"><i class="lnr lnr-map-marker"></i>ONERA, Salont de Provence, France</span>
+                                                    <p class="description">
+                                                        Réalisation d’un logiciel de rendu graphique sous GPU (raytracing, path tracing, photon mapping) en CUDA, OPTIX, C++, Perl.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="timeline">
+                                                <div class="timeline-icon">
+                                                    <a href="https://www.lupm.univ-montp2.fr/" target="_blank"><img src="images/resume/lupm.png" alt=""></a>
+                                                </div>
+                                                <div class="timeline-content  s-m-0 pb-0">
+                                                    <span class="date">Avril 2011 - Juil. 2012</span>
+                                                    <h5 class="title">Ingénieur de développement (stagiaire)</h5>
+                                                    <span class="about-location"><i class="lnr lnr-map-marker"></i>LUPM et Université de Montpellier, Montpellier, France</span>
+                                                    <p class="description">
+                                                        Réalisation d’un logiciel en Java (RISA) pour l’interprétation, le calcul et la réduction de spectres astrophysiques.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                        <div class="counter-block">
+                                            <h4>Programmation</h4>
+
+                                            <p>Programmation orientée objet<br/>          
+                                                <i>Java, C++, Python</i></p>
+
+                                            <p>Programmation orientée agent<br/>  
+                                                <i>Java, Logo, Gama</i></p>
+
+                                            <p>Programmation parallèle, HPC<br/>  
+                                                <i>CUDA, MPI, centre HPC@LR</i></p>
+
+                                            <p>Programmation graphique, GUI<br/>  
+                                                <i>OpenGL, Java, Python, Qt</i></p>
+
+                                            <p>Programmation Web<br/>  
+                                                <i>HTML, CSS, JS</i></p>
+
+                                            <h4>Système</h4>
+
+                                            <p>Administration système<br/>
+                                                <i>Ansible, Bash, Perl, Python</i></p>
+
+                                            <p>OS<br/>
+                                                <i>GNU/Linux, Windows</i></p>
+
+                                            <p>Gestionnaire de versions / CI<br/>                               
+                                                <i>Git, SVN / GitLab, Jenkins, Gradle, CMake</i></p>
+
+                                            <h4>Création graphique</h4>
+
+                                            <p>Photographie<br/>
+                                                <i>Photoshop, Lightroom, DxO PhotoLabs</i></p>
+
+                                            <p>Graphisme<br/>
+                                                <i>Photoshop, Illustrator</i></p>
+
+                                            <p>Multimédia<br/>
+                                                <i>After Effect, Première</i></p>
+
+                                            <h4>Autres</h4>
+
+                                            <p>Modélisation de processus (BPM)<br/>
+                                                <i>BPMN</i></p>
+
+                                            <p>Logiciel de calcul scientifique<br/>
+                                                <i>Matlab, Scilab, Octave</i></p>
+
+                                            <p>Bureautique<br/>
+                                                <i>LaTeX, Office, GNUplot</i></p>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- /experiences -->
 
+                                <!-- education History -->
+                                <div class="pb-30 pt-30">   
+                                    <div class="section-head">
+                                        <h4>
+                                            <span>Parcours</span>
+                                            Formation
+                                        </h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="main-timeline">
+                                                <div class="timeline">
+                                                    <div class="timeline-icon">
+                                                        <img src="images/resume/um2.png" alt="">
+                                                    </div>
+                                                    <div class="timeline-content">
+                                                        <span class="date">Oct. 2013 - Nov. 2016</span>
+                                                        <h5 class="title">Doctorat Informatique</h5>
+                                                        <span class="about-location"><i class="lnr lnr-map-marker"></i>LIRMM et Université de Montpellier, Montpellier, France</span>
+                                                        <p class="description">
+                                                            A la frontière entre deux domaines, cette thèse traite de la nécessité de trouver de nouveaux modèles de simulations plus adaptés aux nombreuses spécificités associées à la programmation sur architectures massivement parallèles.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="timeline">
+                                                    <div class="timeline-icon">
+                                                        <img src="images/resume/um2-old.png" alt="">
+                                                    </div>
+                                                    <div class="timeline-content">
+                                                        <span class="date">Sept. 2010 - Sept. 2012</span>
+                                                        <h5 class="title">Master Physique et Informatique</h5>
+                                                        <span class="about-location"><i class="lnr lnr-map-marker"></i>LIRMM et Université de Montpellier, Montpellier, France</span>
+                                                        <p class="description">
+                                                            Ce parcours offre une double compétence en Physique et Informatique ainsi qu'une spécialisation en « Physique Numérique » (en anglais : Computational Physics).
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="timeline">
+                                                    <div class="timeline-icon">
+                                                        <img src="images/resume/ujf.png" alt="">
+                                                    </div>
+                                                    <div class="timeline-content">
+                                                        <span class="date">Sept. 2009 - Juin 2010</span>
+                                                        <h5 class="title">Master de Physique fondamentale</h5>
+                                                        <span class="about-location"><i class="lnr lnr-map-marker"></i>Université Joseph Fourrier, Grenoble, France</span>
+                                                        <p class="description">
+                                                            Ce parcours débouche sur une spécialisation recherche dans des domaines de la physique très présents à Grenoble.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="timeline">
+                                                    <div class="timeline-icon">
+                                                        <img src="images/resume/uapv.png" alt="">
+                                                    </div>
+                                                    <div class="timeline-content">
+                                                        <span class="date">Sept. 2008 - Juin 2009</span>
+                                                        <h5 class="title">Licence de Physique fondamentale</h5>
+                                                        <span class="about-location"><i class="lnr lnr-map-marker"></i>Université d'Avignon et des pays du Vaucluse, Avignon, France</span>
+                                                        <p class="description">
+                                                            Les enseignements du parcours sciences physiques visent à former les étudiants dans des domaines assez larges de manière à appréhender la physique pour poursuivre des études scientifiques ou être correctement préparé pour les concours.
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="timeline">
+                                                    <div class="timeline-icon">
+                                                        <img src="images/resume/uapv.png" alt="">
+                                                    </div>
+                                                    <div class="timeline-content">
+                                                        <span class="date">Sept. 2006 - Juin 2008</span>
+                                                        <h5 class="title">Deug Maths - Informatique option concours Polytechnique</h5>
+                                                        <span class="about-location"><i class="lnr lnr-map-marker"></i>Université d'Avignon et des pays du Vaucluse, Avignon, France</span>
+                                                        <p class="description">
+                                                            Formation qui prépare à l'entrée en écoles d'ingénieurs comme l'ENAC, réseau polytech, INSA, UTC, UTT, Seatech,INP Grenoble (ENSE3,PHELMA), ...
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /education History -->
+                            </div>
+                        </div>
+                    </section>
+                    <!-- About Me Subpage -->
+
+                    <!-- Resume Subpage -->
+                    <section id="teaching" class="sub-page">
+                        <div class="sub-page-inner">
+                            <div class="section-title">
+                                <div class="main-title">
+                                    <div class="title-main-page">
+                                        <h4>Enseignement</h4>
+                                        <p>Aperçu des activités d'enseignement</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section-content">
                                 <div class="row">
-                                    <div class="pitems">
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/ecal_2017.jpg" alt="" />
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="pb-300">
+                                            <div class="section-head col-sm-12">
+                                                <h4>
+                                                    <span>Polytech et Université de Montpellier</span>
+                                                    Enseignements dispensés
+                                                </h4>
+                                                <a class="bt-submit" href="./data/recap_enseign.pdf" target="_blank"><i class="fas fa-cloud-download-alt"></i> Récapitulatif enseignement</a>
                                             </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Complex flocking dynamics without global stimulus</h4>
-                                                <div class="pubcitetext">Proceedings of the 14th European Conference on Artificial Life 2017 (France, Lyon), pages 513--520</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/ecal_2017.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/ecal_2017.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Complex flocking dynamics without global stimulus</h4>
-                                                <div class="pubcitetext">ECAL, European Conference on Artificial Life (Lyon, 2017)</div>
-                                                <div class="pubauthor"><strong>Fabien Michel</strong>, Emmanuel Hermellin</div>
-                                                <div class="pubcite"><span class="label label-poster">Poster</span></div>
-                                                <div class="pubassets">
-                                                    <a href="https://hal-lirmm.ccsd.cnrs.fr/lirmm-01598654" target="_blank"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>  
-                                        </div>
-
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/mabs_2016.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Defining a Methodology Based on GPU Delegation for Developing MABS using GPGPU</h4>
-                                                <div class="pubcitetext">Multi-Agent Based Simulation XVII - International Workshop, MABS 2016, Singapore, May 10, 2016, Revised Selected Papers, pages 24--41, Lecture Notes in Computer Science (vol. 10399)</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/mabs_2016.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/these_2016.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Modélisation et implémentation de simulations multi-agents sur architectures massivement parallèles</h4>
-                                                <div class="pubcitetext">Spécialité doctorale Informatique, Université de Montpellier, école doctorale I2S, unité de recherche LIRMM</div>
-                                                <div class="pubcite"><span class="label label-thesis">Ph.D. Thesis</span></div>
-                                                <div class="pubassets">
-                                                    <a href="https://hal-lirmm.ccsd.cnrs.fr/tel-01416970" target="_blank"><i class="fa fa-external-link"></i></a>
-                                                </div>
+                                            <div class="row pb-30 pt-30">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>Année</b></td>
+                                                            <td><b>Activité</b></td>
+                                                            <td><b>Nb heures</b></td>
+                                                            <td><b>Lieu d'exercice</b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2018 - 2019</td>
+                                                            <td>Vacataire</td>
+                                                            <td>40h ETD</td>
+                                                            <td>Polytech Grenoble - Université Grenoble Alpes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2016 - 2017</td>
+                                                            <td>ATER</td>
+                                                            <td>90h ETD</td>
+                                                            <td>Département informatique, UFR Sciences, Université de Montpellier</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2013 - 2016</td>
+                                                            <td>Moniteur (doctorant)</td>
+                                                            <td>292.3h ETD</td>
+                                                            <td>Département informatique, UFR Sciences, Université de Montpellier</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
 
-                                        </div>
+                                            <h3>Vacataire, année 2018 - 2019</h3>
+                                            <div class="row pb-10 pt-10">
 
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/aamas_2016.jpg" alt="" />
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>Matière</b></td>
+                                                            <td><b>Niveau</b></td>
+                                                            <td><b>TD (h)</b></td>
+                                                            <td><b>TP (h)</b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Algorithme et programmation impérative</td>
+                                                            <td>Licence 3 Polytech (RCIM)</td>
+                                                            <td>20</td>
+                                                            <td>20</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">GPU Delegation: Toward a Generic Approach for Developping MABS using GPU Programming</h4>
-                                                <div class="pubcitetext">AAMAS, proceedings of the 15th International Conference on Autonomous Agents and Multiagent Systems (Singapour, 2016), pages 1249--1258 (ACM acmid.2937106)</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/aamas_2016.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
+
+                                            <h3>Attaché temporaire d'enseignement et recherche (ATER), année 2016 - 2017</h3>
+                                            <div class="row pb-10 pt-10">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>Matière</b></td>
+                                                            <td><b>Niveau</b></td>
+                                                            <td><b>TD (h)</b></td>
+                                                            <td><b>TP (h)</b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Programmation orientée agent</td>
+                                                            <td>Master 1 Informatique</td>
+                                                            <td>16.5</td>
+                                                            <td>16.5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Introduction à l'algorithmique et programmation</td>
+                                                            <td>Licence 1 Polytech</td>
+                                                            <td>22.5</td>
+                                                            <td>13.5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Du binaire au web</td>
+                                                            <td>Licence 1 Pluri-Sciences</td>
+                                                            <td>15</td>
+                                                            <td>24</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                        </div>
 
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/aamas_2016.jpg" alt="" />
+                                            <h3>Moniteur (doctorant), année 2013-2016</h3>
+                                            <div class="row pb-10 pt-10">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>Matière</b></td>
+                                                            <td><b>Niveau</b></td>
+                                                            <td><b>TD (h)</b></td>
+                                                            <td><b>TP (h)</b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Programmation orientée agent</td>
+                                                            <td>Master 1 Informatique</td>
+                                                            <td>31.5</td>
+                                                            <td>31.5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Concepts et outils de base en informatique</td>
+                                                            <td>Licence 2 Pluri-Sciences</td>
+                                                            <td></td>
+                                                            <td>36</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Programmation applicative</td>
+                                                            <td>Licence 2 Informatique</td>
+                                                            <td></td>
+                                                            <td>31.5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Outils informatique</td>
+                                                            <td>Licence 2 Pluri-Sciences</td>
+                                                            <td></td>
+                                                            <td>54</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Introduction à l'algorithmique et programmation</td>
+                                                            <td>Licence 1 Polytech</td>
+                                                            <td>24</td>
+                                                            <td>27</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Concepts de base en informatique</td>
+                                                            <td>Licence 1 Pluri-Sciences</td>
+                                                            <td></td>
+                                                            <td>30</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">GPU Delegation: Toward a Generic Approach for Developping MABS using GPU Programming</h4>
-                                                <div class="pubcitetext">AAMAS, Conference on Autonomous Agents and Multiagent Systems (Singapour, 2016)</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-poster">Poster</span></div>
-                                                <div class="pubassets">
-                                                    <a href="https://hal-lirmm.ccsd.cnrs.fr/lirmm-01519194" target="_blank"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>  
-                                        </div>
 
-                                        <br/>
+                                            <h3>Description des enseignements</h3>
+                                            <div class="row pb-10 pt-10">
+                                                <b>Master 1 Informatique, Programmation orientée agent</b>, <i>responsable pédagogique Jacques Ferber</i>
+                                                <p>Cette unité d'enseignement introduit le paradigme agent et la programmation orientée agent, c'est à dire la manière de développer des applications complexes à l'aide d'agents autonomes et de systèmes multi-agents. Elle consiste en 10 x 1,5h de cours, 11 x 3h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré trois groupes de TD et TP (2014 - 2015, 2015 - 2016, 2016 - 2017) de 40 étudiants pour un total de 96 heures et participé aux corrections des examens.</p>
 
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/paams_2016.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Overview of Case Studies on Adapting MABS Models to GPU Programming</h4>
-                                                <div class="pubcitetext">Highlights of Practical Applications of Scalable Multi-Agent Systems. The PAAMS Collection: International Workshops of PAAMS 2016, Sevilla, Spain, June 1-3, 2016. Proceedings, pages 125--136, Communications in Computer and Information Science (vol.616)</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/paams_2016.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                <b>Licence 3 Polytech, Algorithme et programmation impérative</b>, <i>responsable pédagogique Georges-Pierre Bonneau</i>
+                                                <p>L'objectif du cours est d'introduire les bases de l'algorithmique dans un cadre de programmation impérative. Il est complémentaire du cours d'algorithmique fonctionnelle. Par delà la présentation des algorithmes, structures de données et méthodologies de programmation classiques, le cours insistera sur les notions d'invariant et de complexité, fondamentales pour le développement d'applications à la fois robustes et performantes. Chaque nouvelle notion sera illustré par de nombreux exemples explicatifs. Les cours sont accompagnés de travaux pratiques de programmation et de travaux dirigés au cours desquels les étudiants apprennent à créer leurs propres algorithmes de manière robuste et performante. Elle consiste en 16h de cours, 56h de TD, 18.5h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré un groupe de TD et TP de 30 étudiants pour un total de 40 heures et participé aux corrections des examens.</p>
 
-                                        <br/>
+                                                <b>Licence 2 Informatique : Programmation applicative</b>, <i>responsable pédagogique Stefano Cerri</i>
+                                                <p>Le module Programmation Applicative est dédié aux concepts de base de la programmation multi-paradigme. A partir d'un langage Oz, et d'un ensemble de ressources pédagogiques, le but de ce module est de montrer aux étudiants que le choix d'un paradigme de programmation, voir d'un langage, a des conséquences importantes sur la facilité voir même la possibilité de résoudre des problèmes. Elle consiste en 10 x 1,5h de cours et 10 x 1,5h de TD, 10 x 1,5h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré deux groupes de TD et TP (2013 - 2014, 2014 - 2015) de 40 étudiants pour un total de 31.5 heures ainsi que produit les énoncés des TD, TP, contrôles continus du module et participé aux corrections des examens.</p>
 
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/jfsma_2016.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Méthodologie pour la modélisation et l'implémentation de simulations multi-agents utilisant le GPGPU</h4>
-                                                <div class="pubcitetext">JFSMA, vingt-quatrièmes Journées Francophones sur les Systèmes Multi-Agents (Saint Martin du Vivier, France, 2016), pages 107--116</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/jfsma_2016.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>  
-                                        </div>
+                                                <b>Licence 1 et 2 Pluri-Sciences : Concepts et outils de base en informatique</b>, <i>responsable pédagogique Sylvain Daudé</i>
+                                                <p>Ces deux formations constituent les premières briques à l'obtention du C2I - niveau 1, certification nationale mise en place par le Ministère de l'Education Nationale et permettant d'attester de connaissances et de compétences informatiques et internet de base. Elle présente et initie aux outils informatiques et à l'environnement Linux ainsi qu'aux logiciels de bureautiques, à LateX et à HTML. Elle consiste en 5 x 1,5h de cours, 6 x 3h de TP et se conclut par le passage du C2i niveau 1 (C2i = Certificat Informatique et Internet). Pour ces unités d'enseignement, j'ai encadré 3 groupes de TP (2013 - 2014, 2015 - 2016) de 21 étudiants pour un total de 120 heures et participé aux corrections des examens.</p>
 
-                                        <br/>
+                                                <b>Classe préparatoire 1 (PEIP, Polytech) : Introduction algorithmique et programmation</b>, <i>responsable pédagogique Philippe Janssen</i>
+                                                <p>Cette formation introduit le concept d'algorithme et permet la découverte de la programmation au travers du langage C / C++. Le but de ce cours est de fournir aux étudiants des bases solides leurs permettant par la suite d'appréhender les concepts autour de la programmation qu'ils rencontreront au cours de leur scolarité. Elle consiste en 8 x 1,5h de cours et 16 x 1,5h de TD, 9 x 1,5h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré deux groupes de TD et TP (2013 - 2014, 2016 - 2017) de 30 étudiants pour un total de 87 heures ainsi que produit les énoncés des contrôles continus pour mes groupes et participé aux corrections des examens.</p>
 
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/mabs_2015.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">GPU Environmental Delegation of Agent Perceptions : Application to Reynolds’s Boids</h4>
-                                                <div class="pubcitetext">Multi-Agent-Based Simulation XVI - International Workshop, MABS 2015, Istanbul, Turkey, May 5, 2015, Revised Selected Papers, pages 71--86, Lecture Notes in Computer Science (vol.9568)</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/mabs_2015.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>  
-                                        </div>
-
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/ria_2015.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Expérimentation du principe de délégation GPU pour la simulation multiagent : les boids de Reynolds comme cas d’étude</h4>
-                                                <div class="pubcitetext">RIA, Revue d'Intelligence Artificielle (2016), pages 109--132 (vol.30 num 1-2)</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-success">Article</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/ria_2016.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
+                                                <b>Licence 1 Pluri-Sciences : Du binaire au web</b>, <i>responsables pédagogiques Anne-Muriel Chifolleau, Hinde Bouziane, Sylvain Daudé</i>
+                                                <p>Cette unité d'enseignement se présente comme un introduction à l'informatique. De ce fait, les cours sont divisés en trois grandes parties et traitent de la représentation de l'information, des systèmes et réseaux et enfin du Web. Elle consiste en 5 x 1,5h de cours, 11 x 3h de TD et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré un groupe de TD et TP (2016 - 2017) de 50 étudiants pour un total de 39 heures et participé aux corrections des examens.</p>
                                             </div>
                                         </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- End of Resume Subpage -->
 
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/jfsma_2015.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Délégation GPU des perceptions agents : Application aux Boids de Reynolds</h4>
-                                                <div class="pubcitetext">JFSMA, vingt-troisièmes Journées Francophones sur les Systèmes Multi-Agents (Rennes, France, 2015), pages 185--194</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/jfsma_2015.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>  
-                                        </div>
-
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/ria_2014.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">État de l’art sur les simulations multi-agents et le GPGPU</h4>
-                                                <div class="pubcitetext">RIA, Revue d'Intelligence Artificielle (2015), pages 425--451 (vol.29 num 3-4)</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel, Jacques Ferber</div>
-                                                <div class="pubcite"><span class="label label-success">Article</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/ria_2015.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>  
-                                        </div>
-
-                                        <br/>
-
-                                        <div class="pubmain">
-                                            <div class="pubimg">
-                                                <img src="./images/recherche/publication/jfsma_2014.jpg" alt="" />
-                                            </div>
-                                            <div class="pubdescr">
-                                                <h4 class="pubtitle">Systèmes multi-agents et GPGPU : état des lieux et directions pour l’avenir</h4>
-                                                <div class="pubcitetext">JFSMA, vingt-deuxièmes Journées Francophones sur les Systèmes Multi-Agents (Loriol, France, 2014), pages 97--106</div>
-                                                <div class="pubauthor"><strong>Emmanuel Hermellin</strong>, Fabien Michel, Jacques Ferber</div>
-                                                <div class="pubcite"><span class="label label-warning">Inproceedings</span></div>
-                                                <div class="pubassets">
-                                                    <a class="ajax-page-load" href="./articles/jfsma_2014.html"><i class="fa fa-external-link"></i></a>
-                                                </div>
-                                            </div>  
-                                        </div>
-
-                                    </div>
-
-                                    <br/>
-
-                                    <div style="text-align: center;">
-                                        <a class="button" data-animation="5" href="http://hal-lirmm.ccsd.cnrs.fr/search/index/q/authIdHal_s%3A%22emmanuel-hermellin%22/" target="_blank">HAL LIRMM</a> | <a class="button" data-animation="5" href="http://dblp.uni-trier.de/pers/hd/h/Hermellin:Emmanuel" target="_blank">DBLP</a> | <a class="button" data-animation="5" href="https://scholar.google.fr/citations?user=DE66DeIAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                    <!-- Portfolio Subpage -->
+                    <section id="project" class="sub-page">
+                        <div class="sub-page-inner">
+                            <div class="section-title">
+                                <div class="main-title">
+                                    <div class="title-main-page">
+                                        <h4>Projets</h4>
+                                        <p>Quelques projets menés ces dernières années...</p>
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                        <!-- End Publication Subpage -->      
 
-                        <!-- Enseignement Subpage -->
-                        <section class="pt-page pt-page-4" data-id="enseignement">
-                            <div class="border-block-top-110"></div>
-                            <div class="section-inner">
-                                <div class="section-title-block">
-                                    <div class="section-title-wrapper">
-                                        <h2 class="section-title">Enseignement</h2>
-                                        <h5 class="section-description">Université de Montpellier - FDS</h5>
+                            <div class="section-content">
+                                <div class="portfolio-grid portfolio-trigger" id="portfolio-page">
+                                    <div class="label-portfolio"><span class="rotated-sub">projets</span><span class="project-count">5</span></div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 portfolio-item ">
+                                            <div class="portfolio-img">
+                                                <img src="images/projet/github.jpg" class="img-responsive" alt="">
+                                            </div>
+                                            <div class="portfolio-data">
+                                                <h4><a href="https://github.com/ehermellin" target="_blank">GitHub</a></h4>
+                                                <p class="meta">Quelques projets ...</p>
+                                                <div class="portfolio-attr"> 
+                                                    <a href="https://github.com/ehermellin" target="_blank"><i class="lnr lnr-link"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 portfolio-item ">
+                                            <div class="portfolio-img">
+                                                <img src="images/projet/pddl4j.jpg" class="img-responsive" alt="">
+                                            </div>
+                                            <div class="portfolio-data">
+                                                <h4><a href="./pddl4j.html">PDDL4J</a></h4>
+                                                <p class="meta">Planification automatique</p>
+                                                <div class="portfolio-attr"> 
+                                                    <a href="./pddl4j.html"><i class="lnr lnr-link"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 portfolio-item ">
+                                            <div class="portfolio-img">
+                                                <img src="images/projet/tk.jpg" class="img-responsive" alt="">
+                                            </div>
+                                            <div class="portfolio-data">
+                                                <h4><a href="./turtlekit.html">TurtleKit</a></h4>
+                                                <p class="meta">Simulation multi-agent</p>
+                                                <div class="portfolio-attr"> 
+                                                    <a href="./turtlekit.html"><i class="lnr lnr-link"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 portfolio-item ">
+                                            <div class="portfolio-img">
+                                                <img src="images/projet/crira.jpg" class="img-responsive" alt="">
+                                            </div>
+                                            <div class="portfolio-data">
+                                                <h4><a href="./crira.html">ArtGPU - Crira</a></h4>
+                                                <p class="meta">Solution de rendu graphique grâce au GPGPU</p>
+                                                <div class="portfolio-attr"> 
+                                                    <a href="./crira.html"><i class="lnr lnr-link"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 portfolio-item ">
+                                            <div class="portfolio-img">
+                                                <img src="images/projet/risa.jpg" class="img-responsive" alt="">
+                                            </div>
+                                            <div class="portfolio-data">
+                                                <h4><a href="./risa.html">Risa</a></h4>
+                                                <p class="meta">Réduction d’Image et de Spectres d’Astrophysiques</p>
+                                                <div class="portfolio-attr"> 
+                                                    <a href="./risa.html"><i class="lnr lnr-link"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="block-title">
-                                        <h3>Aperçu des activités d'enseignement</h3>
-                                    </div>
-
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>Année</b></td>
-                                                <td><b>Activité</b></td>
-                                                <td><b>Nb heures</b></td>
-                                                <td><b>Lieu d'exercice</b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018 - 2019</td>
-                                                <td>Vacataire</td>
-                                                <td>40h ETD</td>
-                                                <td>Polytech Grenoble - Université Grenoble Alpes</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2016 - 2017</td>
-                                                <td>ATER</td>
-                                                <td>90h ETD</td>
-                                                <td>Département informatique, UFR Sciences, Université de Montpellier</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2013 - 2016</td>
-                                                <td>Moniteur (doctorant)</td>
-                                                <td>292.3h ETD</td>
-                                                <td>Département informatique, UFR Sciences, Université de Montpellier</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <div style="text-align: center;">
-                                        <ul class="info-list">
-                                            <li><span class="title">Récapitulatif enseignement : </span>
-                                                <span class="value"><a href="./data/recap_enseign.pdf" target="_blank">Université de Montpellier</a></span></li>
-                                        </ul>
-                                    </div>
-
-                                    <br/>
-                                    
-                                    <div class="block-title">
-                                        <h3>Vacataire, année 2018 - 2019</h3>
-                                    </div>
-
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>Matière</b></td>
-                                                <td><b>Niveau</b></td>
-                                                <td><b>TD (h)</b></td>
-                                                <td><b>TP (h)</b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Algorithme et programmation impérative</td>
-                                                <td>Licence 3 Polytech (RCIM)</td>
-                                                <td>20</td>
-                                                <td>20</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <div class="block-title">
-                                        <h3>Attaché temporaire d'enseignement et recherche (ATER), année 2016 - 2017</h3>
-                                    </div>
-
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>Matière</b></td>
-                                                <td><b>Niveau</b></td>
-                                                <td><b>TD (h)</b></td>
-                                                <td><b>TP (h)</b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Programmation orientée agent</td>
-                                                <td>Master 1 Informatique</td>
-                                                <td>16.5</td>
-                                                <td>16.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Introduction à l'algorithmique et programmation</td>
-                                                <td>Licence 1 Polytech</td>
-                                                <td>22.5</td>
-                                                <td>13.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Du binaire au web</td>
-                                                <td>Licence 1 Pluri-Sciences</td>
-                                                <td>15</td>
-                                                <td>24</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <div class="block-title">
-                                        <h3>Moniteur (doctorant), année 2013-2016</h3>
-                                    </div>
-
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>Matière</b></td>
-                                                <td><b>Niveau</b></td>
-                                                <td><b>TD (h)</b></td>
-                                                <td><b>TP (h)</b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Programmation orientée agent</td>
-                                                <td>Master 1 Informatique</td>
-                                                <td>31.5</td>
-                                                <td>31.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Concepts et outils de base en informatique</td>
-                                                <td>Licence 2 Pluri-Sciences</td>
-                                                <td></td>
-                                                <td>36</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Programmation applicative</td>
-                                                <td>Licence 2 Informatique</td>
-                                                <td></td>
-                                                <td>31.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Outils informatique</td>
-                                                <td>Licence 2 Pluri-Sciences</td>
-                                                <td></td>
-                                                <td>54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Introduction à l'algorithmique et programmation</td>
-                                                <td>Licence 1 Polytech</td>
-                                                <td>24</td>
-                                                <td>27</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Concepts de base en informatique</td>
-                                                <td>Licence 1 Pluri-Sciences</td>
-                                                <td></td>
-                                                <td>30</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <div class="block-title">
-                                        <h3>Description des enseignements</h3>
-                                    </div>
-
-                                    <b>Master 1 Informatique, Programmation orientée agent</b>, <i>responsable pédagogique Jacques Ferber</i>
-                                    <p>Cette unité d'enseignement introduit le paradigme agent et la programmation orientée agent, c'est à dire la manière de développer des applications complexes à l'aide d'agents autonomes et de systèmes multi-agents. Elle consiste en 10 x 1,5h de cours, 11 x 3h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré trois groupes de TD et TP (2014 - 2015, 2015 - 2016, 2016 - 2017) de 40 étudiants pour un total de 96 heures et participé aux corrections des examens.</p>
-                                    
-                                    <b>Licence 3 Polytech, Algorithme et programmation impérative</b>, <i>responsable pédagogique Georges-Pierre Bonneau</i>
-                                    <p>L'objectif du cours est d'introduire les bases de l'algorithmique dans un cadre de programmation impérative. Il est complémentaire du cours d'algorithmique fonctionnelle. Par delà la présentation des algorithmes, structures de données et méthodologies de programmation classiques, le cours insistera sur les notions d'invariant et de complexité, fondamentales pour le développement d'applications à la fois robustes et performantes. Chaque nouvelle notion sera illustré par de nombreux exemples explicatifs. Les cours sont accompagnés de travaux pratiques de programmation et de travaux dirigés au cours desquels les étudiants apprennent à créer leurs propres algorithmes de manière robuste et performante. Elle consiste en 16h de cours, 56h de TD, 18.5h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré un groupe de TD et TP de 30 étudiants pour un total de 40 heures et participé aux corrections des examens.</p>
-
-                                    <b>Licence 2 Informatique : Programmation applicative</b>, <i>responsable pédagogique Stefano Cerri</i>
-                                    <p>Le module Programmation Applicative est dédié aux concepts de base de la programmation multi-paradigme. A partir d'un langage Oz, et d'un ensemble de ressources pédagogiques, le but de ce module est de montrer aux étudiants que le choix d'un paradigme de programmation, voir d'un langage, a des conséquences importantes sur la facilité voir même la possibilité de résoudre des problèmes. Elle consiste en 10 x 1,5h de cours et 10 x 1,5h de TD, 10 x 1,5h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré deux groupes de TD et TP (2013 - 2014, 2014 - 2015) de 40 étudiants pour un total de 31.5 heures ainsi que produit les énoncés des TD, TP, contrôles continus du module et participé aux corrections des examens.</p>
-
-                                    <b>Licence 1 et 2 Pluri-Sciences : Concepts et outils de base en informatique</b>, <i>responsable pédagogique Sylvain Daudé</i>
-                                    <p>Ces deux formations constituent les premières briques à l'obtention du C2I - niveau 1, certification nationale mise en place par le Ministère de l'Education Nationale et permettant d'attester de connaissances et de compétences informatiques et internet de base. Elle présente et initie aux outils informatiques et à l'environnement Linux ainsi qu'aux logiciels de bureautiques, à LateX et à HTML. Elle consiste en 5 x 1,5h de cours, 6 x 3h de TP et se conclut par le passage du C2i niveau 1 (C2i = Certificat Informatique et Internet). Pour ces unités d'enseignement, j'ai encadré 3 groupes de TP (2013 - 2014, 2015 - 2016) de 21 étudiants pour un total de 120 heures et participé aux corrections des examens.</p>
-
-                                    <b>Classe préparatoire 1 (PEIP, Polytech) : Introduction algorithmique et programmation</b>, <i>responsable pédagogique Philippe Janssen</i>
-                                    <p>Cette formation introduit le concept d'algorithme et permet la découverte de la programmation au travers du langage C / C++. Le but de ce cours est de fournir aux étudiants des bases solides leurs permettant par la suite d'appréhender les concepts autour de la programmation qu'ils rencontreront au cours de leur scolarité. Elle consiste en 8 x 1,5h de cours et 16 x 1,5h de TD, 9 x 1,5h de TP et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré deux groupes de TD et TP (2013 - 2014, 2016 - 2017) de 30 étudiants pour un total de 87 heures ainsi que produit les énoncés des contrôles continus pour mes groupes et participé aux corrections des examens.</p>
-
-                                    <b>Licence 1 Pluri-Sciences : Du binaire au web</b>, <i>responsables pédagogiques Anne-Muriel Chifolleau, Hinde Bouziane, Sylvain Daudé</i>
-                                    <p>Cette unité d'enseignement se présente comme un introduction à l'informatique. De ce fait, les cours sont divisés en trois grandes parties et traitent de la représentation de l'information, des systèmes et réseaux et enfin du Web. Elle consiste en 5 x 1,5h de cours, 11 x 3h de TD et se conclut par un examen final. Pour cette unité d'enseignement, j'ai encadré un groupe de TD et TP (2016 - 2017) de 50 étudiants pour un total de 39 heures et participé aux corrections des examens.</p>
-
                                 </div>
                             </div>
-                        </section>
-                        <!-- End Enseignement Subpage -->
-
-                        <!-- Projet Subpage -->
-                        <section class="pt-page pt-page-5" data-id="projet_page">
-                            <div class="border-block-top-110"></div>
-                            <div class="section-inner">
-                                <div class="section-title-block">
-                                    <div class="section-title-wrapper">
-                                        <h2 class="section-title">Projets</h2>
-                                        <h5 class="section-description">Dev et autres...</h5>
-                                    </div>
-                                </div>
-
-                                <!-- Projet Content -->
-                                <div class="portfolio-content">
-                                    <!-- Projet filter -->
-                                    <ul id="projet_page_filters" class="portfolio-filters">
-                                        <li class="active">
-                                            <a class="filter btn btn-sm btn-link active" data-group="All">All</a>
-                                        </li>
-                                    </ul>
-                                    <!-- End of Projet filter -->
-
-                                    <!-- Projet Grid -->
-                                    <div id="projet_page_grid" class="portfolio-grid portfolio-masonry masonry-grid-3">
-                                        <!-- Item -->
-                                        <figure class="item" data-groups='["All"]'>
-                                            <a href="https://ehermellin.github.io/comforlab">
-                                                <img src="images/recherche/comforlab.jpg" alt=""/>
-                                                <div>
-                                                    <h5 class="name">Com. for LAB</h5>
-                                                    <small>Communication for laboratory !</small>
-                                                    <i class="pe-7s-icon pe-7s-display2"></i>
-                                                </div>
-                                            </a>
-                                        </figure>
-                                        <!-- Item -->
-
-                                        <!-- Item -->
-                                        <figure class="item" data-groups='["All"]'>
-                                            <a class="ajax-page-load" href="./projets/pddl4j.html">
-                                                <img src="images/recherche/pddl4j.jpg" alt=""/>
-                                                <div>
-                                                    <h5 class="name"><font color="black">PDDL4J</font></h5>
-                                                    <small><font color="black">Planification automatique</font></small>
-                                                    <i class="pe-7s-icon pe-7s-display2"></i>
-                                                </div>
-                                            </a>
-                                        </figure>
-                                        <!-- Item -->
-
-                                        <!-- Item -->
-                                        <figure class="item" data-groups='["All"]'>
-                                            <a class="ajax-page-load" href="./projets/mabs.html">
-                                                <img src="images/recherche/boids.jpg" alt=""/>
-                                                <div>
-                                                    <h5 class="name"><font color="black">Simulations multi-agents et GPGPU</font></h5>
-                                                    <small><font color="black">Développement logiciel et recherche</font></small>
-                                                    <i class="pe-7s-icon pe-7s-display2"></i>
-                                                </div>
-                                            </a>
-                                        </figure>
-                                        <!-- Item -->
-
-                                        <!-- Item -->
-                                        <figure class="item" data-groups='["All"]'>
-                                            <a class="ajax-page-load" href="./projets/turtlekit.html">
-                                                <img src="images/recherche/tk.jpg" alt=""/>
-                                                <div>
-                                                    <h5 class="name"><font color="black">TurtleKit</font></h5>
-                                                        <small><font color="black">Développement logiciel</font></small>
-                                                    <i class="pe-7s-icon pe-7s-display2"></i>
-                                                </div>
-                                            </a>
-                                        </figure>
-                                        <!-- Item -->
-
-                                        <!-- Item -->
-                                        <figure class="item" data-groups='["All"]'>
-                                            <a class="ajax-page-load" href="./projets/crira.html">
-                                                <img src="images/projet/crira.jpg" alt=""/>
-                                                <div>
-                                                    <h5 class="name">CRIRA - ArtGPU</h5>
-                                                    <small>Développement logiciel et recherche</small>
-                                                    <i class="pe-7s-icon pe-7s-display2"></i>
-                                                </div>
-                                            </a>
-                                        </figure>
-                                        <!-- Item -->
-
-                                        <!-- Item -->
-                                        <figure class="item" data-groups='["All"]'>
-                                            <a class="ajax-page-load" href="./projets/risa.html">
-                                                <img src="images/projet/risa.jpg" alt=""/>
-                                                <div>
-                                                    <h5 class="name">RISA</h5>
-                                                    <small>Développement logiciel</small>
-                                                    <i class="pe-7s-icon pe-7s-display2"></i>
-                                                </div>
-                                            </a>
-                                        </figure>
-                                        <!-- Item -->
-
-                                    </div>
-                                    <!-- /Projet Grid -->
-
-                                </div>
-                                <!-- /Projet Content -->
-
-                            </div>
-                        </section>
-                        <!-- Projet Subpage -->     
-
-                    </div>
+                        </div>
+                    </section>
+                    <!-- /Portfolio Subpage -->
                 </div>
                 <!-- /Page changer wrapper -->
             </div>
             <!-- /Main Content -->
         </div>
 
+        <!--JS Files-->
+        <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/pages-switcher.js"></script>
-        <script src="js/imagesloaded.pkgd.min.js"></script>
-        <script src="js/jquery.shuffle.min.js"></script>
-        <script src="js/masonry.pkgd.min.js"></script>
+        <!--Owl Coursel-->
         <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="js/jquery.hoverdir.js"></script>
-        <script type="text/javascript" src="js/sh_main.js"></script>
-        <script type="text/javascript" src="js/sh_cpp.js"></script>
-        <script type="text/javascript" src="js/sh_java.js"></script>
-        <script src="js/highcharts.js"></script>
-        <script src="js/main.js"></script>
+        <!--Images LightCase-->
+        <script src="js/lightcase.min.js"></script>
+        <!-- Portfolio filter -->
+        <script src="js/jquery.isotope.min.js"></script>
+        <!-- Wow Animation -->
+        <script src="js/wow.min.js"></script>  
+        <!-- Main Script -->
+        <script src="js/script.js"></script>
     </body>
 </html>

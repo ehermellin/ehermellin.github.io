@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="Emmanuel Hermellin - Thèse" />
+        <meta name="keywords" content="thèse, vcard, recherche" />
+        <meta name="author" content="Emmanuel Hermellin" />
+        <link rel="icon" href="favicon.gif">
+        <title>Emmanuel Hermellin Vcard - TurtleKit & SMA on GPU</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <!-- Animation -->
+        <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+        <!-- Light Case -->
+        <link rel="stylesheet" href="css/lightcase.min.css" type="text/css">
+        <!-- Template style -->
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <!-- Code style -->
+        <link rel="stylesheet" href="css/sh_vim.css" type="text/css">
+    </head>
+    <body>
+        <!-- preloader -->
+        <div id="preloader">
+            <div id="preloader-circle">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- /preloader -->
+
+        <div class="wrapper-page">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <div class="profile-picture-block">
+                        <div class="my-photo">
+                            <img src="images/avatar.jpeg" class="img-fluid" alt="image">
+                        </div>
+                    </div>
+                    <!-- Header Head -->
+                    <div class="site-title-block">
+                        <div class="site-title">Emmanuel Hermellin</div>
+                        <div class="type-wrap">
+                            <div class="typed-strings">
+                                <span>TurtleKit & SMA on GPU</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Header Head -->
+
+                    <!-- Navigation -->
+                    <div class="site-nav">
+                        <!-- Main menu -->
+                        <ul class="header-main-menu">
+                            <li><a href="index.html"><i class="fas fa-undo"></i>Retour</a></li>
+                        </ul> 
+                        <!-- /Main menu -->
+
+                        <!-- Copyrights -->
+                        <br/>
+                        <div class="copyrights">© 2019 All rights reserved.</div>
+                        <!-- / Copyrights -->
+                    </div>
+                    <!-- /Navigation -->
+                </div>
+            </header>
+            <!-- /Header -->
+
+            <!-- Mobile Header -->
+            <div class="responsive-header">
+                <div class="responsive-header-name">
+                    <img class="responsive-logo" src="images/avatar.jpeg" alt="" />
+                    Emmanuel Hermellin
+                </div> 
+                <span class="responsive-icon"><i class="lnr lnr-menu"></i></span>
+            </div>
+            <!-- /Mobile Header -->
+
+            <!-- Main Content Pages -->
+            <div class="content-pages">
+                <!-- Subpages -->
+                <div class="sub-home-pages">
+                    <div class="section-title">
+                        <div class="main-title">
+                            <br/><br/>
+                            <div class="title-main-page">
+                                <h4>TurtleKit & SMA on GPU</h4>
+                                <p>Simulations multi-agents sur architectures massivement parallèles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="container">
+                        <!-- Blog Posts -->
+                        <div class="blog-page">
+                            <div class="row">
+                                <!-- Post Content -->
+                                <div class="col-lg-9 col-md-9">
+                                    <div class="block-title">
+                                        <h3>Présentation de TurtleKit</h3>
+                                    </div>
+                                    <p>TurtleKit est une plate-forme de développement qui utilise un modèle multi-agent spatialisé où l'environnement est discrétisé sous la forme d'une grille de cellules. Implémentée en Java à l'aide de la librairie de développement multi-agent MaDKit, TurtleKit repose sur des modèles d'agents et d'environnements inspirés par le langage de programmation Logo. L'un des objectifs principaux de TurtleKit est de fournir aux utilisateurs finaux une API facilement accessible et extensible. En particulier, l'API de TurtleKit est orientée objet et son utilisation repose sur l'héritage de classes prédéfinies.</p>
+
+                                    <blockquote>
+                                        <h4>Références</h4>
+                                        [Michel et al., 2005] Michel, F., Beurier, G., and Ferber, J. (2005). The TurtleKit Simulation Platform : Application to Complex Systems. In Akono, A., Tonyé, E., Dipanda, A., and Yétongnon, K., editors, Workshops Sessions of the Proceedings of the 1st International Conference on Signal-Image Technology and Internet-Based Systems, SITIS 2005, November 27 - December 1, 2005, Yaoundé, Cameroon, pages 122–128. IEEE.
+                                        <br/>
+                                        [Gutknecht and Ferber, 2001] Gutknecht, O. and Ferber, J. (2001). MadKit : a generic multi-agent platform. In Agents,pages 78–79.
+                                    </blockquote>
+
+                                </div>
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="counter-block">
+                                        <p><i class="fa fa-user"></i> Fabien Michel <br/> <i class="fa fa-user"></i> Emmanuel Hermellin</p>
+                                        <p><i class="fa fa-globe"></i> <a href="http://www.turtlekit.org" target="_blank">http://www.turtlekit.org</a></p>
+                                    </div>
+                                </div>
+                                <!-- Content / End -->
+                            </div>
+
+                            <div class="row">
+                                <!-- Post Content -->
+                                <div class="col-lg-9 col-md-9">
+                                    <div class="block-title">
+                                        <h3>Simulations multi-agents et GPGPU</h3>
+                                    </div>
+                                    <p>De par la conception de TurtleKit et l'objectif poursuivi dans nos travaux de recherche, l'intégration du GPGPU dans TurtleKit a suivi une approche hybride qui consiste à intégrer, de manière itérative, des modules utilisant de la programmation GPU tout en conservant inchangée l'API de TurtleKit. Cependant, implémenter un programme orienté GPGPU nécessite de définir à la fois des <i>kernels</i> (noyaux de calcul GPU), qui s'exécuteront sur le GPU, mais aussi des procédures, destinées à être exécutées par le CPU pour organiser l'exécution des <i>kernels</i> et récupérer les données ainsi produites. La partie programmation GPU utilise CUDA alors que la partie CPU conserve Java comme langage principal pour TurtleKit. La liaison entre ces deux parties (Java et CUDA) est réalisée par la librairie JCUDA (<i>Java bindings for Cuda</i>) qui permet d'utiliser directement CUDA dans Java (modulo le changement de syntaxe lié au langage Java).</p>
+
+                                    <p>Le choix d'utiliser la technologie CUDA pour intégrer le GPGPU dans TurlteKit est motivé par son antériorité et sa qualité reconnue qui lui permet de posséder la plus grande des communautés d'utilisateurs (en comparaison à OpenCL). De plus, bien que la portabilité offerte par la technologie OpenCL soit un atout majeur de cette dernière, elle a cependant pour conséquence de limiter les optimisations possibles lorsqu'on rentre dans le détail de la programmation d'un <i>kernel</i>. Notamment en ce qui concerne la gestion des différentes parties de la mémoire, CUDA propose depuis toujours des primitives qui permettent de gérer finement les différents types de mémoire qui peuvent être utilisés (privée au niveau des <i>threads</i> (les fils d'exécutions) , locale à un bloc, globale, etc.). Enfin, CUDA n'abstrait aucun détail de l'architecture matérielle et permet d'avoir une idée précise des différentes possibilités d'optimisation offertes par le GPGPU.</p>
+
+                                    <p>Ainsi, durant ces trois dernières années, plusieurs simulations multi-agents ont été implémentées grâce à TurtleKit et à sa version GPGPU. Ce sont ces expérimentations qui nous ont permis de développer la méthodologie présentée dans mon manuscrit de thèse.</p>
+
+                                    <p>Les simulations multi-agents implémentées sont les suivantes : Multi-Level Emergence, Reynolds boids, Game Of Life, Segregation, Fire, DLA, Heatbugs, Prey Predator.</p>
+
+                                    <center>
+                                        <img src="images/recherche/mabs/mle.jpg" alt=""/>
+
+                                        <img src="images/recherche/mabs/boids.jpg" alt=""/>
+
+                                        <img src="images/recherche/mabs/gol.jpg" alt=""/>
+
+                                        <img src="images/recherche/mabs/seg.jpg" alt=""/>
+
+                                        <img src="images/recherche/mabs/fire.jpg" alt=""/>
+
+                                        <img src="images/recherche/mabs/dla.jpg" alt=""/>
+
+                                        <img src="images/recherche/mabs/pp.jpg" alt=""/>
+                                    </center>
+
+                                </div>
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="counter-block">
+                                        <p><i class="fa fa-user"></i> Fabien Michel <br/> <i class="fa fa-user"></i> Emmanuel Hermellin</p>
+                                        <p><i class="fa fa-globe"></i> <a href="https://github.com/ehermellin/Flocking_GPGPU_TurtleKit" target="_blank">Boids de Reynolds</a></p>
+                                        <p><i class="fa fa-globe"></i> <a href="https://github.com/ehermellin/MABS_GPGPU_TurtleKit" target="_blank">MABS et GPGPU</a></p>
+                                    </div>
+                                </div>
+                                <!-- Content / End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Main Content -->
+
+        <!--JS Files-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!--Owl Coursel-->
+        <script src="js/owl.carousel.min.js"></script>
+        <!--Images LightCase-->
+        <script src="js/lightcase.min.js"></script>
+        <!-- Portfolio filter -->
+        <script src="js/jquery.isotope.min.js"></script>
+        <!-- Wow Animation -->
+        <script src="js/wow.min.js"></script>
+        <!-- Main Script -->
+        <script src="js/script.js"></script>
+    </body>
+</html>
